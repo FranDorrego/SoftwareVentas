@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-10-2023 a las 22:30:11
+-- Tiempo de generación: 03-10-2023 a las 21:39:58
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -77,7 +77,21 @@ CREATE TABLE `producto` (
   `Precio_Actual` double NOT NULL,
   `Stock` int(11) NOT NULL,
   `Estado` tinyint(4) NOT NULL,
-  `Stock_Seguridad` int(11) DEFAULT NULL
+  `Stock_Seguridad` int(11) DEFAULT NULL,
+  `ID_Rubro` int(11) NOT NULL,
+  `ID_Cliente` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `rubro`
+--
+
+CREATE TABLE `rubro` (
+  `ID_Rubro` int(11) NOT NULL,
+  `Nombre` varchar(50) NOT NULL,
+  `Descripcion` varchar(300) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -121,7 +135,15 @@ ALTER TABLE `movimientos`
 -- Indices de la tabla `producto`
 --
 ALTER TABLE `producto`
-  ADD PRIMARY KEY (`ID_Producto`);
+  ADD PRIMARY KEY (`ID_Producto`),
+  ADD KEY `ID_Rubro` (`ID_Rubro`),
+  ADD KEY `ID_Cliente` (`ID_Cliente`);
+
+--
+-- Indices de la tabla `rubro`
+--
+ALTER TABLE `rubro`
+  ADD PRIMARY KEY (`ID_Rubro`);
 
 --
 -- Indices de la tabla `venta`
@@ -154,6 +176,12 @@ ALTER TABLE `producto`
   MODIFY `ID_Producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT de la tabla `rubro`
+--
+ALTER TABLE `rubro`
+  MODIFY `ID_Rubro` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `venta`
 --
 ALTER TABLE `venta`
@@ -175,6 +203,13 @@ ALTER TABLE `detalle_venta`
 --
 ALTER TABLE `movimientos`
   ADD CONSTRAINT `movimientos_ibfk_1` FOREIGN KEY (`ID_Cliente`) REFERENCES `cliente` (`ID_Cliente`);
+
+--
+-- Filtros para la tabla `producto`
+--
+ALTER TABLE `producto`
+  ADD CONSTRAINT `producto_ibfk_1` FOREIGN KEY (`ID_Rubro`) REFERENCES `rubro` (`ID_Rubro`),
+  ADD CONSTRAINT `producto_ibfk_2` FOREIGN KEY (`ID_Cliente`) REFERENCES `cliente` (`ID_Cliente`);
 
 --
 -- Filtros para la tabla `venta`
