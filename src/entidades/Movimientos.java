@@ -1,20 +1,22 @@
-package Entidades;
+package entidades;
 
 import java.time.LocalDate;
 
 public class Movimientos {
     private LocalDate fecha_movimiento;
-    private int ID_cliente;
+    private int id_cliente;
     private String Detalle;
+//_________________________________________________________________________
 
     public Movimientos() {
     }
 
-    public Movimientos(LocalDate fecha_movimiento, int ID_cliente, String Detalle) {
+    public Movimientos(LocalDate fecha_movimiento, int id_cliente, String Detalle) {
         this.fecha_movimiento = fecha_movimiento;
-        this.ID_cliente = ID_cliente;
+        this.id_cliente = id_cliente;
         this.Detalle = Detalle;
     }
+//_________________________________________________________________________
 
     public LocalDate getFecha_movimiento() {
         return fecha_movimiento;
@@ -24,12 +26,12 @@ public class Movimientos {
         this.fecha_movimiento = fecha_movimiento;
     }
 
-    public int getID_cliente() {
-        return ID_cliente;
+    public int getid_cliente() {
+        return id_cliente;
     }
 
-    public void setID_cliente(int ID_cliente) {
-        this.ID_cliente = ID_cliente;
+    public void setid_cliente(int id_cliente) {
+        this.id_cliente = id_cliente;
     }
 
     public String getDetalle() {
@@ -39,10 +41,11 @@ public class Movimientos {
     public void setDetalle(String Detalle) {
         this.Detalle = Detalle;
     }
+//_________________________________________________________________________
 
     @Override
     public String toString() {
-        return "Movimientos{" + "fecha_movimiento=" + fecha_movimiento + ", ID_cliente=" + ID_cliente + ", Detalle=" + Detalle + '}';
+        return "Movimientos{" + "fecha_movimiento=" + fecha_movimiento + ", id_cliente=" + id_cliente + ", Detalle=" + Detalle + '}';
     }
     
     

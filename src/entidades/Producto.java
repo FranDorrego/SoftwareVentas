@@ -1,36 +1,38 @@
-package Entidades;
+package entidades;
 public class Producto {
-    private int ID_producto;
+    private int id_producto;
     private String nombre;
     private String descripcion;
     private double precio_actual;
     private int stock;
     private boolean estado;
     private int Stock_seguridad;
-    private int ID_rubro;
-    private int ID_cliente;
+    private int id_rubro;
+    private int id_cliente;
+//_________________________________________________________________________
 
     public Producto() {
     }
 
-    public Producto(int ID_producto, String nombre, String descripcion, double precio_actual, int stock, boolean estado, int Stock_seguridad, int ID_rubro, int ID_cliente) {
-        this.ID_producto = ID_producto;
+    public Producto(int id_producto, String nombre, String descripcion, double precio_actual, int stock, boolean estado, int Stock_seguridad, int id_rubro, int id_cliente) {
+        this.id_producto = id_producto;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.precio_actual = precio_actual;
         this.stock = stock;
         this.estado = estado;
         this.Stock_seguridad = Stock_seguridad;
-        this.ID_rubro = ID_rubro;
-        this.ID_cliente = ID_cliente;
+        this.id_rubro = id_rubro;
+        this.id_cliente = id_cliente;
+    }
+//_________________________________________________________________________
+
+    public int getid_producto() {
+        return id_producto;
     }
 
-    public int getID_producto() {
-        return ID_producto;
-    }
-
-    public void setID_producto(int ID_producto) {
-        this.ID_producto = ID_producto;
+    public void setid_producto(int id_producto) {
+        this.id_producto = id_producto;
     }
 
     public String getNombre() {
@@ -81,25 +83,26 @@ public class Producto {
         this.Stock_seguridad = Stock_seguridad;
     }
 
-    public int getID_rubro() {
-        return ID_rubro;
+    public int getid_rubro() {
+        return id_rubro;
     }
 
-    public void setID_rubro(int ID_rubro) {
-        this.ID_rubro = ID_rubro;
+    public void setid_rubro(int id_rubro) {
+        this.id_rubro = id_rubro;
     }
 
-    public int getID_cliente() {
-        return ID_cliente;
+    public int getid_cliente() {
+        return id_cliente;
     }
 
-    public void setID_cliente(int ID_cliente) {
-        this.ID_cliente = ID_cliente;
+    public void setid_cliente(int id_cliente) {
+        this.id_cliente = id_cliente;
     }
+//_________________________________________________________________________
 
     @Override
     public String toString() {
-        return "Producto{" + "ID_producto=" + ID_producto + ", nombre=" + nombre + ", descripcion=" + descripcion + ", precio_actual=" + precio_actual + ", stock=" + stock + ", estado=" + estado + ", Stock_seguridad=" + Stock_seguridad + ", ID_rubro=" + ID_rubro + ", ID_cliente=" + ID_cliente + '}';
+        return "Producto{" + "id_producto=" + id_producto + ", nombre=" + nombre + ", descripcion=" + descripcion + ", precio_actual=" + precio_actual + ", stock=" + stock + ", estado=" + estado + ", Stock_seguridad=" + Stock_seguridad + ", id_rubro=" + id_rubro + ", id_cliente=" + id_cliente + '}';
     }
 
     
