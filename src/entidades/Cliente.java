@@ -16,7 +16,7 @@ public class Cliente {
     public Cliente() {
     }
 
-    //para crear clientes
+    //para crear empleado
     public Cliente(int ID_cliente, String nombre, String apellido, String Domicilio, String telefono, String numero_dentificacion, boolean es_empleado, String clave, boolean estado) {
         this.id_cliente = ID_cliente;
         this.nombre = nombre;
@@ -29,7 +29,7 @@ public class Cliente {
         this.estado = estado;
     }
 
-    //para crear empleados
+    //para crear cliente
     public Cliente(int ID_cliente, String nombre, String apellido, String Domicilio, String telefono, String numero_dentificacion) {
         this.id_cliente = ID_cliente;
         this.nombre = nombre;

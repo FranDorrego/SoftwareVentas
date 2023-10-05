@@ -12,6 +12,7 @@
         <Field name="Numero" type="Object" visibility="private"/>
         <Field name="Es_Empleado" type="Object" visibility="private"/>
         <Field name="Estado" type="Object" visibility="private"/>
+        <Field name="clave" type="Object" visibility="private"/>
       </Fields>
       <Constructors/>
       <Methods/>
@@ -158,7 +159,7 @@
       <Constructors/>
       <Methods/>
     </Class>
-    <Class name="Venta" package="" visibility="public" xPosition="1220.0" yPosition="608.0">
+    <Class name="Venta1" package="" visibility="public" xPosition="1220.0" yPosition="608.0">
       <Fields/>
       <Constructors/>
       <Methods/>
