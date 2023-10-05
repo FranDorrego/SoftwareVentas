@@ -7,7 +7,7 @@ public class Cliente {
     private String apellido;
     private String Domicilio;
     private String telefono;
-    private String numero_dentificacion;
+    private String numero_identificacion;
     private boolean es_empleado;
     private String clave;
     private boolean estado;
@@ -17,28 +17,36 @@ public class Cliente {
     }
 
     //para crear empleado
-    public Cliente(int ID_cliente, String nombre, String apellido, String Domicilio, String telefono, String numero_dentificacion, boolean es_empleado, String clave, boolean estado) {
+    public Cliente(int ID_cliente, String nombre, String apellido, String Domicilio, String telefono, String numero_identificacion, boolean es_empleado, String clave, boolean estado) {
         this.id_cliente = ID_cliente;
         this.nombre = nombre;
         this.apellido = apellido;
         this.Domicilio = Domicilio;
         this.telefono = telefono;
-        this.numero_dentificacion = numero_dentificacion;
+        this.numero_identificacion = numero_identificacion;
         this.es_empleado = es_empleado;
         this.clave = clave;
         this.estado = estado;
     }
 
     //para crear cliente
-    public Cliente(int ID_cliente, String nombre, String apellido, String Domicilio, String telefono, String numero_dentificacion) {
+    public Cliente(int ID_cliente, String nombre, String apellido, String Domicilio, String telefono, String numero_identificacion) {
         this.id_cliente = ID_cliente;
         this.nombre = nombre;
         this.apellido = apellido;
         this.Domicilio = Domicilio;
         this.telefono = telefono;
-        this.numero_dentificacion = numero_dentificacion;
+        this.numero_identificacion = numero_identificacion;
     }
 //_________________________________________________________________________
+
+    public String getClave() {
+        return clave;
+    }
+
+    public void setClave(String clave) {
+        this.clave = clave;
+    }
 
     public int getID_cliente() {
         return id_cliente;
@@ -80,12 +88,12 @@ public class Cliente {
         this.telefono = telefono;
     }
 
-    public String getNumero_dentificacion() {
-        return numero_dentificacion;
+    public String getNumero_identificacion() {
+        return numero_identificacion;
     }
 
-    public void setNumero_dentificacion(String numero_dentificacion) {
-        this.numero_dentificacion = numero_dentificacion;
+    public void setNumero_identificacion(String numero_identificacion) {
+        this.numero_identificacion = numero_identificacion;
     }
 
     public boolean isEs_empleado() {
@@ -107,8 +115,7 @@ public class Cliente {
 
     @Override
     public String toString() {
-        return "Cliente{" + "ID_cliente=" + id_cliente + ", nombre=" + nombre + ", apellido=" + apellido + ", Domicilio=" + Domicilio + ", telefono=" + telefono + ", numero_dentificacion=" + numero_dentificacion + ", es_empleado=" + es_empleado + ", estado=" + estado + '}';
+        return "Cliente{" + "ID_cliente=" + id_cliente + ", nombre=" + nombre + ", apellido=" + apellido + ", Domicilio=" + Domicilio + ", telefono=" + telefono + ", numero_identificacion=" + numero_identificacion + ", es_empleado=" + es_empleado + ", estado=" + estado + '}';
     }
 
-    //borrar después
 }

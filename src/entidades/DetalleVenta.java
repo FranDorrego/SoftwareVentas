@@ -66,6 +66,4 @@ public class DetalleVenta {
         return "DetalleVenta{" + "id_detalle_venta=" + id_detalle_venta + ", cantidad=" + cantidad + ", id_venta=" + id_venta + ", precio_venta=" + precio_venta + ", id_producto=" + id_producto + '}';
     }
     
-    //borrar después
-    
 }

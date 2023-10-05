@@ -103,13 +103,14 @@
       <Constructors/>
       <Methods/>
     </Class>
-    <Class name="ClienteData" package="" visibility="public" xPosition="867.0" yPosition="252.0">
+    <Class name="ClienteData" package="" visibility="public" xPosition="856.0" yPosition="236.0">
       <Fields>
         <Field name="AgregarCliente" type="Object" visibility="private"/>
         <Field name="EliminarCliente" type="Object" visibility="private"/>
         <Field name="ModificarCliente" type="Object" visibility="private"/>
         <Field name="ListarClientes" type="Object" visibility="private"/>
         <Field name="buscarNombre" type="Object" visibility="private"/>
+        <Field name="ArgregarEmpleado" type="Object" visibility="private"/>
       </Fields>
       <Constructors/>
       <Methods/>

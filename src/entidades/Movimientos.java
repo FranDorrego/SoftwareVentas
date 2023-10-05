@@ -48,6 +48,5 @@ public class Movimientos {
         return "Movimientos{" + "fecha_movimiento=" + fecha_movimiento + ", id_cliente=" + id_cliente + ", Detalle=" + Detalle + '}';
     }
     
-    //borrar después
     
 }

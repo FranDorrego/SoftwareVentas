@@ -45,6 +45,4 @@ public class Rubro {
         return "Rubro{" + "id_rubro=" + id_rubro + ", nombre_rubro=" + nombre_rubro + ", descripcion=" + descripcion + '}';
     }
     
-   //borrar después 
-    
 }
