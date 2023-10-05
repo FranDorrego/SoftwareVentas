@@ -1,34 +1,51 @@
-package Entidades;
+package entidades;
+
 public class Cliente {
-    private int ID_cliente ;
+
+    private int id_cliente;
     private String nombre;
     private String apellido;
     private String Domicilio;
     private String telefono;
     private String numero_dentificacion;
     private boolean es_empleado;
+    private String clave;
     private boolean estado;
 
+//_________________________________________________________________________
     public Cliente() {
     }
 
-    public Cliente(int ID_cliente, String nombre, String apellido, String Domicilio, String telefono, String numero_dentificacion, boolean es_empleado, boolean estado) {
-        this.ID_cliente = ID_cliente;
+    //para crear clientes
+    public Cliente(int ID_cliente, String nombre, String apellido, String Domicilio, String telefono, String numero_dentificacion, boolean es_empleado, String clave, boolean estado) {
+        this.id_cliente = ID_cliente;
         this.nombre = nombre;
         this.apellido = apellido;
         this.Domicilio = Domicilio;
         this.telefono = telefono;
         this.numero_dentificacion = numero_dentificacion;
         this.es_empleado = es_empleado;
+        this.clave = clave;
         this.estado = estado;
     }
 
+    //para crear empleados
+    public Cliente(int ID_cliente, String nombre, String apellido, String Domicilio, String telefono, String numero_dentificacion) {
+        this.id_cliente = ID_cliente;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.Domicilio = Domicilio;
+        this.telefono = telefono;
+        this.numero_dentificacion = numero_dentificacion;
+    }
+//_________________________________________________________________________
+
     public int getID_cliente() {
-        return ID_cliente;
+        return id_cliente;
     }
 
     public void setID_cliente(int ID_cliente) {
-        this.ID_cliente = ID_cliente;
+        this.id_cliente = ID_cliente;
     }
 
     public String getNombre() {
@@ -86,12 +103,11 @@ public class Cliente {
     public void setEstado(boolean estado) {
         this.estado = estado;
     }
+//_________________________________________________________________________
 
     @Override
     public String toString() {
-        return "Cliente{" + "ID_cliente=" + ID_cliente + ", nombre=" + nombre + ", apellido=" + apellido + ", Domicilio=" + Domicilio + ", telefono=" + telefono + ", numero_dentificacion=" + numero_dentificacion + ", es_empleado=" + es_empleado + ", estado=" + estado + '}';
+        return "Cliente{" + "ID_cliente=" + id_cliente + ", nombre=" + nombre + ", apellido=" + apellido + ", Domicilio=" + Domicilio + ", telefono=" + telefono + ", numero_dentificacion=" + numero_dentificacion + ", es_empleado=" + es_empleado + ", estado=" + estado + '}';
     }
-    
-    
-    
+
 }
