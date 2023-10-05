@@ -110,4 +110,5 @@ public class Cliente {
         return "Cliente{" + "ID_cliente=" + id_cliente + ", nombre=" + nombre + ", apellido=" + apellido + ", Domicilio=" + Domicilio + ", telefono=" + telefono + ", numero_dentificacion=" + numero_dentificacion + ", es_empleado=" + es_empleado + ", estado=" + estado + '}';
     }
 
+    //borrar después
 }

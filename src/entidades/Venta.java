@@ -59,4 +59,5 @@ public class Venta {
         return "Venta{" + "id_venta=" + id_venta + ", id_cliente=" + id_cliente + ", id_empleado=" + id_empleado + ", fecha_venta=" + fecha_venta + '}';
     }
 
+    //borrar después
 }
