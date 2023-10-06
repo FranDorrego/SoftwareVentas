@@ -53,7 +53,7 @@ public class ProductoData {
     
     public void modificarProducto( Producto producto ){
         
-        String sql = "UPDATE `producto` SET ,`Nombre`=?,`Descripcion`=?,`Precio_Actual`=?,`Stock`=?,`Estado`=?,`Stock_Seguridad`=?,`ID_Rubro`=?,`ID_Cliente`=? " +
+        String sql = "UPDATE `producto` SET `Nombre`=?,`Descripcion`=?,`Precio_Actual`=?,`Stock`=?,`Estado`=?,`Stock_Seguridad`=?,`ID_Rubro`=?,`ID_Cliente`=? " +
                     "WHERE `ID_Producto`=?";
         
         try {
@@ -67,12 +67,14 @@ public class ProductoData {
             ps.setInt(7, producto.getid_rubro());
             ps.setInt(8, producto.getid_cliente());
             
-            ps.setInt(9, producto.getid_rubro());
+            ps.setInt(9, producto.getid_producto());
            
             int Resultado = ps.executeUpdate();
             
             if (Resultado == 1) {
                 JOptionPane.showMessageDialog(null, "Producto Modificado Exitosamente");
+            }else{
+                JOptionPane.showMessageDialog(null, "No se Modifico el Producto, intenta nuevamente");
             }
             
             ps.close();
@@ -85,7 +87,7 @@ public class ProductoData {
     public void eliminarProducto( int id ){
         
         String sql = "UPDATE `producto` SET `Estado` = 0" +
-                    "WHERE `ID_Producto` = ? ";
+                    " WHERE `ID_Producto` = ? ";
         
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -140,7 +142,7 @@ public class ProductoData {
     
     public List<Producto> listarPorNombre( String Nombre ){
         
-        String sql = "SELECT * FROM `producto` WHERE Nombre LIKE ?% and Descripcion LIKE %?%";
+        String sql = "SELECT * FROM `producto` WHERE Nombre LIKE '" + Nombre + "%' or Descripcion LIKE '%" + Nombre + "%'";
         List<Producto> productoLista = new ArrayList();  
         
         try {
@@ -209,8 +211,65 @@ public class ProductoData {
         return productoLista;
     }
     
-   
-    // Continuara...
+    public List<Producto> listarPorRubroYNombre( Rubro rubro, String nombre ){
+        
+        String sql = "SELECT * FROM `producto` WHERE ID_Rubro = ? and Nombre LIKE '%" + nombre + "%' ";
+        List<Producto> productoLista = new ArrayList();  
+        Producto producto = new Producto();
+        
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, rubro.getid_rubro());
 
+            ResultSet Resultado = ps.executeQuery();
+            
+            while(Resultado.next()){
+                producto.setid_producto(Resultado.getInt("ID_Producto"));
+                producto.setNombre(Resultado.getString("Nombre"));
+                producto.setDescripcion(Resultado.getString("Descripcion"));
+                producto.setPrecio_actual(Resultado.getDouble("Precio_Actual"));
+                producto.setStock(Resultado.getInt("Stock"));
+                producto.setEstado(Resultado.getBoolean("Estado"));
+                producto.setStock_seguridad(Resultado.getInt("Stock_Seguridad"));
+                producto.setid_rubro(Resultado.getInt("ID_Rubro"));
+                producto.setid_cliente(Resultado.getInt("ID_Cliente"));
+                
+                productoLista.add(producto);
+            }
+          
+            ps.close();
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla producto" + ex.getMessage());
+        }
+         
+        return productoLista;
+    }
 
+    public List<Rubro> listarRubros(){
+        
+        String sql = "SELECT * FROM `rubro` ";
+        List<Rubro> rubroLista = new ArrayList();  
+        Rubro rubro = new Rubro();
+        
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet Resultado = ps.executeQuery();
+            
+            while(Resultado.next()){
+                rubro.setNombre_rubro(Resultado.getString("Nombre"));
+                rubro.setDescripcion(Resultado.getString("Descripcion"));
+                rubro.setid_rubro(Resultado.getInt("ID_Rubro"));
+               
+                rubroLista.add(rubro);
+            }
+            
+            ps.close();
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla rubro" + ex.getMessage());
+        }
+         
+        return rubroLista;
+    }
 }

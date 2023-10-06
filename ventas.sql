@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-10-2023 a las 21:57:01
+-- Tiempo de generación: 06-10-2023 a las 23:09:00
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -50,7 +50,6 @@ INSERT INTO `cliente` (`ID_Cliente`, `Apellido`, `Nombre`, `Domicilio`, `Telefon
 (4, 'Funes', 'Walter', 'Unquillo', '98746532', '95126348', 0, 0, '0'),
 (5, 'Giles', 'Alfredo', 'Buenos aires', '96325874', '832546897', 1, 1, '654321'),
 (6, 'Ventas', 'Juan', 'Villa allende', '123456789', '8428602258', 1, 0, '123456'),
-(7, 'Giles', 'Alfredo', 'Buenos aires', '96325874', '832546897', 1, 0, '654321'),
 (8, 'Briant', 'Erica', 'Mendoza', '74185236', '878945632', 1, 1, '415263'),
 (9, 'Funes', 'Walter', 'Unquillo', '98746532', '895126348', 1, 1, '362514');
 
@@ -98,6 +97,17 @@ CREATE TABLE `producto` (
   `ID_Cliente` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `producto`
+--
+
+INSERT INTO `producto` (`ID_Producto`, `Nombre`, `Descripcion`, `Precio_Actual`, `Stock`, `Estado`, `Stock_Seguridad`, `ID_Rubro`, `ID_Cliente`) VALUES
+(9, 'Samsung TV 55 pulgadas', 'Televisor 4K con pantalla curva', 500000, 50, 1, 12, 10, 3),
+(10, 'Laptop Dell XPS', 'Portátil de 15 pulgadas con Intel Core i7', 800000, 30, 1, 8, 10, 2),
+(11, 'Audífonos Bose QC35', 'Audífonos con cancelación de ruido', 200000, 100, 1, 15, 10, 4),
+(12, 'Cámara Canon EOS R', 'Cámara mirrorless de alta resolución', 1200000, 20, 1, 5, 10, 1),
+(13, 'Lavarropas LG 8kg', 'Lavarropas automático con capacidad de 8kg', 300000, 25, 1, 10, 10, 3);
+
 -- --------------------------------------------------------
 
 --
@@ -109,6 +119,22 @@ CREATE TABLE `rubro` (
   `Nombre` varchar(50) NOT NULL,
   `Descripcion` varchar(300) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `rubro`
+--
+
+INSERT INTO `rubro` (`ID_Rubro`, `Nombre`, `Descripcion`) VALUES
+(1, 'Televisores', 'Televisores de diferentes marcas y tamaños'),
+(2, 'Computadoras', 'Portátiles y de escritorio con diferentes especificaciones'),
+(3, 'Audio', 'Audífonos, bocinas y sistemas de sonido'),
+(4, 'Cámaras', 'Cámaras digitales, DSLR y accesorios'),
+(5, 'Componentes Electrónicos', 'Tarjetas madre, procesadores, memoria RAM y más'),
+(6, 'Lavarropas', 'Lavarropas automáticos y semi-automáticos de diversas marcas'),
+(7, 'Tablets', 'Dispositivos portátiles para trabajo y entretenimiento'),
+(8, 'Smartwatches', 'Relojes inteligentes con diversas funcionalidades'),
+(9, 'Consolas de Videojuegos', 'Consolas de diversas generaciones y marcas'),
+(10, 'Accesorios de Computadora', 'Teclados, ratones, monitores y otros accesorios');
 
 -- --------------------------------------------------------
 
@@ -131,7 +157,8 @@ CREATE TABLE `venta` (
 -- Indices de la tabla `cliente`
 --
 ALTER TABLE `cliente`
-  ADD PRIMARY KEY (`ID_Cliente`);
+  ADD PRIMARY KEY (`ID_Cliente`),
+  ADD UNIQUE KEY `Numero_Identificacion` (`Numero_Identificacion`);
 
 --
 -- Indices de la tabla `detalle_venta`
@@ -189,13 +216,13 @@ ALTER TABLE `detalle_venta`
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `ID_Producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ID_Producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `rubro`
 --
 ALTER TABLE `rubro`
-  MODIFY `ID_Rubro` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_Rubro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `venta`
