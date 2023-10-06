@@ -48,8 +48,8 @@ public class ClienteData {
     
     public void agregarEmpleado( Cliente cliente ){
         
-        String sql = "INSERT INTO `cliente`(`Apellido`, `Nombre`, `Domicilio`, `Telefono`, `Numero_Identificacion`, `Es_Empleado`, 'Estado', 'Clave')"
-                    + "VALUES (?,?,?,?,?, 1, 1 , ?)";
+        String sql = "INSERT INTO `cliente`(`Apellido`, `Nombre`, `Domicilio`, `Telefono`, `Numero_Identificacion`, `Es_Empleado`, `Estado`, `Clave`)"
+                    + "VALUES (?,?,?,?,?, ?, ? , ?)";
         
         try {
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -58,8 +58,10 @@ public class ClienteData {
             ps.setString(3, cliente.getDomicilio());
             ps.setString(4, cliente.getTelefono());
             ps.setString(5, cliente.getNumero_identificacion());
-            ps.setString(6, cliente.getClave());
-
+            ps.setBoolean(6, cliente.isEs_empleado());
+            ps.setBoolean(7, cliente.isEstado());
+            ps.setString(8, cliente.getClave());
+            
             ps.executeUpdate();
 
             ResultSet Resultado = ps.getGeneratedKeys();
@@ -76,7 +78,7 @@ public class ClienteData {
     
     public void eliminarEmpleadoPorID( int id ){
         
-        String sql = "UPDATE `cliente` SET `Estado`= 0 WHERE ID_Cliente = ?";
+        String sql = "UPDATE `cliente` SET `Estado`= 0 WHERE ID_Cliente = ? and Es_Empleado = 1";
 
         try {
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -86,6 +88,8 @@ public class ClienteData {
 
             if (Resultado == 1) {
                 JOptionPane.showMessageDialog(null, "Eliminado exitoso");
+            }else{
+                JOptionPane.showMessageDialog(null, "No se elimino correctamente");
             }
             ps.close();
             
@@ -112,8 +116,10 @@ public class ClienteData {
             
             int Resultado = ps.executeUpdate();
 
-            if (Resultado == 1) {
-                JOptionPane.showMessageDialog(null, "Modificado exitoso");
+            if (Resultado != 0) {
+                JOptionPane.showMessageDialog(null, "Modificado exitoso, cantidad de registros modificados " + Resultado);
+            }else{
+                JOptionPane.showMessageDialog(null, "No fue modificado, ocurrio un error");
             }
             ps.close();
             
@@ -157,19 +163,16 @@ public class ClienteData {
     }
     
     public List<Cliente> buscarPorNombre( String nombre ){
-        
-        String sql = "SELECT* FROM cliente WHERE Apellido LIKE ?% and Nombre LIKE %?%";
+      
+        String sql = "SELECT * FROM cliente WHERE Apellido LIKE '"+nombre+"%' or Nombre LIKE '%"+nombre+"%'";
         List<Cliente> clienteLista = new ArrayList();  
+        Cliente cliente = new Cliente();
         
         try {
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(1, nombre);
-            ps.setString(2, nombre);
-            
             ResultSet Resultado = ps.executeQuery();
             
             while(Resultado.next()){
-                Cliente cliente = new Cliente();
                 cliente.setID_cliente(Resultado.getInt("ID_Cliente"));
                 cliente.setApellido(Resultado.getString("Apellido"));
                 cliente.setNombre(Resultado.getString("Nombre"));
@@ -182,13 +185,13 @@ public class ClienteData {
                 
                 clienteLista.add(cliente);
             }
-            
+
             ps.close();
             
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla cliente" + ex.getMessage());
         }
-         
+
         return clienteLista;
     }
     

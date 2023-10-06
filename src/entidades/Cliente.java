@@ -17,8 +17,7 @@ public class Cliente {
     }
 
     //para crear empleado
-    public Cliente(int ID_cliente, String nombre, String apellido, String Domicilio, String telefono, String numero_identificacion, boolean es_empleado, String clave, boolean estado) {
-        this.id_cliente = ID_cliente;
+    public Cliente(String nombre, String apellido, String Domicilio, String telefono, String numero_identificacion, boolean es_empleado, String clave, boolean estado) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.Domicilio = Domicilio;
@@ -30,8 +29,7 @@ public class Cliente {
     }
 
     //para crear cliente
-    public Cliente(int ID_cliente, String nombre, String apellido, String Domicilio, String telefono, String numero_identificacion) {
-        this.id_cliente = ID_cliente;
+    public Cliente(String nombre, String apellido, String Domicilio, String telefono, String numero_identificacion) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.Domicilio = Domicilio;

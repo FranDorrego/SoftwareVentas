@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-10-2023 a las 21:39:58
+-- Tiempo de generación: 06-10-2023 a las 21:57:01
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -35,8 +35,24 @@ CREATE TABLE `cliente` (
   `Telefono` varchar(50) NOT NULL,
   `Numero_Identificacion` varchar(50) NOT NULL,
   `Es_Empleado` tinyint(1) NOT NULL,
-  `Estado` tinyint(1) NOT NULL
+  `Estado` tinyint(1) NOT NULL DEFAULT 0,
+  `Clave` varchar(50) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `cliente`
+--
+
+INSERT INTO `cliente` (`ID_Cliente`, `Apellido`, `Nombre`, `Domicilio`, `Telefono`, `Numero_Identificacion`, `Es_Empleado`, `Estado`, `Clave`) VALUES
+(1, 'Ventas', 'Juan', 'Villa allende', '123456789', '428602258', 0, 0, '0'),
+(2, 'Giles', 'NOMBRE CAMBIO', 'Buenos aires', '96325874', '32546897', 0, 0, NULL),
+(3, 'Briant', 'Erica', 'Mendoza', '74185236', '78945632', 0, 0, '0'),
+(4, 'Funes', 'Walter', 'Unquillo', '98746532', '95126348', 0, 0, '0'),
+(5, 'Giles', 'Alfredo', 'Buenos aires', '96325874', '832546897', 1, 1, '654321'),
+(6, 'Ventas', 'Juan', 'Villa allende', '123456789', '8428602258', 1, 0, '123456'),
+(7, 'Giles', 'Alfredo', 'Buenos aires', '96325874', '832546897', 1, 0, '654321'),
+(8, 'Briant', 'Erica', 'Mendoza', '74185236', '878945632', 1, 1, '415263'),
+(9, 'Funes', 'Walter', 'Unquillo', '98746532', '895126348', 1, 1, '362514');
 
 -- --------------------------------------------------------
 
@@ -161,7 +177,7 @@ ALTER TABLE `venta`
 -- AUTO_INCREMENT de la tabla `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `ID_Cliente` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_Cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `detalle_venta`
