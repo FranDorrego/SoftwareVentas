@@ -14,6 +14,9 @@ import java.util.List;
 public class SoftwareVentas {
 
     public static void main(String[] args) {
+        
+        // Cliente DATA -------------------------------------------------
+        
       /*
         // Testeamos la conexion
         Connection con = Conexion.getConexion();
@@ -62,9 +65,12 @@ public class SoftwareVentas {
         
         System.out.println("Buscamos por Numero de Identificacion");
         System.out.println(clienteData.buscarPorNumeroIdentificacion(cliente1.getNumero_identificacion()));
-        
         */
+        
       
+        // PRODUCTO DATA -------------------------------------------------
+        
+        
         ProductoData productoData = new ProductoData();
         
         System.out.println("Buscamos los rubros");
@@ -85,8 +91,9 @@ public class SoftwareVentas {
         productoData.agregarProducto(producto5);
         System.out.println("Cargamos los productos en la base de datos");
         
-        producto1.setNombre("Producto Cambiado");
-        productoData.modificarProducto(producto1); // Esto no funciona
+        producto1.setNombre("--------------");
+        System.out.println(producto1);
+        productoData.modificarProducto(producto1); 
         System.out.println("Modificamos un producto");
         
         productoData.eliminarProducto(producto5.getid_producto());
@@ -102,7 +109,11 @@ public class SoftwareVentas {
         System.out.println(productoData.listarPorRubro(rubrosLista.get(0)));
         
         System.out.println("Listamos por Nombre y Rubro");
-        System.out.println(productoData.listarPorRubroYNombre(rubrosLista.get(0), "Producto") );
+        System.out.println(productoData.listarPorRubroYNombre(rubrosLista.get(0), "-") );
+        
+        
+        
+        
         
     }
     

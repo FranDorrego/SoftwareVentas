@@ -41,7 +41,7 @@ public class ProductoData {
             ResultSet Resultado = ps.getGeneratedKeys();
             
             if (Resultado.next()) {
-                producto.setid_cliente(Resultado.getInt(1));
+                producto.setid_producto(Resultado.getInt(1));
                 JOptionPane.showMessageDialog(null, "Producto Cargado Exitosamente");
             }
             ps.close();
@@ -53,9 +53,9 @@ public class ProductoData {
     
     public void modificarProducto( Producto producto ){
         
-        String sql = "UPDATE `producto` SET `Nombre`=?,`Descripcion`=?,`Precio_Actual`=?,`Stock`=?,`Estado`=?,`Stock_Seguridad`=?,`ID_Rubro`=?,`ID_Cliente`=? " +
-                    "WHERE `ID_Producto`=?";
-        
+        String sql = "UPDATE `producto` SET `Nombre`= ?,`Descripcion`= ?,`Precio_Actual`= ?,`Stock`= ?,`Estado`= ?,`Stock_Seguridad`= ?,`ID_Rubro`= ?,`ID_Cliente`= ? " +
+                    " WHERE `ID_Producto`= ? ";
+
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, producto.getNombre());
@@ -215,7 +215,6 @@ public class ProductoData {
         
         String sql = "SELECT * FROM `producto` WHERE ID_Rubro = ? and Nombre LIKE '%" + nombre + "%' ";
         List<Producto> productoLista = new ArrayList();  
-        Producto producto = new Producto();
         
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -224,6 +223,7 @@ public class ProductoData {
             ResultSet Resultado = ps.executeQuery();
             
             while(Resultado.next()){
+                Producto producto = new Producto();
                 producto.setid_producto(Resultado.getInt("ID_Producto"));
                 producto.setNombre(Resultado.getString("Nombre"));
                 producto.setDescripcion(Resultado.getString("Descripcion"));
@@ -250,13 +250,13 @@ public class ProductoData {
         
         String sql = "SELECT * FROM `rubro` ";
         List<Rubro> rubroLista = new ArrayList();  
-        Rubro rubro = new Rubro();
         
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet Resultado = ps.executeQuery();
             
             while(Resultado.next()){
+                Rubro rubro = new Rubro();
                 rubro.setNombre_rubro(Resultado.getString("Nombre"));
                 rubro.setDescripcion(Resultado.getString("Descripcion"));
                 rubro.setid_rubro(Resultado.getInt("ID_Rubro"));
