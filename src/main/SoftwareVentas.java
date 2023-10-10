@@ -4,9 +4,12 @@ package main;
 import clasesData.ClienteData;
 import clasesData.Conexion;
 import clasesData.ProductoData;
+import clasesData.VentaData;
 import entidades.Cliente;
+import entidades.DetalleVenta;
 import entidades.Rubro;
 import entidades.Producto;
+import entidades.Venta;
 import java.sql.Connection;
 import java.util.List;
 
@@ -70,7 +73,7 @@ public class SoftwareVentas {
       
         // PRODUCTO DATA -------------------------------------------------
         
-        
+        /*
         ProductoData productoData = new ProductoData();
         
         System.out.println("Buscamos los rubros");
@@ -112,7 +115,26 @@ public class SoftwareVentas {
         System.out.println(productoData.listarPorRubroYNombre(rubrosLista.get(0), "-") );
         
         
+        */
         
+        
+        Venta venta = new Venta(1, 5);
+        
+        DetalleVenta detalleVenta = new DetalleVenta(1, 80000, 15);
+        DetalleVenta detalleVenta1 = new DetalleVenta(1, 80000, 15);
+        DetalleVenta detalleVenta2 = new DetalleVenta(1, 80000, 15);
+        DetalleVenta detalleVenta3 = new DetalleVenta(1, 80000, 15);
+        
+        
+        venta.anadirDetalleVenta(detalleVenta);
+        venta.anadirDetalleVenta(detalleVenta1);
+        venta.anadirDetalleVenta(detalleVenta2);
+        venta.anadirDetalleVenta(detalleVenta3);
+        
+        VentaData ventaData = new VentaData();
+        ventaData.crearVenta(venta);
+        
+        System.out.println(venta.toString());
         
         
     }

@@ -1,6 +1,10 @@
 package entidades;
 
+import java.time.Instant;
 import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.ArrayList;
+import java.util.Date;
 
 public class Venta {
 
@@ -8,25 +12,41 @@ public class Venta {
     private int id_cliente;
     private int id_empleado;
     private LocalDate fecha_venta;
+    private ArrayList<DetalleVenta> detalleVenta = new ArrayList<>(); 
 //_________________________________________________________________________
 
     public Venta() {
     }
 
-    public Venta(int id_venta, int id_cliente, int id_empleado, LocalDate fecha_venta) {
-        this.id_venta = id_venta;
+    public Venta(int id_cliente, int id_empleado) {
         this.id_cliente = id_cliente;
         this.id_empleado = id_empleado;
-        this.fecha_venta = fecha_venta;
+        fecha_venta = LocalDate.now();
     }
 //_________________________________________________________________________
+    
+    public ArrayList<DetalleVenta> getDetalleVenta() {
+        return detalleVenta;
+    }
 
+    public void setDetalleVenta(ArrayList<DetalleVenta> detalleVenta) {
+        this.detalleVenta = detalleVenta;
+    }
+    
+    public void anadirDetalleVenta(DetalleVenta detalleVenta) {
+        this.detalleVenta.add(detalleVenta);
+    }
+    
     public int getid_venta() {
         return id_venta;
     }
 
     public void setid_venta(int id_venta) {
         this.id_venta = id_venta;
+        
+        for (DetalleVenta detalle : detalleVenta) {
+            detalle.setid_venta(id_venta);
+        }
     }
 
     public int getId_cliente() {
@@ -47,6 +67,14 @@ public class Venta {
 
     public LocalDate getFecha_venta() {
         return fecha_venta;
+    }
+
+    public Date getFecha_venta_date() {
+        // Obtén un Instant a partir del LocalDate
+        Instant instant = fecha_venta.atStartOfDay(ZoneId.systemDefault()).toInstant();
+
+        // Convierte el Instant en un Date
+        return Date.from(instant);
     }
 
     public void setFecha_venta(LocalDate fecha_venta) {

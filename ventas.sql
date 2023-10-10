@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-10-2023 a las 23:09:00
+-- Tiempo de generación: 10-10-2023 a las 22:46:40
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -67,6 +67,16 @@ CREATE TABLE `detalle_venta` (
   `ID_Producto` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `detalle_venta`
+--
+
+INSERT INTO `detalle_venta` (`ID_Detalle_Venta`, `Cantidad`, `ID_Venta`, `Precio_Venta`, `ID_Producto`) VALUES
+(1, 1, 2, 80000, 15),
+(2, 1, 2, 80000, 15),
+(3, 1, 2, 80000, 15),
+(4, 1, 2, 80000, 15);
+
 -- --------------------------------------------------------
 
 --
@@ -102,11 +112,21 @@ CREATE TABLE `producto` (
 --
 
 INSERT INTO `producto` (`ID_Producto`, `Nombre`, `Descripcion`, `Precio_Actual`, `Stock`, `Estado`, `Stock_Seguridad`, `ID_Rubro`, `ID_Cliente`) VALUES
-(9, 'Samsung TV 55 pulgadas', 'Televisor 4K con pantalla curva', 500000, 50, 1, 12, 10, 3),
-(10, 'Laptop Dell XPS', 'Portátil de 15 pulgadas con Intel Core i7', 800000, 30, 1, 8, 10, 2),
-(11, 'Audífonos Bose QC35', 'Audífonos con cancelación de ruido', 200000, 100, 1, 15, 10, 4),
-(12, 'Cámara Canon EOS R', 'Cámara mirrorless de alta resolución', 1200000, 20, 1, 5, 10, 1),
-(13, 'Lavarropas LG 8kg', 'Lavarropas automático con capacidad de 8kg', 300000, 25, 1, 10, 10, 3);
+(14, '--------------', 'Televisor 4K con pantalla curva', 500000, 50, 1, 12, 10, 3),
+(15, 'Laptop Dell XPS', 'Portátil de 15 pulgadas con Intel Core i7', 800000, 30, 1, 8, 10, 2),
+(16, 'Audífonos Bose QC35', 'Audífonos con cancelación de ruido', 200000, 100, 1, 15, 10, 4),
+(17, 'Cámara Canon EOS R', 'Cámara mirrorless de alta resolución', 1200000, 20, 1, 5, 10, 1),
+(18, 'Lavarropas LG 8kg', 'Lavarropas automático con capacidad de 8kg', 300000, 25, 0, 10, 10, 3),
+(19, '--------------', 'Televisor 4K con pantalla curva', 500000, 50, 1, 12, 1, 3),
+(20, 'Laptop Dell XPS', 'Portátil de 15 pulgadas con Intel Core i7', 800000, 30, 1, 8, 2, 2),
+(21, 'Audífonos Bose QC35', 'Audífonos con cancelación de ruido', 200000, 100, 1, 15, 3, 4),
+(22, 'Cámara Canon EOS R', 'Cámara mirrorless de alta resolución', 1200000, 20, 1, 5, 4, 1),
+(23, 'Lavarropas LG 8kg', 'Lavarropas automático con capacidad de 8kg', 300000, 25, 0, 10, 6, 3),
+(24, '--------------', 'Televisor 4K con pantalla curva', 500000, 50, 1, 12, 1, 3),
+(25, 'Laptop Dell XPS', 'Portátil de 15 pulgadas con Intel Core i7', 800000, 30, 1, 8, 2, 2),
+(26, 'Audífonos Bose QC35', 'Audífonos con cancelación de ruido', 200000, 100, 1, 15, 3, 4),
+(27, 'Cámara Canon EOS R', 'Cámara mirrorless de alta resolución', 1200000, 20, 1, 5, 4, 1),
+(28, 'Lavarropas LG 8kg', 'Lavarropas automático con capacidad de 8kg', 300000, 25, 0, 10, 6, 3);
 
 -- --------------------------------------------------------
 
@@ -145,9 +165,18 @@ INSERT INTO `rubro` (`ID_Rubro`, `Nombre`, `Descripcion`) VALUES
 CREATE TABLE `venta` (
   `ID_Venta` int(11) NOT NULL,
   `ID_Cliente` int(11) NOT NULL,
-  `Fecha` timestamp NOT NULL DEFAULT current_timestamp(),
-  `ID_Empleado` int(11) NOT NULL
+  `Fecha` date NOT NULL,
+  `ID_Empleado` int(11) NOT NULL,
+  `Fecha_Server` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `venta`
+--
+
+INSERT INTO `venta` (`ID_Venta`, `ID_Cliente`, `Fecha`, `ID_Empleado`, `Fecha_Server`) VALUES
+(1, 1, '2023-10-10', 5, '2023-10-10 19:42:47'),
+(2, 1, '2023-10-10', 5, '2023-10-10 20:45:16');
 
 --
 -- Índices para tablas volcadas
@@ -210,13 +239,13 @@ ALTER TABLE `cliente`
 -- AUTO_INCREMENT de la tabla `detalle_venta`
 --
 ALTER TABLE `detalle_venta`
-  MODIFY `ID_Detalle_Venta` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_Detalle_Venta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `ID_Producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `ID_Producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT de la tabla `rubro`
@@ -228,7 +257,7 @@ ALTER TABLE `rubro`
 -- AUTO_INCREMENT de la tabla `venta`
 --
 ALTER TABLE `venta`
-  MODIFY `ID_Venta` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_Venta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Restricciones para tablas volcadas
