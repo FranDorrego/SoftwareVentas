@@ -11,6 +11,8 @@ import entidades.Rubro;
 import entidades.Producto;
 import entidades.Venta;
 import java.sql.Connection;
+import java.time.LocalDate;
+import java.time.Month;
 import java.util.List;
 
 
@@ -117,25 +119,45 @@ public class SoftwareVentas {
         
         */
         
+        // ------------------------------- VENTA DATA -------------------
+        VentaData ventaData = new VentaData();
         
         Venta venta = new Venta(1, 5);
         
+        // CREAMOS LOS DETALLES
         DetalleVenta detalleVenta = new DetalleVenta(1, 80000, 15);
         DetalleVenta detalleVenta1 = new DetalleVenta(1, 80000, 15);
         DetalleVenta detalleVenta2 = new DetalleVenta(1, 80000, 15);
         DetalleVenta detalleVenta3 = new DetalleVenta(1, 80000, 15);
-        
         
         venta.anadirDetalleVenta(detalleVenta);
         venta.anadirDetalleVenta(detalleVenta1);
         venta.anadirDetalleVenta(detalleVenta2);
         venta.anadirDetalleVenta(detalleVenta3);
         
-        VentaData ventaData = new VentaData();
+        // SUMAMOS DETALLES A LA BASE
         ventaData.crearVenta(venta);
-        
         System.out.println(venta.toString());
         
+        // LISTAMOS TODO
+        System.out.println(ventaData.listarTodos());
+        
+        
+        // FILTRAMOS POR FECHA LAS VENTAS
+        System.out.println(ventaData.listarVentasPorFecha(LocalDate.now(), LocalDate.of(2023, 10, 13)));
+        
+       
+        // FILTRAMOS POR ID CLIENTE
+        System.out.println(ventaData.listarVentasPorCliente(1));
+         
+       
+        // LISTAMOS PORDUCTOS POR FECHA
+        System.out.println(ventaData.listarProductosPorFecha(LocalDate.now(), LocalDate.of(2023, 10, 13)));
+        
+        
+        // LISTAMOS CLEINTES POR PRODUCTO
+        System.out.println(ventaData.listarClientePorProducto(15));
+
         
     }
     
