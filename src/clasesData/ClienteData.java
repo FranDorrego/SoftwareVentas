@@ -260,5 +260,24 @@ public class ClienteData {
          
         return cliente;
     }
+    public boolean login(int ID_cliente, String clave){
+        String sql = "SELECT * FROM `cliente` WHERE ID_Cliente = ? AND Clave = '"+clave+"' AND Estado = 1";
+        try{
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, ID_cliente);
+            ResultSet Resultado = ps.executeQuery();
+            ps.close();
+            return Resultado.next();
+        
+            
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla cliente" + ex.getMessage());
+        }
     
-}
+        return false;
+        }
+    }
+
+
+
