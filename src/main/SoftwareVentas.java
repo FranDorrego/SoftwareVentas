@@ -117,7 +117,7 @@ public class SoftwareVentas {
         System.out.println(productoData.listarPorRubroYNombre(rubrosLista.get(0), "-") );
         
         
-        */
+        
         
         // ------------------------------- VENTA DATA -------------------
         VentaData ventaData = new VentaData();
@@ -158,7 +158,8 @@ public class SoftwareVentas {
         // LISTAMOS CLEINTES POR PRODUCTO
         System.out.println(ventaData.listarClientePorProducto(15));
 
-        
+        */  
+        //FINDE LAS PRUEBAS..
     }
     
 }
