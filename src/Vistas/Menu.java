@@ -53,6 +53,29 @@ public class Menu extends javax.swing.JFrame {
         JP_Home = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
         JP_panelClientes = new javax.swing.JPanel();
+        JP_agregarPanel = new javax.swing.JPanel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
+        jTextField4 = new javax.swing.JTextField();
+        jTextField5 = new javax.swing.JTextField();
+        jTextField6 = new javax.swing.JTextField();
+        JP_botonEliminar = new javax.swing.JPanel();
+        jLabel23 = new javax.swing.JLabel();
+        JP_botonMenu = new javax.swing.JPanel();
+        JP_clienteInicio = new javax.swing.JPanel();
+        jLabel17 = new javax.swing.JLabel();
+        JP_agregarCliente = new javax.swing.JPanel();
+        JL_botonAgregar = new javax.swing.JLabel();
+        JP_clientesPanel = new javax.swing.JPanel();
+        jLabel18 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        JT_tablaGeneral = new javax.swing.JTable();
         JP_panelEmpleados = new javax.swing.JPanel();
         JP_panelVentas = new javax.swing.JPanel();
         JP_panelProductos = new javax.swing.JPanel();
@@ -291,9 +314,8 @@ public class Menu extends javax.swing.JFrame {
         );
         JP_salirLayout.setVerticalGroup(
             JP_salirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JP_salirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel14))
+            .addComponent(jLabel14)
+            .addComponent(jLabel9)
         );
 
         JP_Menu.add(JP_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 470, 266, -1));
@@ -317,7 +339,167 @@ public class Menu extends javax.swing.JFrame {
         JP_panelInicial.add(JP_Home, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 790, 530));
 
         JP_panelClientes.setBackground(new java.awt.Color(153, 204, 255));
+        JP_panelClientes.setPreferredSize(new java.awt.Dimension(790, 530));
         JP_panelClientes.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        JP_agregarPanel.setBackground(new java.awt.Color(51, 255, 153));
+        JP_agregarPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel16.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel16.setText("NOMBRE:");
+        JP_agregarPanel.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 67, -1, 30));
+
+        jLabel19.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel19.setText("APELLIDO:");
+        JP_agregarPanel.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, -1, 30));
+
+        jLabel20.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel20.setText("DOMICILIO:");
+        JP_agregarPanel.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 147, -1, 30));
+
+        jLabel21.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel21.setText("TELEFONO:");
+        JP_agregarPanel.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 187, -1, 30));
+
+        jLabel22.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel22.setText("ESTADO:");
+        JP_agregarPanel.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 227, -1, 30));
+
+        jTextField2.setBackground(new java.awt.Color(255, 255, 255));
+        jTextField2.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jTextField2.setForeground(new java.awt.Color(0, 0, 0));
+        JP_agregarPanel.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, 210, -1));
+
+        jTextField3.setBackground(new java.awt.Color(255, 255, 255));
+        jTextField3.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jTextField3.setForeground(new java.awt.Color(0, 0, 0));
+        JP_agregarPanel.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 210, -1));
+
+        jTextField4.setBackground(new java.awt.Color(255, 255, 255));
+        jTextField4.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jTextField4.setForeground(new java.awt.Color(0, 0, 0));
+        JP_agregarPanel.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, 210, -1));
+
+        jTextField5.setBackground(new java.awt.Color(255, 255, 255));
+        jTextField5.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jTextField5.setForeground(new java.awt.Color(0, 0, 0));
+        JP_agregarPanel.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 210, -1));
+
+        jTextField6.setBackground(new java.awt.Color(255, 255, 255));
+        jTextField6.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jTextField6.setForeground(new java.awt.Color(0, 0, 0));
+        JP_agregarPanel.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 210, -1));
+
+        JP_botonEliminar.setBackground(new java.awt.Color(204, 204, 204));
+
+        jLabel23.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel23.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jLabel23.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/male-user-remove_25351.png"))); // NOI18N
+        jLabel23.setText("ELIMINAR");
+
+        javax.swing.GroupLayout JP_botonEliminarLayout = new javax.swing.GroupLayout(JP_botonEliminar);
+        JP_botonEliminar.setLayout(JP_botonEliminarLayout);
+        JP_botonEliminarLayout.setHorizontalGroup(
+            JP_botonEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+        );
+        JP_botonEliminarLayout.setVerticalGroup(
+            JP_botonEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        JP_agregarPanel.add(JP_botonEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 350, 150, 30));
+
+        JP_panelClientes.add(JP_agregarPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 790, 490));
+
+        JP_botonMenu.setBackground(new java.awt.Color(153, 153, 153));
+        JP_botonMenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        JP_clienteInicio.setBackground(new java.awt.Color(204, 204, 204));
+
+        jLabel17.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/1486486316-arrow-film-movie-play-player-start-video_81236.png"))); // NOI18N
+        jLabel17.setText("TODOS");
+
+        javax.swing.GroupLayout JP_clienteInicioLayout = new javax.swing.GroupLayout(JP_clienteInicio);
+        JP_clienteInicio.setLayout(JP_clienteInicioLayout);
+        JP_clienteInicioLayout.setHorizontalGroup(
+            JP_clienteInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JP_clienteInicioLayout.createSequentialGroup()
+                .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        JP_clienteInicioLayout.setVerticalGroup(
+            JP_clienteInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+        );
+
+        JP_botonMenu.add(JP_clienteInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 120, 40));
+
+        JP_agregarCliente.setBackground(new java.awt.Color(204, 204, 204));
+
+        JL_botonAgregar.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        JL_botonAgregar.setForeground(new java.awt.Color(0, 0, 0));
+        JL_botonAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/business_application_addmale_useradd_insert_add_user_client_2312.png"))); // NOI18N
+        JL_botonAgregar.setText("AGREGAR");
+        JL_botonAgregar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JL_botonAgregarMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout JP_agregarClienteLayout = new javax.swing.GroupLayout(JP_agregarCliente);
+        JP_agregarCliente.setLayout(JP_agregarClienteLayout);
+        JP_agregarClienteLayout.setHorizontalGroup(
+            JP_agregarClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(JL_botonAgregar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
+        );
+        JP_agregarClienteLayout.setVerticalGroup(
+            JP_agregarClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(JL_botonAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+        );
+
+        JP_botonMenu.add(JP_agregarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 0, 160, 40));
+
+        JP_panelClientes.add(JP_botonMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 280, 40));
+
+        JP_clientesPanel.setBackground(new java.awt.Color(153, 204, 255));
+        JP_clientesPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel18.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel18.setText("NOMBRE:");
+        JP_clientesPanel.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 90, 40));
+
+        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
+        jTextField1.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jTextField1.setForeground(new java.awt.Color(0, 0, 0));
+        JP_clientesPanel.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, 240, 40));
+
+        JT_tablaGeneral.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(JT_tablaGeneral);
+
+        JP_clientesPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 710, 330));
+
+        JP_panelClientes.add(JP_clientesPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 790, 490));
+
         JP_panelInicial.add(JP_panelClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         JP_panelEmpleados.setBackground(new java.awt.Color(51, 153, 255));
@@ -426,6 +608,12 @@ public class Menu extends javax.swing.JFrame {
         
     }//GEN-LAST:event_JP_productosMouseClicked
 
+    private void JL_botonAgregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JL_botonAgregarMouseClicked
+        //BOTON PARA MENU DE AGREGAR CLIENTE
+        JP_agregarPanel.setVisible(true);
+        JP_clientesPanel.setVisible(false);
+    }//GEN-LAST:event_JL_botonAgregarMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -462,9 +650,16 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel JL_botonAgregar;
     private javax.swing.JPanel JP_Home;
     private javax.swing.JPanel JP_Menu;
+    private javax.swing.JPanel JP_agregarCliente;
+    private javax.swing.JPanel JP_agregarPanel;
+    private javax.swing.JPanel JP_botonEliminar;
+    private javax.swing.JPanel JP_botonMenu;
+    private javax.swing.JPanel JP_clienteInicio;
     private javax.swing.JPanel JP_clientes;
+    private javax.swing.JPanel JP_clientesPanel;
     private javax.swing.JPanel JP_empleados;
     private javax.swing.JPanel JP_inicio;
     private javax.swing.JPanel JP_panelClientes;
@@ -475,6 +670,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JPanel JP_productos;
     private javax.swing.JPanel JP_salir;
     private javax.swing.JPanel JP_ventas;
+    private javax.swing.JTable JT_tablaGeneral;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -482,7 +678,15 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -491,6 +695,13 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
     // End of variables declaration//GEN-END:variables
 }
