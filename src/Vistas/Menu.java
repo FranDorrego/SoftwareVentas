@@ -30,21 +30,28 @@ public class Menu extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         JP_inicio = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         JP_productos = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
         JP_ventas = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
         JP_empleados = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
         JP_clientes = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
         JP_salir = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         JP_panelInicial = new javax.swing.JPanel();
         JP_Home = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
         JP_panelClientes = new javax.swing.JPanel();
         JP_panelEmpleados = new javax.swing.JPanel();
         JP_panelVentas = new javax.swing.JPanel();
@@ -70,24 +77,30 @@ public class Menu extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("INICIO");
 
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/house_home_13944.png"))); // NOI18N
+
         javax.swing.GroupLayout JP_inicioLayout = new javax.swing.GroupLayout(JP_inicio);
         JP_inicio.setLayout(JP_inicioLayout);
         JP_inicioLayout.setHorizontalGroup(
             JP_inicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JP_inicioLayout.createSequentialGroup()
-                .addGap(80, 80, 80)
+                .addGap(38, 38, 38)
+                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel3)
-                .addContainerGap(134, Short.MAX_VALUE))
+                .addContainerGap(130, Short.MAX_VALUE))
         );
         JP_inicioLayout.setVerticalGroup(
             JP_inicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JP_inicioLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JP_inicioLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(JP_inicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
-        JP_Menu.add(JP_inicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 201, 266, -1));
+        JP_Menu.add(JP_inicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 201, 270, 40));
 
         jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
         JP_Menu.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 177, 254, 12));
@@ -103,24 +116,31 @@ public class Menu extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("PRODUCTOS");
 
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/washing_machine_home_appliances_laundry_icon_229865.png"))); // NOI18N
+
         javax.swing.GroupLayout JP_productosLayout = new javax.swing.GroupLayout(JP_productos);
         JP_productos.setLayout(JP_productosLayout);
         JP_productosLayout.setHorizontalGroup(
             JP_productosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JP_productosLayout.createSequentialGroup()
-                .addGap(75, 75, 75)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JP_productosLayout.createSequentialGroup()
+                .addContainerGap(42, Short.MAX_VALUE)
+                .addComponent(jLabel13)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel7)
-                .addContainerGap(76, Short.MAX_VALUE))
+                .addGap(63, 63, 63))
         );
         JP_productosLayout.setVerticalGroup(
             JP_productosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JP_productosLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(JP_productosLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel7)
+                .addGap(10, 10, 10))
+            .addGroup(JP_productosLayout.createSequentialGroup()
+                .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        JP_Menu.add(JP_productos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 355, 266, -1));
+        JP_Menu.add(JP_productos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 400, 270, 40));
 
         JP_ventas.setBackground(new java.awt.Color(120, 110, 255));
         JP_ventas.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -133,23 +153,29 @@ public class Menu extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("VENTAS");
 
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/sales_bag_shopping_bargain_retail_icon-icons.com_55340.png"))); // NOI18N
+
         javax.swing.GroupLayout JP_ventasLayout = new javax.swing.GroupLayout(JP_ventas);
         JP_ventas.setLayout(JP_ventasLayout);
         JP_ventasLayout.setHorizontalGroup(
             JP_ventasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JP_ventasLayout.createSequentialGroup()
-                .addGap(79, 79, 79)
+                .addGap(41, 41, 41)
+                .addComponent(jLabel12)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(96, Short.MAX_VALUE))
+                .addContainerGap(88, Short.MAX_VALUE))
         );
         JP_ventasLayout.setVerticalGroup(
             JP_ventasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JP_ventasLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(JP_ventasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel12)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
-        JP_Menu.add(JP_ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 321, 266, -1));
+        JP_Menu.add(JP_ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, 270, -1));
 
         JP_empleados.setBackground(new java.awt.Color(120, 110, 255));
         JP_empleados.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -162,24 +188,30 @@ public class Menu extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("EMPLEADOS");
 
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/user_person_13936.png"))); // NOI18N
+
         javax.swing.GroupLayout JP_empleadosLayout = new javax.swing.GroupLayout(JP_empleados);
         JP_empleados.setLayout(JP_empleadosLayout);
         JP_empleadosLayout.setHorizontalGroup(
             JP_empleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JP_empleadosLayout.createSequentialGroup()
-                .addGap(78, 78, 78)
+                .addGap(40, 40, 40)
+                .addComponent(jLabel11)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel6)
-                .addContainerGap(74, Short.MAX_VALUE))
+                .addContainerGap(66, Short.MAX_VALUE))
         );
         JP_empleadosLayout.setVerticalGroup(
             JP_empleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JP_empleadosLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(JP_empleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel11)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
-        JP_Menu.add(JP_empleados, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 281, -1, -1));
+        JP_Menu.add(JP_empleados, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 270, 40));
 
         JP_clientes.setBackground(new java.awt.Color(120, 110, 255));
         JP_clientes.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -192,46 +224,42 @@ public class Menu extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("CLIENTES");
 
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/maleuser_customer_person_usuari_9884.png"))); // NOI18N
+
         javax.swing.GroupLayout JP_clientesLayout = new javax.swing.GroupLayout(JP_clientes);
         JP_clientes.setLayout(JP_clientesLayout);
         JP_clientesLayout.setHorizontalGroup(
             JP_clientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JP_clientesLayout.createSequentialGroup()
-                .addGap(79, 79, 79)
+                .addGap(39, 39, 39)
+                .addComponent(jLabel10)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel4)
-                .addContainerGap(97, Short.MAX_VALUE))
+                .addContainerGap(91, Short.MAX_VALUE))
         );
         JP_clientesLayout.setVerticalGroup(
             JP_clientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JP_clientesLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(JP_clientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
-        JP_Menu.add(JP_clientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 241, 266, -1));
+        JP_Menu.add(JP_clientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 270, 40));
 
         jPanel1.setBackground(new java.awt.Color(112, 155, 255));
-
-        jLabel8.setFont(new java.awt.Font("Roboto Black", 1, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("PERFIL");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGap(0, 72, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGap(0, 17, Short.MAX_VALUE)
         );
 
         JP_Menu.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(134, 6, -1, -1));
@@ -248,21 +276,32 @@ public class Menu extends javax.swing.JFrame {
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("SALIR");
 
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/sign-emergency-code-sos_63_icon-icons.com_57219.png"))); // NOI18N
+
         javax.swing.GroupLayout JP_salirLayout = new javax.swing.GroupLayout(JP_salir);
         JP_salir.setLayout(JP_salirLayout);
         JP_salirLayout.setHorizontalGroup(
             JP_salirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JP_salirLayout.createSequentialGroup()
-                .addGap(79, 79, 79)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JP_salirLayout.createSequentialGroup()
+                .addContainerGap(40, Short.MAX_VALUE)
+                .addComponent(jLabel14)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(86, Short.MAX_VALUE))
+                .addGap(75, 75, 75))
         );
         JP_salirLayout.setVerticalGroup(
             JP_salirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(JP_salirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel14))
         );
 
-        JP_Menu.add(JP_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 431, 266, -1));
+        JP_Menu.add(JP_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 470, 266, -1));
+
+        jLabel8.setFont(new java.awt.Font("Roboto Black", 1, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("PERFIL");
+        JP_Menu.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, 120, 30));
 
         getContentPane().add(JP_Menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 530));
 
@@ -270,33 +309,15 @@ public class Menu extends javax.swing.JFrame {
         JP_panelInicial.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         JP_Home.setBackground(new java.awt.Color(204, 204, 255));
+        JP_Home.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout JP_HomeLayout = new javax.swing.GroupLayout(JP_Home);
-        JP_Home.setLayout(JP_HomeLayout);
-        JP_HomeLayout.setHorizontalGroup(
-            JP_HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 790, Short.MAX_VALUE)
-        );
-        JP_HomeLayout.setVerticalGroup(
-            JP_HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 530, Short.MAX_VALUE)
-        );
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Kitchen-Appliances-Transparent (1).png"))); // NOI18N
+        JP_Home.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 790, 530));
 
         JP_panelInicial.add(JP_Home, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 790, 530));
 
         JP_panelClientes.setBackground(new java.awt.Color(153, 204, 255));
-
-        javax.swing.GroupLayout JP_panelClientesLayout = new javax.swing.GroupLayout(JP_panelClientes);
-        JP_panelClientes.setLayout(JP_panelClientesLayout);
-        JP_panelClientesLayout.setHorizontalGroup(
-            JP_panelClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 790, Short.MAX_VALUE)
-        );
-        JP_panelClientesLayout.setVerticalGroup(
-            JP_panelClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 530, Short.MAX_VALUE)
-        );
-
+        JP_panelClientes.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         JP_panelInicial.add(JP_panelClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         JP_panelEmpleados.setBackground(new java.awt.Color(51, 153, 255));
@@ -455,6 +476,13 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JPanel JP_salir;
     private javax.swing.JPanel JP_ventas;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
