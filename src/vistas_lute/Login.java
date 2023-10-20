@@ -40,8 +40,6 @@ public class Login extends javax.swing.JFrame {
 
         panel_base.setBackground(new java.awt.Color(255, 255, 255));
         panel_base.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        JL_logo.setForeground(new java.awt.Color(0, 0, 0));
         panel_base.add(JL_logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 60, -1, 70));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes2/logo5.png"))); // NOI18N
@@ -58,7 +56,6 @@ public class Login extends javax.swing.JFrame {
         JL_usuario.setText("ELIJA UN ID");
         panel_base.add(JL_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 220, -1, -1));
 
-        comboBox_cliente.setBackground(new java.awt.Color(255, 255, 255));
         comboBox_cliente.setBorder(null);
         comboBox_cliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -75,9 +72,7 @@ public class Login extends javax.swing.JFrame {
         JL_contrasenia.setText("INGRESE LA CONTRASEÑA");
         panel_base.add(JL_contrasenia, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 310, -1, -1));
 
-        passField_clave.setBackground(new java.awt.Color(255, 255, 255));
         passField_clave.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        passField_clave.setText("jPasswor");
         passField_clave.setBorder(null);
         panel_base.add(passField_clave, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 340, 300, -1));
 
@@ -128,22 +123,12 @@ public class Login extends javax.swing.JFrame {
 
     private void comboBox_clienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBox_clienteActionPerformed
         //cuanto elije un usuario, se borre el texto predefinido en la contraseña o si es administrador, que se complete automaticamente
-        Cliente clienteSeleccionado = (Cliente) comboBox_cliente.getSelectedItem();
-
-        if (clienteSeleccionado.getID_cliente() == 10) {
-            Cliente admin = clienteData.buscarPorID(clienteSeleccionado.getID_cliente());
-            passField_clave.setText(admin.getClave());
-        } else {
-            passField_clave.setText("");
-        }
     }//GEN-LAST:event_comboBox_clienteActionPerformed
 
     private void JL_entrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JL_entrarMouseClicked
         //botón entrar
-        
-        
-        
-        
+
+
     }//GEN-LAST:event_JL_entrarMouseClicked
 //____________________________________________________________ 
 
