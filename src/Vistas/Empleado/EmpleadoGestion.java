@@ -2,18 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package Vistas2.Ventas;
+package Vistas.Empleado;
 
 /**
  *
  * @author franco
  */
-public class VentaFecha extends javax.swing.JPanel {
+public class EmpleadoGestion extends javax.swing.JPanel {
 
     /**
-     * Creates new form VentaFecha
+     * Creates new form EmpleadoAgrega
      */
-    public VentaFecha() {
+    public EmpleadoGestion() {
         initComponents();
     }
 
