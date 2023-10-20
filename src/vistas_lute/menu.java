@@ -1,5 +1,5 @@
 
-package vistas2;
+package vistas_lute;
 
 
 public class menu extends javax.swing.JFrame {

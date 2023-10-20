@@ -1,4 +1,4 @@
-package vistas2;
+package vistas_lute;
 
 import clasesData.ClienteData;
 import entidades.Cliente;
