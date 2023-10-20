@@ -140,7 +140,7 @@ public class Menu extends javax.swing.JFrame {
 
         INICIO.setBackground(new java.awt.Color(0, 255, 255));
         INICIO.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        INICIO.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Image20231020163543.jpg"))); // NOI18N
+        INICIO.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo_montañas.jpg"))); // NOI18N
         INICIO.setText("FOTO INICIO");
 
         javax.swing.GroupLayout contenedorLayout = new javax.swing.GroupLayout(contenedor);
