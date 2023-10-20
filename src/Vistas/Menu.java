@@ -426,6 +426,11 @@ public class Menu extends javax.swing.JFrame {
         JP_TodosLosClientesPanel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 80, -1, 40));
 
         JT_buscarXNombre.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        JT_buscarXNombre.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JT_buscarXNombreMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout JP_JTbuscarLayout = new javax.swing.GroupLayout(JP_JTbuscar);
         JP_JTbuscar.setLayout(JP_JTbuscarLayout);
@@ -728,6 +733,10 @@ public class Menu extends javax.swing.JFrame {
     private void JL_EliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JL_EliminarMouseClicked
         // BOTON ELIMINAR DE CLIENTES
     }//GEN-LAST:event_JL_EliminarMouseClicked
+
+    private void JT_buscarXNombreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JT_buscarXNombreMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JT_buscarXNombreMouseClicked
 
     // ---------------------------------- Agregados ---------------------------------------
     // Solo muestra un dato
