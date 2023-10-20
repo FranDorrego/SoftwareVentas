@@ -198,9 +198,10 @@ public class Login extends javax.swing.JFrame {
 //____________________________________________________________ 
 
     private void cargarCombo() {
-        comboBox_cliente.setSelectedIndex(-1);
+        
         
         for (Cliente cliente : clienteData.listarTodo()) {
+            comboBox_cliente.setSelectedIndex(-1);
             if (cliente.isEs_empleado() == true && cliente.isEstado() == true) {
                 comboBox_cliente.addItem(cliente);  //tengo que cambiar el toString de Cliente
             }
