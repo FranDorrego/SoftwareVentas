@@ -104,8 +104,7 @@ public class Login extends javax.swing.JFrame {
     private void JB_ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_ingresarActionPerformed
         // TODO add your handling code here:
 
-        if (!isNumeric(JT_usuario.getText()) || JTP_contra.getText().isEmpty()) {
-
+        if (JTP_contra.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "VERIFIQUE QUE LOS DATOS ESTEN CARGADOS CORRECTAMENTE.");
             return;
         }

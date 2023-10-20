@@ -1,7 +1,9 @@
 package vistas_lute;
 
+import Vistas.Menu;
 import clasesData.ClienteData;
 import entidades.Cliente;
+import javax.swing.JOptionPane;
 
 public class Login extends javax.swing.JFrame {
 
@@ -127,7 +129,22 @@ public class Login extends javax.swing.JFrame {
 
     private void JL_entrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JL_entrarMouseClicked
         //botón entrar
+        if (passField_clave.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "VERIFIQUE QUE LOS DATOS ESTEN CARGADOS CORRECTAMENTE.");
+            return;
+        }
 
+        // Guardo los datos seguro
+        String contra = String.valueOf(passField_clave.getPassword());
+        Cliente clienteSelecionado = (Cliente)comboBox_cliente.getSelectedItem();
+        
+        // Pregunto si los datos son correctos
+        if (clienteData.login(clienteSelecionado.getID_cliente(), contra)) {
+            this.dispose();
+            new Menu().setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "INGRESE LOS DATOS NUEVAMENTE.");
+        }
 
     }//GEN-LAST:event_JL_entrarMouseClicked
 //____________________________________________________________ 
@@ -182,6 +199,8 @@ public class Login extends javax.swing.JFrame {
 //____________________________________________________________ 
 
     private void cargarCombo() {
+        comboBox_cliente.setSelectedIndex(-1);
+        
         for (Cliente cliente : clienteData.listarTodo()) {
             if (cliente.isEs_empleado() == true && cliente.isEstado() == true) {
                 comboBox_cliente.addItem(cliente);  //tengo que cambiar el toString de Cliente
