@@ -92,6 +92,11 @@ public class Login extends javax.swing.JFrame {
         JL_entrar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JL_entrar.setText("ENTRAR");
         JL_entrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JL_entrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JL_entrarMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout panel_entrarLayout = new javax.swing.GroupLayout(panel_entrar);
         panel_entrar.setLayout(panel_entrarLayout);
@@ -123,8 +128,6 @@ public class Login extends javax.swing.JFrame {
 
     private void comboBox_clienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBox_clienteActionPerformed
         //cuanto elije un usuario, se borre el texto predefinido en la contraseña o si es administrador, que se complete automaticamente
-        passField_clave.setText("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"); //necesito que se inice el comboBox deseleccionado
-    
         Cliente clienteSeleccionado = (Cliente) comboBox_cliente.getSelectedItem();
 
         if (clienteSeleccionado.getID_cliente() == 10) {
@@ -134,6 +137,14 @@ public class Login extends javax.swing.JFrame {
             passField_clave.setText("");
         }
     }//GEN-LAST:event_comboBox_clienteActionPerformed
+
+    private void JL_entrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JL_entrarMouseClicked
+        //botón entrar
+        
+        
+        
+        
+    }//GEN-LAST:event_JL_entrarMouseClicked
 //____________________________________________________________ 
 
     public static void main(String args[]) {
