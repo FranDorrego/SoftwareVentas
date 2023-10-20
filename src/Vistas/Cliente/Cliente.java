@@ -35,36 +35,19 @@ public class Cliente extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        JL_botonAgregar = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
         JT_buscarXNombre = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
         JL_Buscar = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         JT_tablaClientes = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setMinimumSize(new java.awt.Dimension(820, 530));
         setPreferredSize(new java.awt.Dimension(810, 530));
 
         jPanel1.setBackground(new java.awt.Color(153, 204, 255));
-
-        JL_botonAgregar.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        JL_botonAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/business_application_addmale_useradd_insert_add_user_client_2312.png"))); // NOI18N
-        JL_botonAgregar.setText("AGREGAR");
-        JL_botonAgregar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                JL_botonAgregarMouseClicked(evt);
-            }
-        });
-
-        jLabel17.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/1486486316-arrow-film-movie-play-player-start-video_81236.png"))); // NOI18N
-        jLabel17.setText("TODOS");
-        jLabel17.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel17MouseClicked(evt);
-            }
-        });
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         JT_buscarXNombre.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         JT_buscarXNombre.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -82,13 +65,16 @@ public class Cliente extends javax.swing.JPanel {
                 JT_buscarXNombreKeyReleased(evt);
             }
         });
+        jPanel1.add(JT_buscarXNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, 210, -1));
 
         jLabel18.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel18.setText("NOMBRE:");
+        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 70, 30));
 
         JL_Buscar.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         JL_Buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/xmag_search_find_export_locate_5984.png"))); // NOI18N
         JL_Buscar.setText("BUSCAR");
+        jPanel1.add(JL_Buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 70, -1, -1));
 
         JT_tablaClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -108,45 +94,27 @@ public class Cliente extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(JT_tablaClientes);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(JL_botonAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(JT_buscarXNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(JL_Buscar, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
-                        .addGap(270, 270, 270))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 710, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(JL_botonAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(JT_buscarXNombre)
-                    .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JL_Buscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(26, 26, 26)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39))
-        );
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 780, 390));
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/1486486316-arrow-film-movie-play-player-start-video_81236.png"))); // NOI18N
+        jButton1.setText("    Todos");
+        jButton1.setBorder(null);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 143, 48));
+
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/business_application_addmale_useradd_insert_add_user_client_2312.png"))); // NOI18N
+        jButton2.setText("     Agregar");
+        jButton2.setBorder(null);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, 143, 48));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -156,21 +124,9 @@ public class Cliente extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 530, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void JL_botonAgregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JL_botonAgregarMouseClicked
-        //BOTON PARA MENU DE AGREGAR CLIENTE
-        //JP_agregarPanel.setVisible(true);
-        //JP_TodosLosClientesPanel.setVisible(false);
-    }//GEN-LAST:event_JL_botonAgregarMouseClicked
-
-    private void jLabel17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseClicked
-        // TODO add your handling code here
-        //JP_TodosLosClientesPanel.setVisible(true);
-        //JP_agregarPanel.setVisible(false);
-    }//GEN-LAST:event_jLabel17MouseClicked
 
     private void JT_buscarXNombreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JT_buscarXNombreMouseClicked
         // TODO add your handling code here:
@@ -199,13 +155,22 @@ public class Cliente extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_JT_buscarXNombreActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel JL_Buscar;
-    private javax.swing.JLabel JL_botonAgregar;
     private javax.swing.JTextField JT_buscarXNombre;
     private javax.swing.JTable JT_tablaClientes;
-    private javax.swing.JLabel jLabel17;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

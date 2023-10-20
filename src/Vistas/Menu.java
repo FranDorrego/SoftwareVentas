@@ -5,6 +5,9 @@
 package Vistas;
 
 import Vistas.Cliente.Cliente;
+import Vistas.Empleado.Empleado;
+import Vistas.Producto.Producto;
+import Vistas.Ventas.VentaFecha;
 import java.awt.BorderLayout;
 
 /**
@@ -157,6 +160,8 @@ public class Menu extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+       dispose();
+       System.exit(0);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -171,14 +176,17 @@ public class Menu extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
+        cambioPanel(new Empleado());
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
+        cambioPanel(new VentaFecha());
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
+        cambioPanel(new Producto());
     }//GEN-LAST:event_jButton6ActionPerformed
 
     public static void main(String args[]) {
@@ -228,7 +236,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JPanel menu;
     // End of variables declaration//GEN-END:variables
 
-    private void cambioPanel(javax.swing.JPanel panel) {
+    public void cambioPanel(javax.swing.JPanel panel) {
 
         panel.setSize(820, 530);
         panel.setLocation(0, 0);
@@ -239,7 +247,7 @@ public class Menu extends javax.swing.JFrame {
         contenedor.repaint();
     }
 
-    private void cambioLabel(javax.swing.JLabel panel) {
+    public  void cambioLabel(javax.swing.JLabel panel) {
 
         panel.setSize(820, 530);
         panel.setLocation(0, 0);
