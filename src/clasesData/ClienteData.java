@@ -166,13 +166,13 @@ public class ClienteData {
       
         String sql = "SELECT * FROM cliente WHERE Apellido LIKE '"+nombre+"%' or Nombre LIKE '%"+nombre+"%'";
         List<Cliente> clienteLista = new ArrayList();  
-        Cliente cliente = new Cliente();
         
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet Resultado = ps.executeQuery();
             
             while(Resultado.next()){
+                Cliente cliente = new Cliente();
                 cliente.setID_cliente(Resultado.getInt("ID_Cliente"));
                 cliente.setApellido(Resultado.getString("Apellido"));
                 cliente.setNombre(Resultado.getString("Nombre"));
