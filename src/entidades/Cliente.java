@@ -113,18 +113,7 @@ public class Cliente {
 
     @Override
     public String toString() {
-
-        System.out.println("ID_cliente : " + id_cliente);
-        System.out.println(" nombre : " + nombre);
-        System.out.println(" apellido : " + apellido);
-        System.out.println(" Domicilio : " + Domicilio);
-        System.out.println(" telefono : " + telefono);
-        System.out.println(" numero_identificacion : " + numero_identificacion);
-        System.out.println(" es_empleado : " + es_empleado);
-        System.out.println(" estado : " + estado);
-        System.out.println("---------------------");
-
-        return "Cliente{" + "ID_cliente=" + id_cliente + ", nombre=" + nombre + ", apellido=" + apellido + ", Domicilio=" + Domicilio + ", telefono=" + telefono + ", numero_identificacion=" + numero_identificacion + ", es_empleado=" + es_empleado + ", estado=" + estado + '}';
+        return "ID_cliente:" + id_cliente + " | apellido:" + apellido + " | nombre:" + nombre + " | Domicilio:" + Domicilio + " | telefono:" + telefono + " | numero_identificacion:" + numero_identificacion + " | es_empleado:" + es_empleado + " | estado:" + estado;
     }
 
 }
