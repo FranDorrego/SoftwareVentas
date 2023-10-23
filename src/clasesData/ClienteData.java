@@ -21,7 +21,7 @@ public class ClienteData {
     public void agregarCliente(Cliente cliente) {
 
         String sql = "INSERT INTO `cliente`(`Apellido`, `Nombre`, `Domicilio`, `Telefono`, `Numero_Identificacion`, `Es_Empleado`)"
-                + "VALUES (?,?,?,?,?, 0 )";
+                + "VALUES (?,?,?,?,?, 1 )";
 
         try {
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -41,7 +41,7 @@ public class ClienteData {
             ps.close();
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla cliente" + ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Error de la base de datos, verifica: " + ex.getMessage());
         }
     }
 
@@ -75,9 +75,9 @@ public class ClienteData {
         }
     }
 
-    public void eliminarEmpleadoPorID(int id) {
+    public void eliminarPorID(int id) {
 
-        String sql = "UPDATE `cliente` SET `Estado`= 0 WHERE ID_Cliente = ? and Es_Empleado = 1";
+        String sql = "UPDATE `cliente` SET `Estado`= 0 WHERE ID_Cliente = ?";
 
         try {
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -129,7 +129,7 @@ public class ClienteData {
 
     public List<Cliente> listarTodo() {
 
-        String sql = "SELECT * FROM `cliente`";
+        String sql = "SELECT * FROM `cliente` WHERE Estado = 1";
         List<Cliente> clienteLista = new ArrayList();
 
         try {

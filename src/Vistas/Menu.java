@@ -26,7 +26,6 @@ public class Menu extends javax.swing.JFrame {
     
     public static Menu getMenu(){
         if (MENU == null){
-            System.out.println("Se crea una instancia");
             MENU = new Menu();
             MENU.setVisible(false);
         }

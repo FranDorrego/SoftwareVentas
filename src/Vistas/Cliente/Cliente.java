@@ -6,6 +6,8 @@ package Vistas.Cliente;
 
 import Vistas.Menu;
 import clasesData.ClienteData;
+import javax.swing.JOptionPane;
+import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -13,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
  * @author franco
  */
 public class Cliente extends javax.swing.JPanel {
-    
+
     private final DefaultTableModel tablaModeloClientes = new DefaultTableModel() {
         @Override
         public boolean isCellEditable(int f, int c) {
@@ -26,6 +28,7 @@ public class Cliente extends javax.swing.JPanel {
         initComponents();
         tablaModelo();
         cargaTodosClientes();
+        JT_tablaClientes.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
     }
 
     /**
@@ -42,6 +45,8 @@ public class Cliente extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         JT_tablaClientes = new javax.swing.JTable();
         jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
 
         setMinimumSize(new java.awt.Dimension(820, 530));
         setPreferredSize(new java.awt.Dimension(810, 530));
@@ -97,14 +102,34 @@ public class Cliente extends javax.swing.JPanel {
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 780, 390));
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/business_application_addmale_useradd_insert_add_user_client_2312.png"))); // NOI18N
-        jButton2.setText("     Agregar");
+        jButton2.setText("     Modificar");
         jButton2.setBorder(null);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 143, 48));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 60, 143, 48));
+
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/business_application_addmale_useradd_insert_add_user_client_2312.png"))); // NOI18N
+        jButton3.setText("     Agregar");
+        jButton3.setBorder(null);
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 143, 48));
+
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/business_application_addmale_useradd_insert_add_user_client_2312.png"))); // NOI18N
+        jButton4.setText("     Eliminar");
+        jButton4.setBorder(null);
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 60, 143, 48));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -152,12 +177,43 @@ public class Cliente extends javax.swing.JPanel {
         menu.cambioPanel(new ClienteGestion());
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // Eliminamos un cliente
+
+        int filaSelecionada = JT_tablaClientes.getSelectedRow();
+        int idCliente;
+        String Nombre;
+        
+
+        if (filaSelecionada != -1) {
+            idCliente = (Integer) JT_tablaClientes.getValueAt(filaSelecionada, 0);
+            Nombre = (String) JT_tablaClientes.getValueAt(filaSelecionada, 1) + " " + (String) JT_tablaClientes.getValueAt(filaSelecionada, 2);
+        } else {
+            JOptionPane.showMessageDialog(null, "Seleccione un Cliente");
+            return;
+        }
+
+        int respuesta = JOptionPane.showConfirmDialog(null, "Estas por eliminar el cliente: "+Nombre+" . \n ¿Continuamos?", "CUIDADO", JOptionPane.YES_NO_OPTION);
+        
+        if (respuesta == JOptionPane.YES_OPTION) {
+            clienteData.eliminarPorID(idCliente);
+            cargaTodosClientes();
+        }
+        
+    }//GEN-LAST:event_jButton4ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel JL_Buscar;
     private javax.swing.JTextField JT_buscarXNombre;
     private javax.swing.JTable JT_tablaClientes;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
