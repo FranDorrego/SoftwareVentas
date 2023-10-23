@@ -141,7 +141,8 @@ public class Login extends javax.swing.JFrame {
         // Pregunto si los datos son correctos
         if (clienteData.login(clienteSelecionado.getID_cliente(), contra)) {
             this.dispose();
-            new Menu().setVisible(true);
+            javax.swing.JFrame menu = Menu.getMenu();
+            menu.setVisible(true);
         } else {
             JOptionPane.showMessageDialog(null, "INGRESE LOS DATOS NUEVAMENTE.");
         }

@@ -5,6 +5,7 @@
 package Vistas;
 
 import Vistas.Cliente.Cliente;
+import Vistas.Cliente.ClienteGestion;
 import Vistas.Empleado.Empleado;
 import Vistas.Producto.Producto;
 import Vistas.Ventas.VentaFecha;
@@ -15,12 +16,23 @@ import java.awt.BorderLayout;
  * @author franco
  */
 public class Menu extends javax.swing.JFrame {
-
-    public Menu() {
+    
+    public static Menu MENU ;
+    
+    private Menu() {
         initComponents();
         cambioLabel(INICIO);
     }
-
+    
+    public static Menu getMenu(){
+        if (MENU == null){
+            System.out.println("Se crea una instancia");
+            MENU = new Menu();
+            MENU.setVisible(false);
+        }
+        return MENU;
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -171,7 +183,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here:       
         cambioPanel(new Cliente());
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -217,7 +229,8 @@ public class Menu extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Menu().setVisible(true);
+                Menu menu = getMenu();
+                menu.setVisible(true);
             }
         });
     }
@@ -236,9 +249,10 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JPanel menu;
     // End of variables declaration//GEN-END:variables
-
+    
     public void cambioPanel(javax.swing.JPanel panel) {
-
+        
+        panel.setVisible(true);
         panel.setSize(820, 530);
         panel.setLocation(0, 0);
 
@@ -248,7 +262,7 @@ public class Menu extends javax.swing.JFrame {
         contenedor.repaint();
     }
 
-    public  void cambioLabel(javax.swing.JLabel panel) {
+    public void cambioLabel(javax.swing.JLabel panel) {
 
         panel.setSize(820, 530);
         panel.setLocation(0, 0);

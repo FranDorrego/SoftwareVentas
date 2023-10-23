@@ -4,6 +4,7 @@
  */
 package Vistas.Cliente;
 
+import Vistas.Menu;
 import clasesData.ClienteData;
 import javax.swing.table.DefaultTableModel;
 
@@ -40,7 +41,6 @@ public class Cliente extends javax.swing.JPanel {
         JL_Buscar = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         JT_tablaClientes = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
         setMinimumSize(new java.awt.Dimension(820, 530));
@@ -96,16 +96,6 @@ public class Cliente extends javax.swing.JPanel {
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 780, 390));
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/1486486316-arrow-film-movie-play-player-start-video_81236.png"))); // NOI18N
-        jButton1.setText("    Todos");
-        jButton1.setBorder(null);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 143, 48));
-
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/business_application_addmale_useradd_insert_add_user_client_2312.png"))); // NOI18N
         jButton2.setText("     Agregar");
         jButton2.setBorder(null);
@@ -114,7 +104,7 @@ public class Cliente extends javax.swing.JPanel {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, 143, 48));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 143, 48));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -155,13 +145,11 @@ public class Cliente extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_JT_buscarXNombreActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        
+        // TODO add your handling code her       
+        setVisible(false);
+        Menu menu = Menu.getMenu();
+        menu.cambioPanel(new ClienteGestion());
     }//GEN-LAST:event_jButton2ActionPerformed
 
 
@@ -169,7 +157,6 @@ public class Cliente extends javax.swing.JPanel {
     private javax.swing.JLabel JL_Buscar;
     private javax.swing.JTextField JT_buscarXNombre;
     private javax.swing.JTable JT_tablaClientes;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JPanel jPanel1;
