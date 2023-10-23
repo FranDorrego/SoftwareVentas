@@ -49,8 +49,9 @@ public class Login extends javax.swing.JFrame {
         JL_iniciarS.setBackground(new java.awt.Color(0, 0, 0));
         JL_iniciarS.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
         JL_iniciarS.setForeground(new java.awt.Color(51, 51, 51));
+        JL_iniciarS.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JL_iniciarS.setText("INICIAR SESIÓN");
-        panel_base.add(JL_iniciarS, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 140, 180, 30));
+        panel_base.add(JL_iniciarS, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 140, 280, 30));
 
         JL_usuario.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         JL_usuario.setForeground(new java.awt.Color(51, 51, 51));
@@ -81,13 +82,13 @@ public class Login extends javax.swing.JFrame {
         panel_base.add(SEP_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 360, 300, 10));
 
         panel_entrar.setBackground(new java.awt.Color(204, 204, 204));
-        panel_entrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        panel_entrar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         JL_entrar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         JL_entrar.setForeground(new java.awt.Color(102, 102, 102));
         JL_entrar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JL_entrar.setText("ENTRAR");
-        JL_entrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JL_entrar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         JL_entrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 JL_entrarMouseClicked(evt);
