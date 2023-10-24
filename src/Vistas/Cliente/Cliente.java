@@ -43,7 +43,7 @@ public class Cliente extends javax.swing.JPanel {
         jLabel18 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         JT_tablaClientes = new javax.swing.JTable();
-        jButton2 = new javax.swing.JButton();
+        JB_ModificarCliente = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
@@ -96,15 +96,15 @@ public class Cliente extends javax.swing.JPanel {
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 780, 390));
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/business_application_addmale_useradd_insert_add_user_client_2312.png"))); // NOI18N
-        jButton2.setText("     Modificar");
-        jButton2.setBorder(null);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        JB_ModificarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/business_application_addmale_useradd_insert_add_user_client_2312.png"))); // NOI18N
+        JB_ModificarCliente.setText("     Modificar");
+        JB_ModificarCliente.setBorder(null);
+        JB_ModificarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                JB_ModificarClienteActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 60, 143, 48));
+        jPanel1.add(JB_ModificarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 60, 143, 48));
 
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/business_application_addmale_useradd_insert_add_user_client_2312.png"))); // NOI18N
         jButton3.setText("     Agregar");
@@ -169,15 +169,18 @@ public class Cliente extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_JT_buscarXNombreActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code her       
+    private void JB_ModificarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_ModificarClienteActionPerformed
+        // TODO add your handling code her
         setVisible(false);
-        Menu menu = Menu.getMenu();
-        menu.cambioPanel(new ClienteGestion());
-    }//GEN-LAST:event_jButton2ActionPerformed
+        Cliente cliente = Cliente.
+        
+    }//GEN-LAST:event_JB_ModificarClienteActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+         setVisible(false);
+        Menu menu = Menu.getMenu();
+        menu.cambioPanel(new ClienteGestion());
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -207,10 +210,10 @@ public class Cliente extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton JB_ModificarCliente;
     private javax.swing.JTextField JT_buscarXNombre;
     private javax.swing.JTable JT_tablaClientes;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel18;

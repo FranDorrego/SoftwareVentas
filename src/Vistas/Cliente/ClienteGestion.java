@@ -8,6 +8,7 @@ import Vistas.Menu;
 import clasesData.ClienteData;
 import javax.swing.JOptionPane;
 import entidades.Cliente;
+
 /**
  *
  * @author franco
@@ -32,7 +33,7 @@ public class ClienteGestion extends javax.swing.JPanel {
         jLabel21 = new javax.swing.JLabel();
         JT_telefono = new javax.swing.JTextField();
         JT_nombre1 = new javax.swing.JTextField();
-        jButton4 = new javax.swing.JButton();
+        JB_menuCliente = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         JT_identificacion_numero = new javax.swing.JTextField();
         jLabel23 = new javax.swing.JLabel();
@@ -70,15 +71,15 @@ public class ClienteGestion extends javax.swing.JPanel {
         JT_nombre1.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         add(JT_nombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 130, 320, 30));
 
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/business_application_addmale_useradd_insert_add_user_client_2312.png"))); // NOI18N
-        jButton4.setText("     Volver");
-        jButton4.setBorder(null);
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        JB_menuCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/business_application_addmale_useradd_insert_add_user_client_2312.png"))); // NOI18N
+        JB_menuCliente.setText("     Volver");
+        JB_menuCliente.setBorder(null);
+        JB_menuCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                JB_menuClienteActionPerformed(evt);
             }
         });
-        add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 143, 48));
+        add(JB_menuCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 143, 48));
 
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/business_application_addmale_useradd_insert_add_user_client_2312.png"))); // NOI18N
         jButton5.setText("     Guardar");
@@ -98,9 +99,11 @@ public class ClienteGestion extends javax.swing.JPanel {
         add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, -1, 30));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void JB_menuClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_menuClienteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+          Menu menu = Menu.getMenu();
+        menu.cambioPanel(new Vistas.Cliente.Cliente());
+    }//GEN-LAST:event_JB_menuClienteActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
@@ -125,12 +128,12 @@ public class ClienteGestion extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton JB_menuCliente;
     private javax.swing.JTextField JT_Apellido;
     private javax.swing.JTextField JT_domicilio;
     private javax.swing.JTextField JT_identificacion_numero;
     private javax.swing.JTextField JT_nombre1;
     private javax.swing.JTextField JT_telefono;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel16;
