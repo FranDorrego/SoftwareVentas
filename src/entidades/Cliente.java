@@ -2,7 +2,7 @@ package entidades;
 
 public class Cliente {
 
-    private int id_cliente;
+    private int id_cliente = 0; //para saber si el cliente está agregado o no
     private String nombre;
     private String apellido;
     private String Domicilio;

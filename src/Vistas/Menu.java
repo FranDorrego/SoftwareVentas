@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package Vistas;
 
 import Vistas.Cliente.Cliente;
@@ -11,27 +7,23 @@ import Vistas.Producto.Producto;
 import Vistas.Ventas.VentaFecha;
 import java.awt.BorderLayout;
 
-/**
- *
- * @author franco
- */
 public class Menu extends javax.swing.JFrame {
-    
-    public static Menu MENU ;
-    
+
+    public static Menu MENU;
+
     private Menu() {
         initComponents();
         cambioLabel(INICIO);
     }
-    
-    public static Menu getMenu(){
-        if (MENU == null){
+
+    public static Menu getMenu() {
+        if (MENU == null) {
             MENU = new Menu();
             MENU.setVisible(false);
         }
         return MENU;
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -172,8 +164,8 @@ public class Menu extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-       dispose();
-       System.exit(0);
+        dispose();
+        System.exit(0);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -248,9 +240,9 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JPanel menu;
     // End of variables declaration//GEN-END:variables
-    
+
     public void cambioPanel(javax.swing.JPanel panel) {
-        
+
         panel.setVisible(true);
         panel.setSize(820, 530);
         panel.setLocation(0, 0);

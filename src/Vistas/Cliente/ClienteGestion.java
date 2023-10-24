@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package Vistas.Cliente;
 
 import Vistas.Menu;
@@ -9,15 +5,24 @@ import clasesData.ClienteData;
 import javax.swing.JOptionPane;
 import entidades.Cliente;
 
-/**
- *
- * @author franco
- */
 public class ClienteGestion extends javax.swing.JPanel {
+
     ClienteData clienteData = new ClienteData();
-    
+    Cliente cliente;
+
     public ClienteGestion() {
         initComponents();
+        cliente = new Cliente();
+    }
+
+    public ClienteGestion(Cliente cliente) {
+        initComponents();
+        this.cliente = cliente;
+        JT_nombre1.setText(cliente.getNombre());
+        JT_Apellido.setText(cliente.getApellido());
+        JT_domicilio.setText(cliente.getDomicilio());
+        JT_telefono.setText(cliente.getTelefono());
+        JT_identificacion_numero.setText(cliente.getNumero_identificacion());
     }
 
     @SuppressWarnings("unchecked")
@@ -101,19 +106,13 @@ public class ClienteGestion extends javax.swing.JPanel {
 
     private void JB_menuClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_menuClienteActionPerformed
         // TODO add your handling code here:
-          Menu menu = Menu.getMenu();
+        Menu menu = Menu.getMenu();
         menu.cambioPanel(new Vistas.Cliente.Cliente());
     }//GEN-LAST:event_JB_menuClienteActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-        
-        if (JT_identificacion_numero.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "El numero de identificacion no puede estar vacio");
-            return;
-        }
-        
-        entidades.Cliente cliente = new Cliente();
+        //Botón guardar
+
         cliente.setNombre(JT_nombre1.getText());
         cliente.setApellido(JT_Apellido.getText());
         cliente.setDomicilio(JT_domicilio.getText());
@@ -121,9 +120,18 @@ public class ClienteGestion extends javax.swing.JPanel {
         cliente.setNumero_identificacion(JT_identificacion_numero.getText());
         cliente.setEs_empleado(false);
         cliente.setEstado(true);
-     
-        clienteData.agregarCliente(cliente);
 
+        if (JT_identificacion_numero.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "El numero de identificacion no puede estar vacio");
+            return;
+        }
+        if (cliente.getID_cliente() == 0) {
+            clienteData.agregarCliente(cliente);
+            limpiarTF();
+        } else {
+            clienteData.modificar(cliente);
+            limpiarTF();
+        }
     }//GEN-LAST:event_jButton5ActionPerformed
 
 
@@ -142,4 +150,14 @@ public class ClienteGestion extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel23;
     // End of variables declaration//GEN-END:variables
+
+  private void limpiarTF (){
+      JT_Apellido.setText("");
+      JT_domicilio.setText("");
+      JT_identificacion_numero.setText("");
+      JT_nombre1.setText("");
+      JT_telefono.setText("");
+  }
+
+
 }

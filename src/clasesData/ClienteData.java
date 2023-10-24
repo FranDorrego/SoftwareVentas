@@ -20,8 +20,8 @@ public class ClienteData {
 
     public void agregarCliente(Cliente cliente) {
 
-        String sql = "INSERT INTO `cliente`(`Apellido`, `Nombre`, `Domicilio`, `Telefono`, `Numero_Identificacion`, `Es_Empleado`)"
-                + "VALUES (?,?,?,?,?, 1 )";
+        String sql = "INSERT INTO `cliente`(`Apellido`, `Nombre`, `Domicilio`, `Telefono`, `Numero_Identificacion`, `Es_Empleado`, Estado)"
+                + "VALUES (?,?,?,?,?, 0,1 )";
 
         try {
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
