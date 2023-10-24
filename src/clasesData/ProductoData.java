@@ -272,4 +272,35 @@ public class ProductoData {
          
         return rubroLista;
     }
+    
+     public Producto buscarPorID(int id){
+        
+        String sql = "SELECT * FROM `producto` WHERE ID_Producto = ?";
+        Producto producto = new Producto();
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+
+            ResultSet Resultado = ps.executeQuery();
+            
+            if(Resultado.next()){
+                producto.setid_producto(Resultado.getInt("ID_Producto"));
+                producto.setNombre(Resultado.getString("Nombre"));
+                producto.setDescripcion(Resultado.getString("Descripcion"));
+                producto.setPrecio_actual(Resultado.getDouble("Precio_Actual"));
+                producto.setStock(Resultado.getInt("Stock"));
+                producto.setEstado(Resultado.getBoolean("Estado"));
+                producto.setStock_seguridad(Resultado.getInt("Stock_Seguridad"));
+                producto.setid_rubro(Resultado.getInt("ID_Rubro"));
+                producto.setid_cliente(Resultado.getInt("ID_Cliente"));
+            }
+          
+            ps.close();
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla producto" + ex.getMessage());
+        }
+         
+        return producto;
+    }
 }

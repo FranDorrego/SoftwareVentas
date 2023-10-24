@@ -192,7 +192,7 @@ public class Cliente extends javax.swing.JPanel {
         tablaModeloClientes.addColumn("ID");
         tablaModeloClientes.addColumn("Nombre");
         tablaModeloClientes.addColumn("Apellido");
-        tablaModeloClientes.addColumn("Dirrecion");
+        tablaModeloClientes.addColumn("Domicilio");
 
         JT_tablaClientes.setModel(tablaModeloClientes);
     }
