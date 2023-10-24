@@ -41,12 +41,12 @@ public class Cliente extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         JT_buscarXNombre = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
-        JL_Buscar = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         JT_tablaClientes = new javax.swing.JTable();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setMinimumSize(new java.awt.Dimension(820, 530));
         setPreferredSize(new java.awt.Dimension(810, 530));
@@ -75,11 +75,6 @@ public class Cliente extends javax.swing.JPanel {
         jLabel18.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel18.setText("NOMBRE:");
         jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 70, 30));
-
-        JL_Buscar.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        JL_Buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/xmag_search_find_export_locate_5984.png"))); // NOI18N
-        JL_Buscar.setText("BUSCAR");
-        jPanel1.add(JL_Buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 70, -1, -1));
 
         JT_tablaClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -130,6 +125,10 @@ public class Cliente extends javax.swing.JPanel {
             }
         });
         jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 60, 143, 48));
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/xmag_search_find_export_locate_5984.png"))); // NOI18N
+        jButton1.setText("Buscar");
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 70, 110, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -208,9 +207,9 @@ public class Cliente extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel JL_Buscar;
     private javax.swing.JTextField JT_buscarXNombre;
     private javax.swing.JTable JT_tablaClientes;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
