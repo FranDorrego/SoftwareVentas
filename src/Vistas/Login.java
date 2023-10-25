@@ -3,15 +3,18 @@ package Vistas;
 import clasesData.ClienteData;
 import entidades.Cliente;
 import javax.swing.JOptionPane;
+import org.mariadb.jdbc.client.Client;
 
 public class Login extends javax.swing.JFrame {
 
     ClienteData clienteData = new ClienteData();
+    static Cliente empleadoLogin; //bueno hasta acá llegué, tendríamos que ver la forma de obtener este cliente en el menú
 //____________________________________________________________    
 
     public Login() {
         initComponents();
         cargarCombo();
+        empleadoLogin = new Cliente();
     }
     //en las propiedades del jFrame, desactivé "resizeable" para que el usuario no pueda cambiar de tamaño la ventana
     //y activé "locationByPlatform" para que se inice en la posición por defecto del sistema de ventana del sist. operativo (preferiría que se inice en el centro)
@@ -51,7 +54,7 @@ public class Login extends javax.swing.JFrame {
         JL_iniciarS.setForeground(new java.awt.Color(51, 51, 51));
         JL_iniciarS.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JL_iniciarS.setText("INICIAR SESIÓN");
-        panel_base.add(JL_iniciarS, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 140, 280, 30));
+        panel_base.add(JL_iniciarS, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 140, 280, 30));
 
         JL_usuario.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         JL_usuario.setForeground(new java.awt.Color(51, 51, 51));
@@ -59,11 +62,6 @@ public class Login extends javax.swing.JFrame {
         panel_base.add(JL_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 220, -1, -1));
 
         comboBox_cliente.setBorder(null);
-        comboBox_cliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboBox_clienteActionPerformed(evt);
-            }
-        });
         panel_base.add(comboBox_cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 240, 300, -1));
 
         SEP_1.setForeground(new java.awt.Color(204, 204, 204));
@@ -122,31 +120,38 @@ public class Login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 //____________________________________________________________ 
-
-    private void comboBox_clienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBox_clienteActionPerformed
-        //cuanto elije un usuario, se borre el texto predefinido en la contraseña o si es administrador, que se complete automaticamente
-    }//GEN-LAST:event_comboBox_clienteActionPerformed
+    
+    public static Cliente getCliente(){
+        return empleadoLogin;
+    }
 
     private void JL_entrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JL_entrarMouseClicked
         //botón entrar
+
         if (passField_clave.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "VERIFIQUE QUE LOS DATOS ESTEN CARGADOS CORRECTAMENTE.");
+            JOptionPane.showMessageDialog(null, "Ingrese la contraseña");
             return;
         }
 
         // Guardo los datos seguro
         String contra = String.valueOf(passField_clave.getPassword());
-        Cliente clienteSelecionado = (Cliente)comboBox_cliente.getSelectedItem();
-        
-        // Pregunto si los datos son correctos
-        if (clienteData.login(clienteSelecionado.getID_cliente(), contra)) {
-            this.dispose();
-            javax.swing.JFrame menu = Menu.getMenu();
-            menu.setVisible(true);
-        } else {
-            JOptionPane.showMessageDialog(null, "INGRESE LOS DATOS NUEVAMENTE.");
-        }
+        Cliente clienteSelecionado = (Cliente) comboBox_cliente.getSelectedItem();
 
+        // Pregunto si los datos son correctos
+        try {
+            if (clienteData.login(clienteSelecionado.getID_cliente(), contra)) {
+                guardarEmpleadoLogin(); //llamo al método para guardar el empleado que se logueó
+                this.dispose();
+                javax.swing.JFrame menu = Menu.getMenu();
+                menu.setVisible(true);
+            } else {
+                JOptionPane.showMessageDialog(null, "Contraseña incorrecta");
+                passField_clave.setText("");
+            }
+        } catch (NullPointerException e) {
+            JOptionPane.showMessageDialog(null, "Seleccione un empleado");
+            passField_clave.setText("");
+        }
     }//GEN-LAST:event_JL_entrarMouseClicked
 //____________________________________________________________ 
 
@@ -200,8 +205,6 @@ public class Login extends javax.swing.JFrame {
 //____________________________________________________________ 
 
     private void cargarCombo() {
-        
-        
         for (Cliente cliente : clienteData.listarTodo()) {
             comboBox_cliente.setSelectedIndex(-1);
             if (cliente.isEs_empleado() == true && cliente.isEstado() == true) {
@@ -209,5 +212,19 @@ public class Login extends javax.swing.JFrame {
             }
         }
     }
-
+    
+    private void guardarEmpleadoLogin(){
+       //Para guardar el empleado que se loguea
+       Cliente clienteSelecionado = (Cliente) comboBox_cliente.getSelectedItem();
+       clienteData.buscarPorID(clienteSelecionado.getID_cliente());
+       empleadoLogin.setID_cliente(clienteSelecionado.getID_cliente());
+       empleadoLogin.setNombre(clienteSelecionado.getNombre());
+       empleadoLogin.setApellido(clienteSelecionado.getApellido());
+       empleadoLogin.setDomicilio(clienteSelecionado.getDomicilio());
+       empleadoLogin.setTelefono(clienteSelecionado.getTelefono());
+       empleadoLogin.setNumero_identificacion(clienteSelecionado.getNumero_identificacion());
+       empleadoLogin.setEs_empleado(true);
+       empleadoLogin.setClave(clienteSelecionado.getClave());
+       empleadoLogin.setEstado(true);
+    }
 }

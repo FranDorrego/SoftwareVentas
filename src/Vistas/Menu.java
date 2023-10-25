@@ -10,7 +10,7 @@ import java.awt.BorderLayout;
 public class Menu extends javax.swing.JFrame {
 
     public static Menu MENU;
-
+    
     private Menu() {
         initComponents();
         cambioLabel(INICIO);
@@ -23,6 +23,7 @@ public class Menu extends javax.swing.JFrame {
         }
         return MENU;
     }
+//____________________________________________________________ 
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -38,6 +39,7 @@ public class Menu extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        JL_empelado = new javax.swing.JLabel();
         contenedor = new javax.swing.JPanel();
         INICIO = new javax.swing.JLabel();
 
@@ -47,25 +49,24 @@ public class Menu extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        menu.setBackground(new java.awt.Color(112, 155, 255));
+        menu.setBackground(new java.awt.Color(81, 183, 206));
         menu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/3135715.png"))); // NOI18N
-        menu.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 6, -1, -1));
+        menu.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 130, 130));
 
         jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
         menu.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 254, 12));
 
         jLabel8.setFont(new java.awt.Font("Roboto Black", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("PERFIL");
-        menu.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, 120, 30));
+        jLabel8.setText("Bienvenido");
+        menu.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 50, 90, 30));
 
-        jButton2.setBackground(new java.awt.Color(120, 110, 255));
+        jButton2.setBackground(new java.awt.Color(81, 183, 206));
         jButton2.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/house_home_13944.png"))); // NOI18N
-        jButton2.setText("      INICIO");
+        jButton2.setText(" INICIO");
         jButton2.setBorder(null);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -74,11 +75,10 @@ public class Menu extends javax.swing.JFrame {
         });
         menu.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 260, 42));
 
-        jButton3.setBackground(new java.awt.Color(120, 110, 255));
+        jButton3.setBackground(new java.awt.Color(81, 183, 206));
         jButton3.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/maleuser_customer_person_usuari_9884.png"))); // NOI18N
-        jButton3.setText("      CLIENTE");
+        jButton3.setText("CLIENTE");
         jButton3.setBorder(null);
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,11 +87,10 @@ public class Menu extends javax.swing.JFrame {
         });
         menu.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 260, 42));
 
-        jButton4.setBackground(new java.awt.Color(120, 110, 255));
+        jButton4.setBackground(new java.awt.Color(81, 183, 206));
         jButton4.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/user_person_13936.png"))); // NOI18N
-        jButton4.setText("      EMPLEADOS");
+        jButton4.setText("EMPLEADOS");
         jButton4.setBorder(null);
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -100,11 +99,10 @@ public class Menu extends javax.swing.JFrame {
         });
         menu.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 260, 42));
 
-        jButton5.setBackground(new java.awt.Color(120, 110, 255));
+        jButton5.setBackground(new java.awt.Color(81, 183, 206));
         jButton5.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/sales_bag_shopping_bargain_retail_icon-icons.com_55340.png"))); // NOI18N
-        jButton5.setText("      VENTAS");
+        jButton5.setText("VENTAS");
         jButton5.setBorder(null);
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -113,11 +111,10 @@ public class Menu extends javax.swing.JFrame {
         });
         menu.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, 260, 42));
 
-        jButton6.setBackground(new java.awt.Color(120, 110, 255));
+        jButton6.setBackground(new java.awt.Color(81, 183, 206));
         jButton6.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         jButton6.setForeground(new java.awt.Color(255, 255, 255));
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/washing_machine_home_appliances_laundry_icon_229865.png"))); // NOI18N
-        jButton6.setText("      PRODUCTOS");
+        jButton6.setText("PRODUCTOS");
         jButton6.setBorder(null);
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -126,11 +123,11 @@ public class Menu extends javax.swing.JFrame {
         });
         menu.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 400, 260, 42));
 
-        jButton1.setBackground(new java.awt.Color(120, 110, 255));
+        jButton1.setBackground(new java.awt.Color(81, 183, 206));
         jButton1.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/sign-emergency-code-sos_63_icon-icons.com_57219.png"))); // NOI18N
-        jButton1.setText("      SALIR");
+        jButton1.setText("  SALIR");
         jButton1.setBorder(null);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -138,19 +135,25 @@ public class Menu extends javax.swing.JFrame {
             }
         });
         menu.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 490, 260, 30));
+        menu.add(JL_empelado, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, 100, 20));
 
         getContentPane().add(menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 260, 530));
+
+        contenedor.setPreferredSize(new java.awt.Dimension(820, 530));
 
         INICIO.setBackground(new java.awt.Color(0, 255, 255));
         INICIO.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         INICIO.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo_montañas.jpg"))); // NOI18N
         INICIO.setText("FOTO INICIO");
+        INICIO.setPreferredSize(new java.awt.Dimension(820, 530));
 
         javax.swing.GroupLayout contenedorLayout = new javax.swing.GroupLayout(contenedor);
         contenedor.setLayout(contenedorLayout);
         contenedorLayout.setHorizontalGroup(
             contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(INICIO, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(contenedorLayout.createSequentialGroup()
+                .addComponent(INICIO, javax.swing.GroupLayout.PREFERRED_SIZE, 825, Short.MAX_VALUE)
+                .addContainerGap())
         );
         contenedorLayout.setVerticalGroup(
             contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,37 +164,38 @@ public class Menu extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+//____________________________________________________________ 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        //BOTÓN SALIR
         dispose();
         System.exit(0);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        //BOTÓN INCIO
         cambioLabel(INICIO);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:       
+        //BOTÓN CLIENTE
         cambioPanel(new Cliente());
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+        //BOTÓN EMPLEADO
         cambioPanel(new Empleado());
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
+        //BOTÓN VENTA
         cambioPanel(new VentaFecha());
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
+        //BOTÓN PRODUCTOS
         cambioPanel(new Producto());
     }//GEN-LAST:event_jButton6ActionPerformed
+//____________________________________________________________ 
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -225,9 +229,10 @@ public class Menu extends javax.swing.JFrame {
             }
         });
     }
-
+//____________________________________________________________ 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel INICIO;
+    private javax.swing.JLabel JL_empelado;
     private javax.swing.JPanel contenedor;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -240,7 +245,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JPanel menu;
     // End of variables declaration//GEN-END:variables
-
+//____________________________________________________________ 
     public void cambioPanel(javax.swing.JPanel panel) {
 
         panel.setVisible(true);
