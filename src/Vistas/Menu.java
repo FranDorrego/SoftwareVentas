@@ -53,7 +53,7 @@ public class Menu extends javax.swing.JFrame {
         menu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/3135715.png"))); // NOI18N
-        menu.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 130, 130));
+        menu.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 140, 130));
 
         jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
         menu.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 254, 12));
