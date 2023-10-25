@@ -10,7 +10,7 @@ import java.awt.BorderLayout;
 public class Menu extends javax.swing.JFrame {
 
     public static Menu MENU;
-    
+
     private Menu() {
         initComponents();
         cambioLabel(INICIO);
@@ -33,13 +33,13 @@ public class Menu extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel8 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        JB_botonProductos = new javax.swing.JButton();
+        JB_botonSalir = new javax.swing.JButton();
         JL_saludoEmpleado = new javax.swing.JLabel();
+        JB_botonInicio = new javax.swing.JButton();
+        JB_botonClientes1 = new javax.swing.JButton();
+        JB_botonEmpleados1 = new javax.swing.JButton();
+        JB_botonVentas1 = new javax.swing.JButton();
         contenedor = new javax.swing.JPanel();
         INICIO = new javax.swing.JLabel();
 
@@ -63,94 +63,99 @@ public class Menu extends javax.swing.JFrame {
         jLabel8.setText("Bienvenido");
         menu.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, 90, 30));
 
-        jButton2.setBackground(new java.awt.Color(81, 183, 206));
-        jButton2.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/house_home_13944.png"))); // NOI18N
-        jButton2.setText("INICIO");
-        jButton2.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
-        jButton2.setBorderPainted(false);
-        jButton2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jButton2.setIconTextGap(10);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        JB_botonProductos.setBackground(new java.awt.Color(81, 183, 206));
+        JB_botonProductos.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        JB_botonProductos.setForeground(new java.awt.Color(255, 255, 255));
+        JB_botonProductos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/washing_machine_home_appliances_laundry_icon_229865.png"))); // NOI18N
+        JB_botonProductos.setText("PRODUCTOS");
+        JB_botonProductos.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
+        JB_botonProductos.setBorderPainted(false);
+        JB_botonProductos.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        JB_botonProductos.setIconTextGap(10);
+        JB_botonProductos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                JB_botonProductosActionPerformed(evt);
             }
         });
-        menu.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 260, 42));
+        menu.add(JB_botonProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 400, 260, 42));
 
-        jButton3.setBackground(new java.awt.Color(81, 183, 206));
-        jButton3.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/maleuser_customer_person_usuari_9884.png"))); // NOI18N
-        jButton3.setText("CLIENTE");
-        jButton3.setBorder(null);
-        jButton3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jButton3.setIconTextGap(10);
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        JB_botonSalir.setBackground(new java.awt.Color(81, 183, 206));
+        JB_botonSalir.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        JB_botonSalir.setForeground(new java.awt.Color(255, 255, 255));
+        JB_botonSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagenesBYN/SalirBYN.png"))); // NOI18N
+        JB_botonSalir.setText("  SALIR");
+        JB_botonSalir.setBorder(null);
+        JB_botonSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                JB_botonSalirActionPerformed(evt);
             }
         });
-        menu.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 260, 42));
-
-        jButton4.setBackground(new java.awt.Color(81, 183, 206));
-        jButton4.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/user_person_13936.png"))); // NOI18N
-        jButton4.setText("EMPLEADOS");
-        jButton4.setBorder(null);
-        jButton4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-        menu.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 260, 42));
-
-        jButton5.setBackground(new java.awt.Color(81, 183, 206));
-        jButton5.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/sales_bag_shopping_bargain_retail_icon-icons.com_55340.png"))); // NOI18N
-        jButton5.setText("VENTAS");
-        jButton5.setBorder(null);
-        jButton5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jButton5.setIconTextGap(10);
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
-        menu.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, 260, 42));
-
-        jButton6.setBackground(new java.awt.Color(81, 183, 206));
-        jButton6.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(255, 255, 255));
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/washing_machine_home_appliances_laundry_icon_229865.png"))); // NOI18N
-        jButton6.setText("PRODUCTOS");
-        jButton6.setBorder(null);
-        jButton6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jButton6.setIconTextGap(10);
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
-        menu.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 400, 260, 42));
-
-        jButton1.setBackground(new java.awt.Color(81, 183, 206));
-        jButton1.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagenesBYN/SalirBYN.png"))); // NOI18N
-        jButton1.setText("  SALIR");
-        jButton1.setBorder(null);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        menu.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 480, 260, 40));
+        menu.add(JB_botonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 480, 260, 40));
         menu.add(JL_saludoEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 140, 30));
+
+        JB_botonInicio.setBackground(new java.awt.Color(81, 183, 206));
+        JB_botonInicio.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        JB_botonInicio.setForeground(new java.awt.Color(255, 255, 255));
+        JB_botonInicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/house_home_13944.png"))); // NOI18N
+        JB_botonInicio.setText("INICIO");
+        JB_botonInicio.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
+        JB_botonInicio.setBorderPainted(false);
+        JB_botonInicio.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        JB_botonInicio.setIconTextGap(10);
+        JB_botonInicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JB_botonInicioActionPerformed(evt);
+            }
+        });
+        menu.add(JB_botonInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 260, 42));
+
+        JB_botonClientes1.setBackground(new java.awt.Color(81, 183, 206));
+        JB_botonClientes1.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        JB_botonClientes1.setForeground(new java.awt.Color(255, 255, 255));
+        JB_botonClientes1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/maleuser_customer_person_usuari_9884.png"))); // NOI18N
+        JB_botonClientes1.setText("CLIENTES");
+        JB_botonClientes1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
+        JB_botonClientes1.setBorderPainted(false);
+        JB_botonClientes1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        JB_botonClientes1.setIconTextGap(10);
+        JB_botonClientes1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JB_botonClientes1ActionPerformed(evt);
+            }
+        });
+        menu.add(JB_botonClientes1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 260, 42));
+
+        JB_botonEmpleados1.setBackground(new java.awt.Color(81, 183, 206));
+        JB_botonEmpleados1.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        JB_botonEmpleados1.setForeground(new java.awt.Color(255, 255, 255));
+        JB_botonEmpleados1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/user_person_13936.png"))); // NOI18N
+        JB_botonEmpleados1.setText("EMPLEADOS");
+        JB_botonEmpleados1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
+        JB_botonEmpleados1.setBorderPainted(false);
+        JB_botonEmpleados1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        JB_botonEmpleados1.setIconTextGap(10);
+        JB_botonEmpleados1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JB_botonEmpleados1ActionPerformed(evt);
+            }
+        });
+        menu.add(JB_botonEmpleados1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 260, 42));
+
+        JB_botonVentas1.setBackground(new java.awt.Color(81, 183, 206));
+        JB_botonVentas1.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        JB_botonVentas1.setForeground(new java.awt.Color(255, 255, 255));
+        JB_botonVentas1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/sales_bag_shopping_bargain_retail_icon-icons.com_55340.png"))); // NOI18N
+        JB_botonVentas1.setText("VENTAS");
+        JB_botonVentas1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
+        JB_botonVentas1.setBorderPainted(false);
+        JB_botonVentas1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        JB_botonVentas1.setIconTextGap(10);
+        JB_botonVentas1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JB_botonVentas1ActionPerformed(evt);
+            }
+        });
+        menu.add(JB_botonVentas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, 260, 42));
 
         getContentPane().add(menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 260, 530));
 
@@ -180,36 +185,36 @@ public class Menu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 //____________________________________________________________ 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void JB_botonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_botonSalirActionPerformed
         //BOTÓN SALIR
         dispose();
         System.exit(0);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_JB_botonSalirActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        //BOTÓN CLIENTE
-        cambioPanel(new Cliente());
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        //BOTÓN EMPLEADO
-        cambioPanel(new Empleado());
-    }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        //BOTÓN VENTA
-        cambioPanel(new VentaFecha());
-    }//GEN-LAST:event_jButton5ActionPerformed
-
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void JB_botonProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_botonProductosActionPerformed
         //BOTÓN PRODUCTOS
         cambioPanel(new Producto());
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_JB_botonProductosActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void JB_botonInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_botonInicioActionPerformed
         //BOTÓN INICIO
+         cambioLabel(INICIO);
+    }//GEN-LAST:event_JB_botonInicioActionPerformed
+
+    private void JB_botonClientes1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_botonClientes1ActionPerformed
+       //BOTÓN CLIENTE
         cambioPanel(new Cliente());
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_JB_botonClientes1ActionPerformed
+
+    private void JB_botonEmpleados1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_botonEmpleados1ActionPerformed
+        //BOTÓN EMPLEADO
+        cambioPanel(new Empleado());
+    }//GEN-LAST:event_JB_botonEmpleados1ActionPerformed
+
+    private void JB_botonVentas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_botonVentas1ActionPerformed
+        //BOTÓN VENTA
+        cambioPanel(new VentaFecha());
+    }//GEN-LAST:event_JB_botonVentas1ActionPerformed
 //____________________________________________________________ 
 
     public static void main(String args[]) {
@@ -247,14 +252,14 @@ public class Menu extends javax.swing.JFrame {
 //____________________________________________________________ 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel INICIO;
+    private javax.swing.JButton JB_botonClientes1;
+    private javax.swing.JButton JB_botonEmpleados1;
+    private javax.swing.JButton JB_botonInicio;
+    private javax.swing.JButton JB_botonProductos;
+    private javax.swing.JButton JB_botonSalir;
+    private javax.swing.JButton JB_botonVentas1;
     private javax.swing.JLabel JL_saludoEmpleado;
     private javax.swing.JPanel contenedor;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JSeparator jSeparator1;
