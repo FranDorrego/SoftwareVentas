@@ -2,30 +2,35 @@ package Vistas.Producto;
 
 import Vistas.Empleado.*;
 import Vistas.Cliente.*;
+import Vistas.Login;
 import Vistas.Menu;
 import clasesData.ClienteData;
+import clasesData.ProductoData;
 import javax.swing.JOptionPane;
 import entidades.Cliente;
+import entidades.Rubro;
 
 public class ProductoGestion extends javax.swing.JPanel {
 
-    ClienteData empleadoData = new ClienteData();
-    Cliente empleado;
+    ProductoData productoData = new ProductoData();
+    entidades.Producto producto;
 
     public ProductoGestion() {
         initComponents();
-        empleado = new Cliente();
+        producto = new entidades.Producto();
+        cargarCombo();
     }
 
-    public ProductoGestion(Cliente empleado) {
+    public ProductoGestion(entidades.Producto producto) {
         initComponents();
-        this.empleado = empleado;
-        JT_nombre1.setText(empleado.getNombre());
-        JT_Apellido.setText(empleado.getApellido());
-        JT_domicilio.setText(empleado.getDomicilio());
-        JT_telefono.setText(empleado.getTelefono());
-        TF_numeroIdentificacion.setText(empleado.getNumero_identificacion());
-        JT_clave.setText(empleado.getClave());
+        this.producto = producto;
+        TF_nombreProducto.setText(producto.getNombre());
+        TF_Descripcion.setText(producto.getDescripcion());
+        TF_PrecioActual.setText(String.valueOf(producto.getPrecio_actual()));
+        TF_Stock.setText(String.valueOf(producto.getStock()));
+        TF_StockS.setText(String.valueOf(producto.getStock_seguridad()));
+        CB_Estado.setSelected(producto.isEstado());
+        cargarCombo2(producto.getid_rubro());
     }
 
     @SuppressWarnings("unchecked")
@@ -35,18 +40,20 @@ public class ProductoGestion extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
-        JT_Apellido = new javax.swing.JTextField();
+        TF_Descripcion = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
-        JT_domicilio = new javax.swing.JTextField();
+        TF_PrecioActual = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
-        JT_telefono = new javax.swing.JTextField();
-        JT_nombre1 = new javax.swing.JTextField();
-        JB_menuCliente = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        TF_numeroIdentificacion = new javax.swing.JTextField();
+        TF_Stock = new javax.swing.JTextField();
+        TF_nombreProducto = new javax.swing.JTextField();
+        JB_volver = new javax.swing.JButton();
+        JB_guardar = new javax.swing.JButton();
+        TF_StockS = new javax.swing.JTextField();
         jLabel23 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        JT_clave = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        CB_Rubro = new javax.swing.JComboBox<>();
+        CB_Estado = new javax.swing.JCheckBox();
 
         setBackground(new java.awt.Color(225, 251, 250));
         setMinimumSize(new java.awt.Dimension(820, 530));
@@ -54,118 +61,131 @@ public class ProductoGestion extends javax.swing.JPanel {
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(352, 231, -1, -1));
 
         jLabel16.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        jLabel16.setText("NOMBRE:");
+        jLabel16.setText("Nombre:");
         add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, -1, 30));
 
         jLabel19.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        jLabel19.setText("APELLIDO:");
+        jLabel19.setText("Descripción");
         add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, -1, 30));
 
-        JT_Apellido.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        add(JT_Apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 170, 320, -1));
+        TF_Descripcion.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        add(TF_Descripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 170, 320, -1));
 
         jLabel20.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        jLabel20.setText("DOMICILIO:");
+        jLabel20.setText("Precio actual:");
         add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, -1, 30));
 
-        JT_domicilio.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        add(JT_domicilio, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 210, 320, -1));
+        TF_PrecioActual.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        add(TF_PrecioActual, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 210, 320, -1));
 
         jLabel21.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        jLabel21.setText("TELEFONO:");
+        jLabel21.setText("Stock:");
         add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, -1, 30));
 
-        JT_telefono.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        add(JT_telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 250, 320, -1));
+        TF_Stock.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        add(TF_Stock, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 250, 320, -1));
 
-        JT_nombre1.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        add(JT_nombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 130, 320, 30));
+        TF_nombreProducto.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        add(TF_nombreProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 130, 320, 30));
 
-        JB_menuCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/business_application_addmale_useradd_insert_add_user_client_2312.png"))); // NOI18N
-        JB_menuCliente.setText("     Volver");
-        JB_menuCliente.setBorder(null);
-        JB_menuCliente.addActionListener(new java.awt.event.ActionListener() {
+        JB_volver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/business_application_addmale_useradd_insert_add_user_client_2312.png"))); // NOI18N
+        JB_volver.setText("     Volver");
+        JB_volver.setBorder(null);
+        JB_volver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JB_menuClienteActionPerformed(evt);
+                JB_volverActionPerformed(evt);
             }
         });
-        add(JB_menuCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 143, 48));
+        add(JB_volver, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 143, 48));
 
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/business_application_addmale_useradd_insert_add_user_client_2312.png"))); // NOI18N
-        jButton5.setText("     Guardar");
-        jButton5.setBorder(null);
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        JB_guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/business_application_addmale_useradd_insert_add_user_client_2312.png"))); // NOI18N
+        JB_guardar.setText("     Guardar");
+        JB_guardar.setBorder(null);
+        JB_guardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                JB_guardarActionPerformed(evt);
             }
         });
-        add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 400, 143, 48));
+        add(JB_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 440, 143, 48));
 
-        TF_numeroIdentificacion.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        add(TF_numeroIdentificacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 290, 320, -1));
+        TF_StockS.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        add(TF_StockS, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 290, 320, -1));
 
         jLabel23.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        jLabel23.setText("Numero de Identificacion:");
-        add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, -1, 30));
+        jLabel23.setText("Stock seguridad:");
+        add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 290, -1, 30));
 
         jLabel2.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        jLabel2.setText("contraseña:");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 330, -1, -1));
+        jLabel2.setText("Estado:");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 340, -1, -1));
 
-        JT_clave.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        JT_clave.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JT_claveActionPerformed(evt);
-            }
-        });
-        add(JT_clave, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 330, 320, -1));
+        jLabel3.setText("Rubro");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 380, -1, -1));
+
+        add(CB_Rubro, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 370, 320, -1));
+        add(CB_Estado, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 330, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void JB_menuClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_menuClienteActionPerformed
+    private void JB_volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_volverActionPerformed
         // TODO add your handling code here:
         Menu menu = Menu.getMenu();
-        menu.cambioPanel(new Vistas.Empleado.Empleado());
-    }//GEN-LAST:event_JB_menuClienteActionPerformed
+        menu.cambioPanel(new Vistas.Producto.Producto());
+    }//GEN-LAST:event_JB_volverActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void JB_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_guardarActionPerformed
         //Botón guardar
+        Double precioActual;
+        int stock;
+        int stockS;
 
-        empleado.setNombre(JT_nombre1.getText());
-        empleado.setApellido(JT_Apellido.getText());
-        empleado.setDomicilio(JT_domicilio.getText());
-        empleado.setTelefono(JT_telefono.getText());
-        empleado.setNumero_identificacion(TF_numeroIdentificacion.getText());
-        empleado.setEs_empleado(true);
-        empleado.setEstado(true);
-        empleado.setClave(JT_clave.getText());
-        
-        if (JT_clave.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "El numero de identificacion no puede estar vacio");
+        try {
+            precioActual = Double.parseDouble(TF_PrecioActual.getText());
+            stock = Integer.parseInt(TF_Stock.getText());
+            stockS = Integer.parseInt(TF_StockS.getText());
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "El precio actual, el stock y el stock de seguridad no pueden ser letras\no no pueden estar vacíos");
             return;
         }
-        if (empleado.getID_cliente()== 0) {
-            empleadoData.agregarEmpleado(empleado);
-            limpiarTF();
-        } else {
-            empleadoData.modificar(empleado);
-            limpiarTF();
-        }
-    }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void JT_claveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JT_claveActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JT_claveActionPerformed
+        if (TF_nombreProducto.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "El nombre del producto no puede estar vacio");
+            return;
+        }
+        
+        if(stock <= 0 || stockS <= 0 || precioActual <= 0){
+            JOptionPane.showMessageDialog(null, "El stock el stock de seguridad y el precio no pueden ser menor a 0");
+            return;
+        }
+
+        producto.setNombre(TF_nombreProducto.getText());
+        producto.setDescripcion(TF_Descripcion.getText());
+        producto.setPrecio_actual(precioActual);
+        producto.setStock(stock);
+        producto.setStock_seguridad(stockS);
+        producto.setEstado(CB_Estado.isSelected());
+        Rubro idRubro = (Rubro) CB_Rubro.getSelectedItem();
+        producto.setid_rubro(idRubro.getid_rubro());
+        producto.setid_cliente(Login.getCliente().getID_cliente());
+        
+        if(producto.getid_producto() == 0){
+            productoData.agregarProducto(producto);
+        }else{
+            productoData.modificarProducto(producto);
+        }
+        limpiarTF();
+    }//GEN-LAST:event_JB_guardarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton JB_menuCliente;
-    private javax.swing.JTextField JT_Apellido;
-    private javax.swing.JTextField JT_clave;
-    private javax.swing.JTextField JT_domicilio;
-    private javax.swing.JTextField JT_nombre1;
-    private javax.swing.JTextField JT_telefono;
-    private javax.swing.JTextField TF_numeroIdentificacion;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JCheckBox CB_Estado;
+    private javax.swing.JComboBox<Rubro> CB_Rubro;
+    private javax.swing.JButton JB_guardar;
+    private javax.swing.JButton JB_volver;
+    private javax.swing.JTextField TF_Descripcion;
+    private javax.swing.JTextField TF_PrecioActual;
+    private javax.swing.JTextField TF_Stock;
+    private javax.swing.JTextField TF_StockS;
+    private javax.swing.JTextField TF_nombreProducto;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel19;
@@ -173,17 +193,33 @@ public class ProductoGestion extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
 
-  private void limpiarTF (){
-      JT_Apellido.setText("");
-      JT_domicilio.setText("");
-      TF_numeroIdentificacion.setText("");
-      JT_nombre1.setText("");
-      JT_telefono.setText("");
-      TF_numeroIdentificacion.setText("");
-      JT_clave.setText("");
-  }
+    private void limpiarTF() {
+        TF_nombreProducto.setText("");
+        TF_Descripcion.setText("");
+        TF_PrecioActual.setText("");
+        TF_Stock.setText("");
+        TF_StockS.setText("");
+        CB_Estado.setSelected(true);
+        CB_Rubro.setSelectedIndex(-1);
+    }
 
+    private void cargarCombo() {
+        for (Rubro rubro : productoData.listarRubros()) {
+            CB_Rubro.addItem(rubro);
+        }
+        CB_Rubro.setSelectedIndex(-1);
+    }
+
+    private void cargarCombo2(int idrubro) {
+        for (Rubro rubro : productoData.listarRubros()) {
+            CB_Rubro.addItem(rubro);
+            if (rubro.getid_rubro() == idrubro) {
+                CB_Rubro.setSelectedItem(rubro);
+            }
+        }
+    }
 
 }

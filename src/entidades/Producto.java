@@ -1,6 +1,6 @@
 package entidades;
 public class Producto {
-    private int id_producto;
+    private int id_producto = 0; //para saber si el cliente está agregado o no
     private String nombre;
     private String descripcion;
     private double precio_actual;

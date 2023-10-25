@@ -108,7 +108,7 @@ public class ProductoData {
   
     public List<Producto> listarTodos(){
         
-        String sql = "SELECT * FROM `producto`";
+        String sql = "SELECT * FROM `producto` WHERE Estado = 1";
         List<Producto> productoLista = new ArrayList();  
         
         try {
@@ -142,7 +142,7 @@ public class ProductoData {
     
     public List<Producto> listarPorNombre( String Nombre ){
         
-        String sql = "SELECT * FROM `producto` WHERE Nombre LIKE '" + Nombre + "%' or Descripcion LIKE '%" + Nombre + "%'";
+        String sql = "SELECT * FROM `producto` WHERE Nombre LIKE '" + Nombre + "%' or Descripcion LIKE '%" + Nombre + "%' and Estado = 1";
         List<Producto> productoLista = new ArrayList();  
         
         try {
@@ -178,7 +178,7 @@ public class ProductoData {
     
     public List<Producto> listarPorRubro( Rubro rubro ){
         
-        String sql = "SELECT * FROM `producto` WHERE ID_Rubro = ?";
+        String sql = "SELECT * FROM `producto` WHERE ID_Rubro = ? and Estado = 1";
         List<Producto> productoLista = new ArrayList();  
         
         try {
@@ -213,7 +213,7 @@ public class ProductoData {
     
     public List<Producto> listarPorRubroYNombre( Rubro rubro, String nombre ){
         
-        String sql = "SELECT * FROM `producto` WHERE ID_Rubro = ? and Nombre LIKE '%" + nombre + "%' ";
+        String sql = "SELECT * FROM `producto` WHERE ID_Rubro = ? and Nombre LIKE '%" + nombre + "%' and Estado = 1";
         List<Producto> productoLista = new ArrayList();  
         
         try {
@@ -275,7 +275,7 @@ public class ProductoData {
     
      public Producto buscarPorID(int id){
         
-        String sql = "SELECT * FROM `producto` WHERE ID_Producto = ?";
+        String sql = "SELECT * FROM `producto` WHERE ID_Producto = ? and Estado = 1";
         Producto producto = new Producto();
         try {
             PreparedStatement ps = con.prepareStatement(sql);

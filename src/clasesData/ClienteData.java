@@ -163,7 +163,7 @@ public class ClienteData {
 
     public List<Cliente> buscarPorNombre(String nombre) {
 
-        String sql = "SELECT * FROM cliente WHERE Apellido LIKE '" + nombre + "%' or Nombre LIKE '%" + nombre + "%'";
+        String sql = "SELECT * FROM cliente WHERE Apellido LIKE '" + nombre + "%' or Nombre LIKE '%" + nombre + "%' and Estado = 1";
         List<Cliente> clienteLista = new ArrayList();
 
         try {
@@ -196,7 +196,7 @@ public class ClienteData {
 
     public Cliente buscarPorID(int id) {
 
-        String sql = "SELECT* FROM cliente WHERE ID_Cliente = ?";
+        String sql = "SELECT* FROM cliente WHERE ID_Cliente = ? and Estado = 1";
         Cliente cliente = new Cliente();
 
         try {
@@ -229,7 +229,7 @@ public class ClienteData {
 
     public Cliente buscarPorNumeroIdentificacion(String id) {
 
-        String sql = "SELECT* FROM cliente WHERE Numero_Identificacion = ?";
+        String sql = "SELECT* FROM cliente WHERE Numero_Identificacion = ? and Estado = 1";
         Cliente cliente = new Cliente();
 
         try {

@@ -37,7 +37,7 @@ public class Producto extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         JT_tablaProductos = new javax.swing.JTable();
         JB_ModificarCliente = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        JB_botonAgregarProducto = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         CB_listaRubros = new javax.swing.JComboBox<>();
@@ -85,15 +85,15 @@ public class Producto extends javax.swing.JPanel {
         });
         jPanel1.add(JB_ModificarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 60, 143, 48));
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/business_application_addmale_useradd_insert_add_user_client_2312.png"))); // NOI18N
-        jButton3.setText("     Agregar");
-        jButton3.setBorder(null);
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        JB_botonAgregarProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/business_application_addmale_useradd_insert_add_user_client_2312.png"))); // NOI18N
+        JB_botonAgregarProducto.setText("     Agregar");
+        JB_botonAgregarProducto.setBorder(null);
+        JB_botonAgregarProducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                JB_botonAgregarProductoActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 143, 48));
+        jPanel1.add(JB_botonAgregarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 143, 48));
 
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/business_application_addmale_useradd_insert_add_user_client_2312.png"))); // NOI18N
         jButton4.setText("     Eliminar");
@@ -127,19 +127,17 @@ public class Producto extends javax.swing.JPanel {
         // Buscamos por letras y/o rubros:
         borrarFilas();
 
-        if (JT_buscarXNombre.getText().equals("") || JT_buscarXNombre.getText().equals(" ")) {
+        if (JT_buscarXNombre.getText().equals("") || JT_buscarXNombre.getText().equals(" ")) {  //String resultado = cadena.trim(); a revisar
             cargaTodosProductos();
             return;
         }
-
-        Rubro rubroSeleccionado = (Rubro) CB_listaRubros.getSelectedItem();
-
-        if (rubroSeleccionado.getNombre_rubro().equals("Todo")) {
-            for (entidades.Producto producto : productoData.listarPorNombre(JT_buscarXNombre.getText())) {
+        if (CB_listaRubros.getSelectedIndex() != -1) {
+            Rubro rubroSeleccionado = (Rubro) CB_listaRubros.getSelectedItem();
+            for (entidades.Producto producto : productoData.listarPorRubroYNombre(rubroSeleccionado, JT_buscarXNombre.getText())) {
                 agregaProductosTabla(producto);
             }
         } else {
-            for (entidades.Producto producto : productoData.listarPorRubroYNombre(rubroSeleccionado, JT_buscarXNombre.getText())) {
+            for (entidades.Producto producto : productoData.listarPorNombre(JT_buscarXNombre.getText())) {
                 agregaProductosTabla(producto);
             }
         }
@@ -154,7 +152,7 @@ public class Producto extends javax.swing.JPanel {
             Menu menu = Menu.getMenu();
 
             entidades.Producto productoSeleccionado = productoData.buscarPorID((int) JT_tablaProductos.getValueAt(filaSelecionada, 0));
-//            menu.cambioPanel(new ProductoGestion(productoSeleccionado));
+            menu.cambioPanel(new ProductoGestion(productoSeleccionado));
 
         } else {
             JOptionPane.showMessageDialog(null, "Seleccione un Producto");
@@ -162,12 +160,12 @@ public class Producto extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_JB_ModificarClienteActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void JB_botonAgregarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_botonAgregarProductoActionPerformed
         // TODO add your handling code here:
         setVisible(false);
         Menu menu = Menu.getMenu();
         menu.cambioPanel(new ProductoGestion());
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_JB_botonAgregarProductoActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // Eliminamos un producto
@@ -196,9 +194,9 @@ public class Producto extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<Rubro> CB_listaRubros;
     private javax.swing.JButton JB_ModificarCliente;
+    private javax.swing.JButton JB_botonAgregarProducto;
     private javax.swing.JTextField JT_buscarXNombre;
     private javax.swing.JTable JT_tablaProductos;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel18;
@@ -221,7 +219,7 @@ public class Producto extends javax.swing.JPanel {
             producto.getid_producto(),
             producto.getNombre(),
             producto.getPrecio_actual(),
-            producto.getStock()
+            producto.getStock()    
         });
     }
 
@@ -248,5 +246,6 @@ public class Producto extends javax.swing.JPanel {
         for (Rubro rubro : productoData.listarRubros()) {
             CB_listaRubros.addItem(rubro);
         }
+        CB_listaRubros.setSelectedIndex(-1);
     }
 }
