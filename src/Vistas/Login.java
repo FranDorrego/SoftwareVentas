@@ -73,7 +73,9 @@ public class Login extends javax.swing.JFrame {
         panel_base.add(JL_contrasenia, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 310, -1, -1));
 
         passField_clave.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        passField_clave.setForeground(new java.awt.Color(102, 102, 102));
         passField_clave.setBorder(null);
+        passField_clave.setCaretColor(new java.awt.Color(225, 251, 250));
         panel_base.add(passField_clave, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 340, 300, -1));
 
         SEP_2.setForeground(new java.awt.Color(204, 204, 204));
