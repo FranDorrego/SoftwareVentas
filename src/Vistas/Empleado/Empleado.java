@@ -38,10 +38,11 @@ public class Empleado extends javax.swing.JPanel {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
 
+        setForeground(new java.awt.Color(192, 248, 247));
         setMinimumSize(new java.awt.Dimension(820, 530));
         setPreferredSize(new java.awt.Dimension(810, 530));
 
-        jPanel1.setBackground(new java.awt.Color(153, 204, 255));
+        jPanel1.setBackground(new java.awt.Color(225, 251, 250));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         JT_buscarXNombre.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N

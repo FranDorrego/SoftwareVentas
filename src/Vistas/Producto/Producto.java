@@ -45,7 +45,7 @@ public class Producto extends javax.swing.JPanel {
         setMinimumSize(new java.awt.Dimension(820, 530));
         setPreferredSize(new java.awt.Dimension(810, 530));
 
-        jPanel1.setBackground(new java.awt.Color(153, 204, 255));
+        jPanel1.setBackground(new java.awt.Color(225, 251, 250));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         JT_buscarXNombre.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N

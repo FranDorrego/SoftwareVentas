@@ -47,7 +47,7 @@ public class EmpleadoGestion extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         JT_clave = new javax.swing.JTextField();
 
-        setBackground(new java.awt.Color(153, 204, 255));
+        setBackground(new java.awt.Color(225, 251, 250));
         setMinimumSize(new java.awt.Dimension(820, 530));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(352, 231, -1, -1));
