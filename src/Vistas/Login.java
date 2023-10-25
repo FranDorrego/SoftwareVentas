@@ -88,7 +88,7 @@ public class Login extends javax.swing.JFrame {
         JL_entrar.setForeground(new java.awt.Color(102, 102, 102));
         JL_entrar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JL_entrar.setText("ENTRAR");
-        JL_entrar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        JL_entrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         JL_entrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 JL_entrarMouseClicked(evt);
