@@ -113,7 +113,7 @@ public class Cliente {
 
     @Override
     public String toString() {
-        return "ID_cliente:" + id_cliente + " | apellido:" + apellido + " | nombre:" + nombre + " | Domicilio:" + Domicilio + " | telefono:" + telefono + " | numero_identificacion:" + numero_identificacion + " | es_empleado:" + es_empleado + " | estado:" + estado;
+        return "" + apellido +" "+ nombre + " " + numero_identificacion;
     }
 
 }

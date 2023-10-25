@@ -1,6 +1,7 @@
 
 package main;
 
+import Vistas.Login;
 import clasesData.ClienteData;
 import clasesData.Conexion;
 import clasesData.ProductoData;
@@ -19,6 +20,10 @@ import java.util.List;
 public class SoftwareVentas {
 
     public static void main(String[] args) {
+        
+        // Creamos esto para que sea simple testear la vista
+        Login login = new Login();
+        login.setVisible(true);
         
         // Cliente DATA -------------------------------------------------
         
