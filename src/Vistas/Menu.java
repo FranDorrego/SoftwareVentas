@@ -39,7 +39,7 @@ public class Menu extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        JL_empelado = new javax.swing.JLabel();
+        JL_saludoEmpleado = new javax.swing.JLabel();
         contenedor = new javax.swing.JPanel();
         INICIO = new javax.swing.JLabel();
 
@@ -52,22 +52,23 @@ public class Menu extends javax.swing.JFrame {
         menu.setBackground(new java.awt.Color(81, 183, 206));
         menu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/3135715.png"))); // NOI18N
-        menu.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 140, 130));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/perfilNuevo2.png"))); // NOI18N
+        menu.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 90, -1));
 
         jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
-        menu.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 254, 12));
+        menu.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 260, 12));
 
         jLabel8.setFont(new java.awt.Font("Roboto Black", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Bienvenido");
-        menu.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 50, 90, 30));
+        menu.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, 90, 30));
 
         jButton2.setBackground(new java.awt.Color(81, 183, 206));
         jButton2.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText(" INICIO");
+        jButton2.setText("INICIO");
         jButton2.setBorder(null);
+        jButton2.setBorderPainted(false);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -135,7 +136,7 @@ public class Menu extends javax.swing.JFrame {
             }
         });
         menu.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 490, 260, 30));
-        menu.add(JL_empelado, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, 100, 20));
+        menu.add(JL_saludoEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 140, 30));
 
         getContentPane().add(menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 260, 530));
 
@@ -232,7 +233,7 @@ public class Menu extends javax.swing.JFrame {
 //____________________________________________________________ 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel INICIO;
-    private javax.swing.JLabel JL_empelado;
+    private javax.swing.JLabel JL_saludoEmpleado;
     private javax.swing.JPanel contenedor;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
