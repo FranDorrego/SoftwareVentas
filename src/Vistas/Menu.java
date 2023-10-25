@@ -10,10 +10,12 @@ import java.awt.BorderLayout;
 public class Menu extends javax.swing.JFrame {
 
     public static Menu MENU;
+    entidades.Cliente clienteLogin = Login.getCliente();
 
     private Menu() {
         initComponents();
         cambioLabel(INICIO);
+        JL_saludoEmpleado.setText(clienteLogin.getNombre());
     }
 
     public static Menu getMenu() {
@@ -61,7 +63,7 @@ public class Menu extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Roboto Black", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Bienvenido");
-        menu.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, 90, 30));
+        menu.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, 90, 30));
 
         JB_botonProductos.setBackground(new java.awt.Color(81, 183, 206));
         JB_botonProductos.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
@@ -91,7 +93,13 @@ public class Menu extends javax.swing.JFrame {
             }
         });
         menu.add(JB_botonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 480, 260, 40));
-        menu.add(JL_saludoEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 140, 30));
+
+        JL_saludoEmpleado.setBackground(new java.awt.Color(255, 255, 255));
+        JL_saludoEmpleado.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        JL_saludoEmpleado.setForeground(new java.awt.Color(255, 255, 255));
+        JL_saludoEmpleado.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JL_saludoEmpleado.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        menu.add(JL_saludoEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 130, 30));
 
         JB_botonInicio.setBackground(new java.awt.Color(81, 183, 206));
         JB_botonInicio.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
