@@ -2,19 +2,25 @@ package Vistas.Ventas;
 
 import Vistas.Menu;
 import clasesData.VentaData;
+import entidades.Producto;
+import entidades.Venta;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 public class VentaFecha extends javax.swing.JPanel {
-    
+
     VentaData ventaData = new VentaData();
-    
+    DefaultTableModel modeloTablaProductos = new DefaultTableModel();
+    DefaultTableModel modeloTablaVentas = new DefaultTableModel();
+
     public VentaFecha() {
         initComponents();
-        
+        tablaModelo(modeloTablaProductos);
     }
 
     @SuppressWarnings("unchecked")
@@ -29,7 +35,7 @@ public class VentaFecha extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         JB_buscar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        JT_tabla = new javax.swing.JTable();
         JC_FechaInicio = new com.toedter.calendar.JDateChooser();
         JC_FechaFinal = new com.toedter.calendar.JDateChooser();
         jLabel3 = new javax.swing.JLabel();
@@ -80,7 +86,7 @@ public class VentaFecha extends javax.swing.JPanel {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        JT_tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -91,7 +97,9 @@ public class VentaFecha extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(JT_tabla);
+
+        JC_FechaInicio.setMaxSelectableDate(new java.util.Date(253370779286000L));
 
         jLabel3.setText("FILTRA POR");
 
@@ -160,6 +168,7 @@ public class VentaFecha extends javax.swing.JPanel {
     private void JR_productosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JR_productosActionPerformed
         // Boton Producto
         JR_ventas.setSelected(false);
+        tablaModelo(modeloTablaProductos);
     }//GEN-LAST:event_JR_productosActionPerformed
 
     private void JB_productosVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_productosVentaActionPerformed
@@ -179,36 +188,43 @@ public class VentaFecha extends javax.swing.JPanel {
     private void JR_ventasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JR_ventasActionPerformed
         // Boton Ventas
         JR_productos.setSelected(false);
+        tablaModelo(modeloTablaVentas);
     }//GEN-LAST:event_JR_ventasActionPerformed
 
     private void JB_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_buscarActionPerformed
         // Boton Buscar
-        
+
         // Comprueba que las fecha de inicio esta llena
-        if (JC_FechaInicio.getDate() == null){
+        if (JC_FechaInicio.getDate() == null) {
             JOptionPane.showMessageDialog(null, "Seleccione una fecha de inicio");
             return;
         }
-        
+
         // y la fecha final no  -> final = Fecha actual
-        if (JC_FechaFinal.getDate() == null){
-            JC_FechaFinal.setDate(Date.from(LocalDate.now().atStartOfDay(ZoneId.systemDefault()).toInstant()));
+        if (JC_FechaFinal.getDate() == null) {
+            Calendar calendar = Calendar.getInstance();
+            calendar.set(Calendar.HOUR_OF_DAY, 23);    // Establecer la hora a las 23 (11 PM)
+            calendar.set(Calendar.MINUTE, 59);         // Establecer los minutos a 59 (11:59 PM)
+            Date fechaConHoraActual = calendar.getTime();
+            JC_FechaFinal.setDate(fechaConHoraActual);
         }
-            
+
         // Comprueba que la fehca de final no es mayor la de inicio
-        if (JC_FechaInicio.getDate().compareTo(JC_FechaFinal.getDate()) > 0){
+        if (JC_FechaInicio.getDate().compareTo(JC_FechaFinal.getDate()) > 0) {
             JOptionPane.showMessageDialog(null, "Seleccione una fecha de inicio anterior a la fecha final");
             return;
         }
-        
-        if (JR_productos.isSelected()){
+
+        if (JR_productos.isSelected()) {
             List listado = ventaData.listarProductosPorFecha(JC_FechaInicio.getDate(), JC_FechaFinal.getDate());
-        }else{
+            agregarProductosTabla(listado);
+        } else {
             List listado = ventaData.listarVentasPorFecha(JC_FechaInicio.getDate(), JC_FechaFinal.getDate());
+            agregarVentasTabla(listado);
         }
         // Producto -> Busca produto
         // Venta -> Busca venta
- 
+
         // Muestra en tabla
     }//GEN-LAST:event_JB_buscarActionPerformed
 
@@ -221,10 +237,56 @@ public class VentaFecha extends javax.swing.JPanel {
     private com.toedter.calendar.JDateChooser JC_FechaInicio;
     private javax.swing.JRadioButton JR_productos;
     private javax.swing.JRadioButton JR_ventas;
+    private javax.swing.JTable JT_tabla;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
+
+    private void tablaModelo(DefaultTableModel tablaModelo) {
+        if (tablaModelo == modeloTablaProductos) {
+            tablaModelo.addColumn("ID");
+            tablaModelo.addColumn("Nombre");
+            tablaModelo.addColumn("Descripción");
+            tablaModelo.addColumn("Precio actual");
+            tablaModelo.addColumn("Stock");
+            tablaModelo.addColumn("Stock seguridad");
+
+            JT_tabla.setModel(tablaModelo);
+        } else {
+            tablaModelo.addColumn("Id venta");
+            tablaModelo.addColumn("Id cliente");
+            tablaModelo.addColumn("Id empleado");
+            tablaModelo.addColumn("Fecha");
+
+            JT_tabla.setModel(tablaModelo);
+        }
+    }
+
+    private void agregarProductosTabla(List<Producto> listaProductos) {
+
+        for (Producto listaProducto : listaProductos) {
+            modeloTablaProductos.addRow(new Object[]{
+                listaProducto.getid_producto(),
+                listaProducto.getNombre(),
+                listaProducto.getDescripcion(),
+                listaProducto.getPrecio_actual(),
+                listaProducto.getStock(),
+                listaProducto.getStock_seguridad()
+            });
+        }
+    }
+
+    private void agregarVentasTabla(List<Venta> listaVenta) {
+
+        for (Venta listaVentas : listaVenta) {
+            modeloTablaVentas.addRow(new Object[]{
+                listaVentas.getid_venta(),
+                listaVentas.getId_cliente(),
+                listaVentas.getId_empleado(),
+                listaVentas.getFecha_venta(),});
+        }
+    }
+
 }
