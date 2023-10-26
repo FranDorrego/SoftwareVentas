@@ -20,7 +20,8 @@ import javax.swing.JOptionPane;
 public class VentaData {
 
     private Connection con = null;
-
+    public ProductoData productoData = new ProductoData();
+    
     public VentaData() {
         con = Conexion.getConexion();
     }
@@ -67,12 +68,13 @@ public class VentaData {
                 ps.setInt(2, detalle.getid_venta());
                 ps.setDouble(3, detalle.getPrecio_venta());
                 ps.setDouble(4, detalle.getid_producto());
-
+                    
                 ps.executeUpdate();
                 ResultSet Resultado = ps.getGeneratedKeys();
-
+                
                 if (Resultado.next()) {
                     detalle.setid_detalle_venta(Resultado.getInt(1));
+                    productoData.modificarStockProducto(detalle.getid_producto(), detalle.getCantidad());
                 } else {
                     JOptionPane.showMessageDialog(null, "No se cargo la venta");
                 }

@@ -84,6 +84,30 @@ public class ProductoData {
         }
     }
     
+    public void modificarStockProducto( int idProducto, int cantidad ){
+        
+        String sql = "UPDATE `producto` SET `Stock`=  Stock - ? " +
+                    " WHERE `ID_Producto`= ? ";
+
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, cantidad);
+            ps.setInt(2, idProducto);
+           
+            int Resultado = ps.executeUpdate();
+            
+            if (Resultado != 1) {
+                JOptionPane.showMessageDialog(null, "No se Modifico el Producto, intenta nuevamente");
+            }
+            
+            ps.close();
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Productos" + ex.getMessage());
+        }
+    }
+    
+    
     public void eliminarProducto( int id ){
         
         String sql = "UPDATE `producto` SET `Estado` = 0" +
