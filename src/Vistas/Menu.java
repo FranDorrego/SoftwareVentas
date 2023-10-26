@@ -60,10 +60,10 @@ public class Menu extends javax.swing.JFrame {
         jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
         menu.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 260, 12));
 
-        jLabel8.setFont(new java.awt.Font("Roboto Black", 1, 14)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Roboto Black", 1, 16)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Bienvenido");
-        menu.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, 90, 30));
+        menu.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, 90, 30));
 
         JB_botonProductos.setBackground(new java.awt.Color(81, 183, 206));
         JB_botonProductos.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
@@ -72,6 +72,7 @@ public class Menu extends javax.swing.JFrame {
         JB_botonProductos.setText("PRODUCTOS");
         JB_botonProductos.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
         JB_botonProductos.setBorderPainted(false);
+        JB_botonProductos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         JB_botonProductos.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         JB_botonProductos.setIconTextGap(14);
         JB_botonProductos.addActionListener(new java.awt.event.ActionListener() {
@@ -87,6 +88,7 @@ public class Menu extends javax.swing.JFrame {
         JB_botonSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/sign-emergency-code-sos_63_icon-icons.com_57219.png"))); // NOI18N
         JB_botonSalir.setText("  SALIR");
         JB_botonSalir.setBorder(null);
+        JB_botonSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         JB_botonSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JB_botonSalirActionPerformed(evt);
@@ -95,7 +97,7 @@ public class Menu extends javax.swing.JFrame {
         menu.add(JB_botonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 480, 260, 40));
 
         JL_saludoEmpleado.setBackground(new java.awt.Color(255, 255, 255));
-        JL_saludoEmpleado.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        JL_saludoEmpleado.setFont(new java.awt.Font("Roboto Black", 1, 16)); // NOI18N
         JL_saludoEmpleado.setForeground(new java.awt.Color(255, 255, 255));
         JL_saludoEmpleado.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JL_saludoEmpleado.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -108,6 +110,7 @@ public class Menu extends javax.swing.JFrame {
         JB_botonInicio.setText("INICIO");
         JB_botonInicio.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
         JB_botonInicio.setBorderPainted(false);
+        JB_botonInicio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         JB_botonInicio.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         JB_botonInicio.setIconTextGap(14);
         JB_botonInicio.addActionListener(new java.awt.event.ActionListener() {
@@ -124,6 +127,7 @@ public class Menu extends javax.swing.JFrame {
         JB_botonClientes1.setText("CLIENTES");
         JB_botonClientes1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
         JB_botonClientes1.setBorderPainted(false);
+        JB_botonClientes1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         JB_botonClientes1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         JB_botonClientes1.setIconTextGap(14);
         JB_botonClientes1.addActionListener(new java.awt.event.ActionListener() {
@@ -140,6 +144,7 @@ public class Menu extends javax.swing.JFrame {
         JB_botonEmpleados1.setText("EMPLEADOS");
         JB_botonEmpleados1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
         JB_botonEmpleados1.setBorderPainted(false);
+        JB_botonEmpleados1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         JB_botonEmpleados1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         JB_botonEmpleados1.setIconTextGap(14);
         JB_botonEmpleados1.setInheritsPopupMenu(true);
@@ -157,6 +162,7 @@ public class Menu extends javax.swing.JFrame {
         JB_botonVentas1.setText("VENTAS");
         JB_botonVentas1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
         JB_botonVentas1.setBorderPainted(false);
+        JB_botonVentas1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         JB_botonVentas1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         JB_botonVentas1.setIconTextGap(14);
         JB_botonVentas1.addActionListener(new java.awt.event.ActionListener() {
@@ -207,7 +213,8 @@ public class Menu extends javax.swing.JFrame {
 
     private void JB_botonInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_botonInicioActionPerformed
         //BOTÓN INICIO
-         cambioLabel(INICIO);
+//         cambioLabel(INICIO);
+         cambioPanel(new GestorVentas());
     }//GEN-LAST:event_JB_botonInicioActionPerformed
 
     private void JB_botonClientes1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_botonClientes1ActionPerformed
