@@ -2,14 +2,19 @@ package Vistas;
 
 import clasesData.ClienteData;
 import clasesData.ProductoData;
+import clasesData.VentaData;
 import entidades.Rubro;
 import javax.swing.table.DefaultTableModel;
 import entidades.Cliente;
+import entidades.DetalleVenta;
+import entidades.Venta;
 import javax.swing.JOptionPane;
 
 public class GestorVentas extends javax.swing.JPanel {
 
     ClienteData clienteData = new ClienteData();
+    VentaData ventaData = new VentaData();
+
     private final ProductoData productoData = new ProductoData();
 
     private final DefaultTableModel tablaModeloProductos = new DefaultTableModel() { //para la primer tabla(productos)
@@ -43,7 +48,6 @@ public class GestorVentas extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         JT_tablaProductos = new javax.swing.JTable();
         CJ_Clientes = new javax.swing.JComboBox<>();
-        JLabel = new javax.swing.JLabel();
         Jlabel = new javax.swing.JLabel();
         JB_agregarVenta = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -91,18 +95,18 @@ public class GestorVentas extends javax.swing.JPanel {
 
         add(CJ_Clientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, 300, -1));
 
-        JLabel.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        JLabel.setForeground(new java.awt.Color(102, 102, 102));
-        JLabel.setText("Total:");
-        add(JLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 480, -1, 39));
-
         Jlabel.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         Jlabel.setForeground(new java.awt.Color(102, 102, 102));
         Jlabel.setText("Total compra: $");
-        add(Jlabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 490, 100, -1));
+        add(Jlabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 490, 100, -1));
 
         JB_agregarVenta.setText("Agregar Venta");
         JB_agregarVenta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JB_agregarVenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JB_agregarVentaActionPerformed(evt);
+            }
+        });
         add(JB_agregarVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(613, 475, 198, 39));
 
         JT_tablaVenta.setModel(new javax.swing.table.DefaultTableModel(
@@ -177,7 +181,7 @@ public class GestorVentas extends javax.swing.JPanel {
             }
         });
         add(JB_quitarElemento, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 230, 140, 30));
-        add(JL_totalCompra, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 490, 230, 20));
+        add(JL_totalCompra, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 490, 230, 20));
     }// </editor-fold>//GEN-END:initComponents
 //___________________________________________________________
     private void JT_NombDescripProductoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JT_NombDescripProductoKeyReleased
@@ -197,12 +201,14 @@ public class GestorVentas extends javax.swing.JPanel {
         if (JT_tablaProductos.getSelectedRow() != -1) {
             //obtengo el id del producto seleccionado de la tabla 
             int idProductoSeleccionado = (int) JT_tablaProductos.getValueAt(JT_tablaProductos.getSelectedRow(), 0);
-            if (!comprobarYSumarProducto(idProductoSeleccionado, tablaModeloVenta, JT_tablaVenta)) {
+            if (!comprobarYSumarProducto(idProductoSeleccionado)) {
                 //obtengo el producto mediante el id de arriba y lo guardo en una variable producto
                 entidades.Producto productoSeleccionado = productoData.buscarPorID(idProductoSeleccionado);
                 // Lo agrega a la tabla
                 agregaProductosTablaVentas(tablaModeloVenta, productoSeleccionado);
             }
+
+            sumaTotal();
         } else {
             JOptionPane.showMessageDialog(null, "Debe seleccionar un producto de la tabla productos");
         }
@@ -212,11 +218,13 @@ public class GestorVentas extends javax.swing.JPanel {
         //BOTÓN QUITAR ELEMENTO
         if (JT_tablaVenta.getSelectedRow() != -1) {
 
-            //int idProductoSeleccionado = (int) JT_tablaVenta.getValueAt(JT_tablaVenta.getSelectedRow(), 0);
-            //entidades.Producto productoSeleccionado = productoData.buscarPorID(idProductoSeleccionado);
-            //actualizarStockProducto(productoSeleccionado, 2);
-            //obtengo el id del producto seleccionado de la tabla
-            tablaModeloVenta.removeRow(JT_tablaVenta.getSelectedRow());
+            int idProductoSeleccionado = (int) JT_tablaVenta.getValueAt(JT_tablaVenta.getSelectedRow(), 0);
+
+            if (!comprobarYRestarProducto(idProductoSeleccionado)) {
+                tablaModeloVenta.removeRow(JT_tablaVenta.getSelectedRow());
+            }
+
+            sumaTotal();
         } else {
             JOptionPane.showMessageDialog(null, "Debe seleccionar un producto de la tabla venta");
         }
@@ -230,6 +238,25 @@ public class GestorVentas extends javax.swing.JPanel {
         JT_tablaProductos.clearSelection(); //para deseleccionar elementos de la primer tabla al seleccionar
     }//GEN-LAST:event_JT_tablaVentaMouseReleased
 
+    private void JB_agregarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_agregarVentaActionPerformed
+        // TODO add your handling code here:
+
+        // Creamos la venta
+        Cliente cliente = (Cliente) CJ_Clientes.getSelectedItem();
+        Venta venta = new Venta(cliente.getID_cliente(), Login.getCliente().getID_cliente());
+        
+        // Pasamos detalles a ventas
+        cargarDetalleVenta(venta);
+        
+        // Subimos la venta a la base y se modifica el stock
+        ventaData.crearVenta(venta);
+
+        // Borramos las dos tablas
+        borrarFilasTablaYModelo(JT_tablaVenta, tablaModeloVenta);
+        cargaTodosProductos(tablaModeloProductos);
+        sumaTotal();
+    }//GEN-LAST:event_JB_agregarVentaActionPerformed
+
 //___________________________________________________________
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<Rubro> CB_listaRubros;
@@ -238,7 +265,6 @@ public class GestorVentas extends javax.swing.JPanel {
     private javax.swing.JButton JB_agregarVenta;
     private javax.swing.JButton JB_quitarElemento;
     private javax.swing.JLabel JL_totalCompra;
-    private javax.swing.JLabel JLabel;
     private javax.swing.JTextField JT_NombDescripProducto;
     private javax.swing.JTable JT_tablaProductos;
     private javax.swing.JTable JT_tablaVenta;
@@ -292,6 +318,14 @@ public class GestorVentas extends javax.swing.JPanel {
         int filas = JT_tablaProductos.getRowCount() - 1;
         for (; filas >= 0; filas--) {
             tablaModeloProductos.removeRow(filas);
+        }
+    }
+    
+    private void borrarFilasTablaYModelo(javax.swing.JTable tabla, DefaultTableModel Modelo) {
+        // Borra todas las filas de las columnas
+        int filas = tabla.getRowCount() - 1;
+        for (; filas >= 0; filas--) {
+            Modelo.removeRow(filas);
         }
     }
 
@@ -386,23 +420,81 @@ public class GestorVentas extends javax.swing.JPanel {
         }
     }
 
-    //para agregar o quitar stock segunda tabla
-    private boolean comprobarYSumarProducto(int id, DefaultTableModel modeloTabla, javax.swing.JTable tabla, int cantidad) {
-        if (cantidad > 0) {
-          
+    //para agregar stock segunda tabla
+    private boolean comprobarYSumarProducto(int id) {
+
+        // Recorremos la tabla Ventas
+        for (int i = 0; i < tablaModeloVenta.getRowCount(); i++) {
+
+            // Buscamos el ID
+            if (id == (int) JT_tablaVenta.getValueAt(i, 0)) {
+
+                // Sumamos a cantidad
+                int valorCantidad = (int) JT_tablaVenta.getValueAt(i, 5) + 1;
+
+                // Si no supera el Stok, lo suma, si no avisa
+                if (valorCantidad <= (int) tablaModeloVenta.getValueAt(i, 3)) {
+                    tablaModeloVenta.setValueAt(valorCantidad, i, 5);
+                } else {
+                    JOptionPane.showMessageDialog(null, "No hay suficiente stock");
+                }
+
+                return true;
+            }
         }
-         for (int i = 0; i < modeloTabla.getRowCount(); i++) {
-                if (id == (int) tabla.getValueAt(i, 0)) {
-                    int valorCantidad = (int) tabla.getValueAt(i, 5) + cantidad;
-                    if (valorCantidad <= (int) modeloTabla.getValueAt(i, 3)) {
-                        modeloTabla.setValueAt(valorCantidad, i, 5);
-                    } else {
-                        JOptionPane.showMessageDialog(null, "No hay suficiente stock");
-                    }
+        return false;
+    }
+
+    //para quitar stock segunda tabla
+    private boolean comprobarYRestarProducto(int id) {
+
+        // Recorremos la tabla Ventas
+        for (int i = 0; i < tablaModeloVenta.getRowCount(); i++) {
+
+            // Buscamos el ID
+            if (id == (int) JT_tablaVenta.getValueAt(i, 0)) {
+
+                // Sumamos a cantidad
+                int valorCantidad = (int) JT_tablaVenta.getValueAt(i, 5) - 1;
+
+                // Si no supera el Stok, lo suma, si no avisa
+                if (valorCantidad > 0) {
+                    tablaModeloVenta.setValueAt(valorCantidad, i, 5);
                     return true;
                 }
             }
-            return false;
+        }
+        return false;
     }
 
+    private void sumaTotal() {
+
+        double valorTotal = 0;
+
+        // Recorremos la tabla Ventas
+        for (int i = 0; i < tablaModeloVenta.getRowCount(); i++) {
+
+            double precio = (double) JT_tablaVenta.getValueAt(i, 4);
+            int cantidad = (int) JT_tablaVenta.getValueAt(i, 5);
+
+            valorTotal += precio * cantidad;
+        }
+
+        JL_totalCompra.setText("" + valorTotal);
+
+    }
+
+    private void cargarDetalleVenta(Venta venta) {
+        for (int i = 0; i < tablaModeloVenta.getRowCount(); i++) {
+
+            int cantidad = (int) JT_tablaVenta.getValueAt(i, 5);
+            double precio = (double) JT_tablaVenta.getValueAt(i, 4);
+            int id = (int) JT_tablaVenta.getValueAt(i, 0);
+
+            DetalleVenta detalleVenta = new DetalleVenta(cantidad, precio, id);
+
+            venta.anadirDetalleVenta(detalleVenta);
+        }
+    }
+    
 }
