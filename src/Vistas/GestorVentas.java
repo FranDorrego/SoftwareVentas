@@ -182,24 +182,27 @@ public class GestorVentas extends javax.swing.JPanel {
 //___________________________________________________________
     private void JT_NombDescripProductoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JT_NombDescripProductoKeyReleased
         //BUSCAMOS POR LETRAS Y/O RUBROS
-        actualizarTabla1(); 
+        actualizarTablaPorNombre();
     }//GEN-LAST:event_JT_NombDescripProductoKeyReleased
-        //los pasé a métodos aparte para poder utilizarlos en el codigo
-    
+    //los pasé a métodos aparte para poder utilizarlos en el codigo
+
     private void CB_listaRubrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CB_listaRubrosActionPerformed
 //        //FILTRAR PRODUCTOS POR RUBRO
-        actualizarTabla2();
+        actualizarTablaPorRubro();
     }//GEN-LAST:event_CB_listaRubrosActionPerformed
 
     private void JB_agregarElementoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_agregarElementoActionPerformed
         //BOTÓN AGREGAR ELEMENTO
+
         if (JT_tablaProductos.getSelectedRow() != -1) {
             //obtengo el id del producto seleccionado de la tabla 
             int idProductoSeleccionado = (int) JT_tablaProductos.getValueAt(JT_tablaProductos.getSelectedRow(), 0);
+
             //obtengo el producto mediante el id de arriba y lo guardo en una variable producto
             entidades.Producto productoSeleccionado = productoData.buscarPorID(idProductoSeleccionado);
-            actualizarStockProducto(productoSeleccionado, 1);
-            agregaProductosTabla(tablaModeloVenta, productoSeleccionado);
+            
+            // Lo agrega a la tabla
+            agregaProductosTablaVentas(tablaModeloVenta, productoSeleccionado);
         } else {
             JOptionPane.showMessageDialog(null, "Debe seleccionar un producto de la tabla productos");
         }
@@ -208,9 +211,10 @@ public class GestorVentas extends javax.swing.JPanel {
     private void JB_quitarElementoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_quitarElementoActionPerformed
         //BOTÓN QUITAR ELEMENTO
         if (JT_tablaVenta.getSelectedRow() != -1) {
-            int idProductoSeleccionado = (int) JT_tablaVenta.getValueAt(JT_tablaVenta.getSelectedRow(), 0);
-            entidades.Producto productoSeleccionado = productoData.buscarPorID(idProductoSeleccionado);
-            actualizarStockProducto(productoSeleccionado, 2);
+
+            //int idProductoSeleccionado = (int) JT_tablaVenta.getValueAt(JT_tablaVenta.getSelectedRow(), 0);
+            //entidades.Producto productoSeleccionado = productoData.buscarPorID(idProductoSeleccionado);
+            //actualizarStockProducto(productoSeleccionado, 2);
             //obtengo el id del producto seleccionado de la tabla
             tablaModeloVenta.removeRow(JT_tablaVenta.getSelectedRow());
         } else {
@@ -220,12 +224,10 @@ public class GestorVentas extends javax.swing.JPanel {
 
     private void JT_tablaProductosMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JT_tablaProductosMouseReleased
         JT_tablaVenta.clearSelection(); //para deseleccionar elementos de la segunda tabla al seleccionar
-        //elementos de la primera
     }//GEN-LAST:event_JT_tablaProductosMouseReleased
 
     private void JT_tablaVentaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JT_tablaVentaMouseReleased
         JT_tablaProductos.clearSelection(); //para deseleccionar elementos de la primer tabla al seleccionar
-        //elementos de la segunda tabla
     }//GEN-LAST:event_JT_tablaVentaMouseReleased
 
 //___________________________________________________________
@@ -266,12 +268,22 @@ public class GestorVentas extends javax.swing.JPanel {
     //para editar los nombres de las columnas de una tabla
     private void tablaModelo(DefaultTableModel modeloTabla, javax.swing.JTable tabla) {
         //recibe un modelo de tabla y una tabla para poder usar este método con cualquier tabla
-        modeloTabla.addColumn("ID");
-        modeloTabla.addColumn("Nombre");
-        modeloTabla.addColumn("Descripcion");
-        modeloTabla.addColumn("Stock");
-        modeloTabla.addColumn("Precio");
 
+        if (tabla == JT_tablaVenta) {
+            modeloTabla.addColumn("ID");
+            modeloTabla.addColumn("Nombre");
+            modeloTabla.addColumn("Descripcion");
+            modeloTabla.addColumn("Stock");
+            modeloTabla.addColumn("Precio");
+            modeloTabla.addColumn("Cantidad");
+        } else {
+            modeloTabla.addColumn("ID");
+            modeloTabla.addColumn("Nombre");
+            modeloTabla.addColumn("Descripcion");
+            modeloTabla.addColumn("Stock");
+            modeloTabla.addColumn("Precio");
+        }
+        
         tabla.setModel(modeloTabla);
     }
 
@@ -283,24 +295,36 @@ public class GestorVentas extends javax.swing.JPanel {
         }
     }
 
-    private void cargaTodosProductos(DefaultTableModel modeloTabla) {//recibe un modelo de tabla para pasárselo al método agregaProductosTabla
+    private void cargaTodosProductos(DefaultTableModel modeloTabla) {//recibe un modelo de tabla para pasárselo al método agregaProductosTablaVentas
         // Cargo todos los modelos si ningun filtro
         borrarFilas();
         for (entidades.Producto producto : productoData.listarTodos()) {
             if (producto.isEstado()) {
-                agregaProductosTabla(modeloTabla, producto);
+                agregaProductosTablaVentas(modeloTabla, producto);
             }
         }
     }
 
-    private void agregaProductosTabla(DefaultTableModel modeloTabla, entidades.Producto producto) {
-        modeloTabla.addRow(new Object[]{ //recibe un modelo de tabla para poder usar el método con cualquier tabla
-            producto.getid_producto(),
-            producto.getNombre(),
-            producto.getDescripcion(),
-            producto.getStock(),
-            producto.getPrecio_actual()
-        });
+    private void agregaProductosTablaVentas(DefaultTableModel modeloTabla, entidades.Producto producto) {
+
+        if (modeloTabla == tablaModeloProductos) {
+            modeloTabla.addRow(new Object[]{ //recibe un modelo de tabla para poder usar el método con cualquier tabla
+                producto.getid_producto(),
+                producto.getNombre(),
+                producto.getDescripcion(),
+                producto.getStock(),
+                producto.getPrecio_actual()
+            });
+        } else {
+            modeloTabla.addRow(new Object[]{ //recibe un modelo de tabla para poder usar el método con cualquier tabla
+                producto.getid_producto(),
+                producto.getNombre(),
+                producto.getDescripcion(),
+                producto.getStock(),
+                producto.getPrecio_actual(),
+                1,});
+        }
+
     }
 
     private void actualizarStockProducto(entidades.Producto productoSeleccionado, int num) {
@@ -313,16 +337,16 @@ public class GestorVentas extends javax.swing.JPanel {
         productoData.modificarProducto(productoSeleccionado);
         //actualizar la tabla
         if (!JT_NombDescripProducto.getText().trim().isEmpty()) {
-            actualizarTabla1();
+            actualizarTablaPorNombre();
         } else if (CB_listaRubros.getSelectedIndex() != -1) {
-            actualizarTabla2();
+            actualizarTablaPorRubro();
         } else {
             cargaTodosProductos(tablaModeloProductos);
         }
     }
 
     //actualiza la tabla de productos cuando agregamos un productos a la tabla venta
-    private void actualizarTabla1() {
+    private void actualizarTablaPorNombre() {
         //BUSCAMOS POR LETRAS Y/O RUBROS
         borrarFilas();
         //.trim para eliminar los espacios por delante y final del texto
@@ -334,16 +358,16 @@ public class GestorVentas extends javax.swing.JPanel {
         if (CB_listaRubros.getSelectedIndex() != -1) { //si hay rubro seleccionado
             Rubro rubroSeleccionado = (Rubro) CB_listaRubros.getSelectedItem(); //listamos x nombre/descripcion y rubro
             for (entidades.Producto producto : productoData.listarPorRubroYNombre(rubroSeleccionado, JT_NombDescripProducto.getText().trim())) {
-                agregaProductosTabla(tablaModeloProductos, producto);
+                agregaProductosTablaVentas(tablaModeloProductos, producto);
             }
         } else { //si no, solo por nombre/descripcion
             for (entidades.Producto producto : productoData.listarPorNombre(JT_NombDescripProducto.getText().trim())) {
-                agregaProductosTabla(tablaModeloProductos, producto);
+                agregaProductosTablaVentas(tablaModeloProductos, producto);
             }
         }
     }
 
-    private void actualizarTabla2() {
+    private void actualizarTablaPorRubro() {
         //FILTRAR PRODUCTOS POR RUBRO
         borrarFilas();
         Rubro rubroSeleccionado = (Rubro) CB_listaRubros.getSelectedItem();
@@ -351,11 +375,11 @@ public class GestorVentas extends javax.swing.JPanel {
         try {
             if (JT_NombDescripProducto.getText().trim().isEmpty()) { //si selecciono un rubro y no hay nada escrito en el tf, lista solo x rubros
                 for (entidades.Producto producto : productoData.listarPorRubro(rubroSeleccionado)) { // por alguna razon esta linea tira error y ruve que encerralo en try catch                              
-                    agregaProductosTabla(tablaModeloProductos, producto);
+                    agregaProductosTablaVentas(tablaModeloProductos, producto);
                 }
             } else { //si elijo un rubro y ya hay algo escrico en el tf
                 for (entidades.Producto producto : productoData.listarPorRubroYNombre(rubroSeleccionado, JT_NombDescripProducto.getText().trim())) {
-                    agregaProductosTabla(tablaModeloProductos, producto);
+                    agregaProductosTablaVentas(tablaModeloProductos, producto);
                 }
             }
         } catch (NullPointerException e) {
