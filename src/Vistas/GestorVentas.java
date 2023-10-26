@@ -197,12 +197,12 @@ public class GestorVentas extends javax.swing.JPanel {
         if (JT_tablaProductos.getSelectedRow() != -1) {
             //obtengo el id del producto seleccionado de la tabla 
             int idProductoSeleccionado = (int) JT_tablaProductos.getValueAt(JT_tablaProductos.getSelectedRow(), 0);
-
-            //obtengo el producto mediante el id de arriba y lo guardo en una variable producto
-            entidades.Producto productoSeleccionado = productoData.buscarPorID(idProductoSeleccionado);
-            
-            // Lo agrega a la tabla
-            agregaProductosTablaVentas(tablaModeloVenta, productoSeleccionado);
+            if (!comprobarYSumarProducto(idProductoSeleccionado, tablaModeloVenta, JT_tablaVenta)) {
+                //obtengo el producto mediante el id de arriba y lo guardo en una variable producto
+                entidades.Producto productoSeleccionado = productoData.buscarPorID(idProductoSeleccionado);
+                // Lo agrega a la tabla
+                agregaProductosTablaVentas(tablaModeloVenta, productoSeleccionado);
+            }
         } else {
             JOptionPane.showMessageDialog(null, "Debe seleccionar un producto de la tabla productos");
         }
@@ -283,7 +283,7 @@ public class GestorVentas extends javax.swing.JPanel {
             modeloTabla.addColumn("Stock");
             modeloTabla.addColumn("Precio");
         }
-        
+
         tabla.setModel(modeloTabla);
     }
 
@@ -384,6 +384,25 @@ public class GestorVentas extends javax.swing.JPanel {
             }
         } catch (NullPointerException e) {
         }
+    }
+
+    //para agregar o quitar stock segunda tabla
+    private boolean comprobarYSumarProducto(int id, DefaultTableModel modeloTabla, javax.swing.JTable tabla, int cantidad) {
+        if (cantidad > 0) {
+          
+        }
+         for (int i = 0; i < modeloTabla.getRowCount(); i++) {
+                if (id == (int) tabla.getValueAt(i, 0)) {
+                    int valorCantidad = (int) tabla.getValueAt(i, 5) + cantidad;
+                    if (valorCantidad <= (int) modeloTabla.getValueAt(i, 3)) {
+                        modeloTabla.setValueAt(valorCantidad, i, 5);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "No hay suficiente stock");
+                    }
+                    return true;
+                }
+            }
+            return false;
     }
 
 }
