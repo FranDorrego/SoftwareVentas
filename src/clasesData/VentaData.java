@@ -147,7 +147,7 @@ public class VentaData {
         Date inicioFecha = new Date(fechaInicio.getTime());
         Date finalFecha = new Date(fechaFinal.getTime());
         
-        String sql = "SELECT * FROM `venta` WHERE Fecha BETWEEN '"+inicioFecha+"' and '"+finalFecha+"' ";
+        String sql = "SELECT detalle_venta.Cantidad, detalle_venta.Precio_Venta as PrecioUnidad, ( detalle_venta.Cantidad * detalle_venta.Precio_Venta ) as PrecioTotal,concat(cliente.Nombre, ' ',cliente.Apellido) AS cliente,concat(empleado.Nombre, ' ',empleado.Apellido) AS empleado, venta.fecha as FechaVenta FROM venta JOIN detalle_venta ON(venta.ID_Venta = detalle_venta.ID_Venta) JOIN cliente ON(venta.ID_Cliente = cliente.ID_Cliente) JOIN cliente empleado ON(venta.ID_Empleado = empleado.ID_Cliente) WHERE venta.Fecha BETWEEN '"+inicioFecha+"' and '"+finalFecha+"' ";
         List<Venta> ventaLista = new ArrayList();
         
         try {
