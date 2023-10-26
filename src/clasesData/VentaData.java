@@ -142,12 +142,12 @@ public class VentaData {
         }
     }
 
-    public List<Venta> listarVentasPorFecha(LocalDate fechaInicio, LocalDate fechaFinal) {
+    public List<Venta> listarVentasPorFecha(java.util.Date fechaInicio, java.util.Date fechaFinal) {
 
-        Date incioFecha = Date.valueOf(fechaInicio);
-        Date finalFecha = Date.valueOf(fechaFinal);
+        Date inicioFecha = new Date(fechaInicio.getTime());
+        Date finalFecha = new Date(fechaFinal.getTime());
         
-        String sql = "SELECT * FROM `venta` WHERE Fecha BETWEEN '"+incioFecha+"' and '"+finalFecha+"' ";
+        String sql = "SELECT * FROM `venta` WHERE Fecha BETWEEN '"+inicioFecha+"' and '"+finalFecha+"' ";
         List<Venta> ventaLista = new ArrayList();
         
         try {
@@ -173,12 +173,12 @@ public class VentaData {
         return ventaLista;
     }
     
-    public List<Producto> listarProductosPorFecha(LocalDate fechaInicio, LocalDate fechaFinal) {
+    public List<Producto> listarProductosPorFecha(java.util.Date fechaInicio, java.util.Date fechaFinal) {
 
-        Date incioFecha = Date.valueOf(fechaInicio);
-        Date finalFecha = Date.valueOf(fechaFinal);
+        Date inicioFecha = new Date(fechaInicio.getTime());
+        Date finalFecha = new Date(fechaFinal.getTime());
         
-        String sql = "SELECT producto.* FROM producto JOIN detalle_venta on detalle_venta.ID_Producto = producto.ID_Producto JOIN venta on detalle_venta.ID_Venta = venta.ID_Venta WHERE venta.Fecha BETWEEN '"+incioFecha+"' and '"+finalFecha+"';";
+        String sql = "SELECT producto.* FROM producto JOIN detalle_venta on detalle_venta.ID_Producto = producto.ID_Producto JOIN venta on detalle_venta.ID_Venta = venta.ID_Venta WHERE venta.Fecha BETWEEN '"+inicioFecha+"' and '"+finalFecha+"';";
         List<Producto> productoLista = new ArrayList();
         
         try {

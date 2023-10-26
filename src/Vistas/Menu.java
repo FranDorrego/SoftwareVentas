@@ -107,7 +107,7 @@ public class Menu extends javax.swing.JFrame {
         JB_botonInicio.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         JB_botonInicio.setForeground(new java.awt.Color(255, 255, 255));
         JB_botonInicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/house_home_13944.png"))); // NOI18N
-        JB_botonInicio.setText("INICIO");
+        JB_botonInicio.setText("GESTOR VENTA");
         JB_botonInicio.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
         JB_botonInicio.setBorderPainted(false);
         JB_botonInicio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -159,7 +159,7 @@ public class Menu extends javax.swing.JFrame {
         JB_botonVentas1.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         JB_botonVentas1.setForeground(new java.awt.Color(255, 255, 255));
         JB_botonVentas1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/sales_bag_shopping_bargain_retail_icon-icons.com_55340.png"))); // NOI18N
-        JB_botonVentas1.setText("VENTAS");
+        JB_botonVentas1.setText("VENTAS REALIZADAS");
         JB_botonVentas1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
         JB_botonVentas1.setBorderPainted(false);
         JB_botonVentas1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
