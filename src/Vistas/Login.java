@@ -24,6 +24,7 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jComboBox1 = new javax.swing.JComboBox<>();
         panel_base = new javax.swing.JPanel();
         JL_logo = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -36,6 +37,8 @@ public class Login extends javax.swing.JFrame {
         SEP_2 = new javax.swing.JSeparator();
         jB_entrar = new javax.swing.JButton();
 
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
         setLocationByPlatform(true);
@@ -45,8 +48,8 @@ public class Login extends javax.swing.JFrame {
         panel_base.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         panel_base.add(JL_logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 60, -1, 70));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/logo5.png"))); // NOI18N
-        panel_base.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 60, -1, 70));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/LogoFinal (3).png"))); // NOI18N
+        panel_base.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 40, 100, 90));
 
         JL_iniciarS.setBackground(new java.awt.Color(0, 0, 0));
         JL_iniciarS.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
@@ -177,7 +180,10 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JSeparator SEP_1;
     private javax.swing.JSeparator SEP_2;
     private javax.swing.JComboBox<Cliente> comboBox_cliente;
+  
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JButton jB_entrar;
+  
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel panel_base;
     private javax.swing.JPasswordField passField_clave;

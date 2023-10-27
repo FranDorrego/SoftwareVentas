@@ -5,6 +5,7 @@ import entidades.Cliente;
 import entidades.DetalleVenta;
 import entidades.Producto;
 import entidades.Venta;
+import entidades.VentaPorCliente;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -16,6 +17,8 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class VentaData {
@@ -214,33 +217,61 @@ public class VentaData {
         return productoLista;
     }
     
-    public List<Venta> listarVentasPorCliente(int ID_Cliente) {
+    
+    //Modifiqué este método para poder traer los datos que elegí. Basicamente seguí los mismos paso que hicieron con listarVentasPorFecha
+    public List<VentaPorCliente> listarVentasPorCliente(int ID_Cliente) { //le cambie el tipo de lista
 
-        String sql = "SELECT * FROM `venta` WHERE ID_Cliente = ? ";
-        List<Venta> ventaLista = new ArrayList();
+        String sql = "SELECT venta.ID_Venta, venta.ID_Cliente, (SELECT cliente.Nombre FROM cliente WHERE cliente.ID_Cliente = venta.ID_Cliente) "
+                + " AS nombreCliente, venta.ID_Empleado, (SELECT cliente.Nombre FROM cliente WHERE cliente.ID_Cliente = venta.ID_Empleado) "
+                + " AS nombreEmpleado, venta.Fecha FROM venta WHERE venta.ID_Cliente = " + ID_Cliente;
+        
+        List<VentaPorCliente> listaVentas= new ArrayList();
         
         try {
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, ID_Cliente);
-            ResultSet Resultado = ps.executeQuery();
-
-            while (Resultado.next()) {
-                Venta venta = new Venta();
-                venta.setid_venta(Resultado.getInt("ID_Venta"));
-                venta.setId_cliente(Resultado.getInt("ID_Cliente"));
-                venta.setId_empleado(Resultado.getInt("ID_Empleado"));
-                venta.setFecha_venta(Resultado.getDate("Fecha").toLocalDate());
-                listarDetallesVenta(venta);
-                ventaLista.add(venta);
+            ResultSet resultado = ps.executeQuery();
+            
+            while(resultado.next()){
+                VentaPorCliente ventaxcliente = new VentaPorCliente();
+                ventaxcliente.setIdVenta(resultado.getInt("ID_Venta"));
+                ventaxcliente.setIdCliente(resultado.getInt("ID_Cliente"));
+                ventaxcliente.setNombreCliente(resultado.getString("nombreCliente"));
+                ventaxcliente.setIdEmpleado(resultado.getInt("ID_Empleado"));
+                ventaxcliente.setNombreEmpleado(resultado.getString("NombreEmpleado"));
+                ventaxcliente.setFecha(resultado.getDate("Fecha"));
+                listaVentas.add(ventaxcliente);
             }
-
-            ps.close();
-
+       
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla producto" + ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Error al acceder info ventas por cliente");
         }
-
-        return ventaLista;
+        return listaVentas;
+        
+//         String sql = "SELECT * FROM `venta` WHERE ID_Cliente = ? ";
+//        List<Venta> ventaLista = new ArrayList();
+//        
+//        try {
+//            PreparedStatement ps = con.prepareStatement(sql);
+//            ps.setInt(1, ID_Cliente);
+//            ResultSet Resultado = ps.executeQuery();
+//
+//            while (Resultado.next()) {
+//                Venta venta = new Venta();
+//                venta.setid_venta(Resultado.getInt("ID_Venta"));
+//                venta.setId_cliente(Resultado.getInt("ID_Cliente"));
+//                venta.setId_empleado(Resultado.getInt("ID_Empleado"));
+//                venta.setFecha_venta(Resultado.getDate("Fecha").toLocalDate());
+//                listarDetallesVenta(venta);
+//                ventaLista.add(venta);
+//            }
+//
+//            ps.close();
+//
+//        } catch (SQLException ex) {
+//            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla producto" + ex.getMessage());
+//        }
+//
+//        return ventaLista;
     }
     
     public List<Cliente> listarClientePorProducto(int ID_Producto) {

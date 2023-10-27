@@ -81,8 +81,8 @@ public class Menu extends javax.swing.JFrame {
                 JB_AcercaDeActionPerformed(evt);
             }
         });
+        menu.add(JB_botonProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 260, 42));
         menu.add(JB_AcercaDe, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 470, 260, 42));
-
         JB_botonSalir.setBackground(new java.awt.Color(81, 183, 206));
         JB_botonSalir.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         JB_botonSalir.setForeground(new java.awt.Color(255, 255, 255));
@@ -136,7 +136,7 @@ public class Menu extends javax.swing.JFrame {
                 JB_botonClientes1ActionPerformed(evt);
             }
         });
-        menu.add(JB_botonClientes1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 260, 42));
+        menu.add(JB_botonClientes1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 400, 260, 42));
 
         JB_botonEmpleados1.setBackground(new java.awt.Color(81, 183, 206));
         JB_botonEmpleados1.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
@@ -154,7 +154,7 @@ public class Menu extends javax.swing.JFrame {
                 JB_botonEmpleados1ActionPerformed(evt);
             }
         });
-        menu.add(JB_botonEmpleados1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 260, 42));
+        menu.add(JB_botonEmpleados1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, 260, 42));
 
         JB_botonVentas1.setBackground(new java.awt.Color(81, 183, 206));
         JB_botonVentas1.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
@@ -171,7 +171,7 @@ public class Menu extends javax.swing.JFrame {
                 JB_botonVentas1ActionPerformed(evt);
             }
         });
-        menu.add(JB_botonVentas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, 260, 42));
+        menu.add(JB_botonVentas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 260, 42));
 
         JB_botonProductos1.setBackground(new java.awt.Color(81, 183, 206));
         JB_botonProductos1.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N

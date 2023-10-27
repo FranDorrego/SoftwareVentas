@@ -57,7 +57,8 @@ public class Producto extends javax.swing.JPanel {
         jPanel1.add(JT_buscarXNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 80, 210, -1));
 
         jLabel18.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        jLabel18.setText("NOMBRE / descripcion:");
+        jLabel18.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel18.setText("Nombre/Descripción:");
         jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 150, 30));
 
         JT_tablaProductos.setModel(new javax.swing.table.DefaultTableModel(
@@ -75,6 +76,8 @@ public class Producto extends javax.swing.JPanel {
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 780, 350));
 
+        JB_ModificarCliente.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        JB_ModificarCliente.setForeground(new java.awt.Color(102, 102, 102));
         JB_ModificarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/business_application_addmale_useradd_insert_add_user_client_2312.png"))); // NOI18N
         JB_ModificarCliente.setText("     Modificar");
         JB_ModificarCliente.setBorder(null);
@@ -85,6 +88,8 @@ public class Producto extends javax.swing.JPanel {
         });
         jPanel1.add(JB_ModificarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 60, 143, 48));
 
+        JB_botonAgregarProducto.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        JB_botonAgregarProducto.setForeground(new java.awt.Color(102, 102, 102));
         JB_botonAgregarProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/business_application_addmale_useradd_insert_add_user_client_2312.png"))); // NOI18N
         JB_botonAgregarProducto.setText("     Agregar");
         JB_botonAgregarProducto.setBorder(null);
@@ -95,6 +100,8 @@ public class Producto extends javax.swing.JPanel {
         });
         jPanel1.add(JB_botonAgregarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 143, 48));
 
+        jButton4.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(102, 102, 102));
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/business_application_addmale_useradd_insert_add_user_client_2312.png"))); // NOI18N
         jButton4.setText("     Eliminar");
         jButton4.setBorder(null);
@@ -106,7 +113,8 @@ public class Producto extends javax.swing.JPanel {
         jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 60, 143, 48));
 
         jLabel1.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        jLabel1.setText("rubro");
+        jLabel1.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel1.setText("Rubro:");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, -1, -1));
 
         jPanel1.add(CB_listaRubros, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, 210, -1));

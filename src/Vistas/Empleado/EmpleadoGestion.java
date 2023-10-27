@@ -31,6 +31,7 @@ public class EmpleadoGestion extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        ImagenCostado = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
@@ -46,40 +47,51 @@ public class EmpleadoGestion extends javax.swing.JPanel {
         jLabel23 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         JT_clave = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(225, 251, 250));
+        setForeground(new java.awt.Color(102, 102, 102));
         setMinimumSize(new java.awt.Dimension(820, 530));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        ImagenCostado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/imagenFondo.jpg"))); // NOI18N
+        add(ImagenCostado, new org.netbeans.lib.awtextra.AbsoluteConstraints(571, 0, 270, 590));
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(352, 231, -1, -1));
 
         jLabel16.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        jLabel16.setText("NOMBRE:");
-        add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, -1, 30));
+        jLabel16.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel16.setText("Nombre:");
+        add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, -1, 30));
 
         jLabel19.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        jLabel19.setText("APELLIDO:");
-        add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, -1, 30));
+        jLabel19.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel19.setText("Apellido:");
+        add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, -1, 30));
 
         JT_Apellido.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        add(JT_Apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 170, 320, -1));
+        add(JT_Apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 170, 320, -1));
 
         jLabel20.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        jLabel20.setText("DOMICILIO:");
-        add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, -1, 30));
+        jLabel20.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel20.setText("Domicilio:");
+        add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, -1, 30));
 
         JT_domicilio.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        add(JT_domicilio, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 210, 320, -1));
+        add(JT_domicilio, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, 320, -1));
 
         jLabel21.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        jLabel21.setText("TELEFONO:");
-        add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, -1, 30));
+        jLabel21.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel21.setText("Teléfono:");
+        add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, -1, 30));
 
         JT_telefono.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        add(JT_telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 250, 320, -1));
+        add(JT_telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 250, 320, -1));
 
         JT_nombre1.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        add(JT_nombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 130, 320, 30));
+        add(JT_nombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 130, 320, 30));
 
+        JB_menuCliente.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        JB_menuCliente.setForeground(new java.awt.Color(102, 102, 102));
         JB_menuCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/business_application_addmale_useradd_insert_add_user_client_2312.png"))); // NOI18N
         JB_menuCliente.setText("     Volver");
         JB_menuCliente.setBorder(null);
@@ -90,6 +102,8 @@ public class EmpleadoGestion extends javax.swing.JPanel {
         });
         add(JB_menuCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 143, 48));
 
+        jButton5.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jButton5.setForeground(new java.awt.Color(102, 102, 102));
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/business_application_addmale_useradd_insert_add_user_client_2312.png"))); // NOI18N
         jButton5.setText("     Guardar");
         jButton5.setBorder(null);
@@ -98,18 +112,20 @@ public class EmpleadoGestion extends javax.swing.JPanel {
                 jButton5ActionPerformed(evt);
             }
         });
-        add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 400, 143, 48));
+        add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 400, 143, 48));
 
         TF_numeroIdentificacion.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        add(TF_numeroIdentificacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 290, 320, -1));
+        add(TF_numeroIdentificacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 300, 320, -1));
 
         jLabel23.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        jLabel23.setText("Numero de Identificacion:");
-        add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, -1, 30));
+        jLabel23.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel23.setText("Número de ");
+        add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, -1, 30));
 
         jLabel2.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        jLabel2.setText("contraseña:");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 330, -1, -1));
+        jLabel2.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel2.setText("Contraseña:");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 360, -1, -1));
 
         JT_clave.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         JT_clave.addActionListener(new java.awt.event.ActionListener() {
@@ -117,7 +133,12 @@ public class EmpleadoGestion extends javax.swing.JPanel {
                 JT_claveActionPerformed(evt);
             }
         });
-        add(JT_clave, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 330, 320, -1));
+        add(JT_clave, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 350, 320, -1));
+
+        jLabel3.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel3.setText("identificación:");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void JB_menuClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_menuClienteActionPerformed
@@ -157,6 +178,7 @@ public class EmpleadoGestion extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel ImagenCostado;
     private javax.swing.JButton JB_menuCliente;
     private javax.swing.JTextField JT_Apellido;
     private javax.swing.JTextField JT_clave;
@@ -172,6 +194,7 @@ public class EmpleadoGestion extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
 
   private void limpiarTF (){
