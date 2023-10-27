@@ -117,6 +117,11 @@ public class Producto extends javax.swing.JPanel {
         jLabel1.setText("Rubro:");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, -1, -1));
 
+        CB_listaRubros.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CB_listaRubrosActionPerformed(evt);
+            }
+        });
         jPanel1.add(CB_listaRubros, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, 210, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -140,10 +145,7 @@ public class Producto extends javax.swing.JPanel {
             return;
         }
         if (CB_listaRubros.getSelectedIndex() != -1) {
-            Rubro rubroSeleccionado = (Rubro) CB_listaRubros.getSelectedItem();
-            for (entidades.Producto producto : productoData.listarPorRubroYNombre(rubroSeleccionado, JT_buscarXNombre.getText())) {
-                agregaProductosTabla(producto);
-            }
+            listarPorRubro();
         } else {
             for (entidades.Producto producto : productoData.listarPorNombre(JT_buscarXNombre.getText())) {
                 agregaProductosTabla(producto);
@@ -197,6 +199,11 @@ public class Producto extends javax.swing.JPanel {
             cargaTodosProductos();
         }
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void CB_listaRubrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CB_listaRubrosActionPerformed
+        // TODO add your handling code here:
+        listarPorRubro();
+    }//GEN-LAST:event_CB_listaRubrosActionPerformed
 //_______________________________________________________________
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -212,6 +219,19 @@ public class Producto extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 //_______________________________________________________________
+
+    private void listarPorRubro() {
+        if (CB_listaRubros.getSelectedIndex() != -1) {
+            borrarFilas();
+            Rubro rubroSeleccionado = (Rubro) CB_listaRubros.getSelectedItem();
+            for (entidades.Producto producto : productoData.listarPorRubroYNombre(rubroSeleccionado, JT_buscarXNombre.getText())) {
+                agregaProductosTabla(producto);
+            }
+        }else{
+            cargaTodosProductos();
+        }
+    }
+
     private void tablaModelo() {
 
         tablaModeloProductos.addColumn("ID");
@@ -227,7 +247,7 @@ public class Producto extends javax.swing.JPanel {
             producto.getid_producto(),
             producto.getNombre(),
             producto.getPrecio_actual(),
-            producto.getStock()    
+            producto.getStock()
         });
     }
 

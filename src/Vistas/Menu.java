@@ -14,6 +14,7 @@ public class Menu extends javax.swing.JFrame {
 
     private Menu() {
         initComponents();
+        this.setLocationRelativeTo(null);
         cambioPanel(new GestorVentas());
         JL_saludoEmpleado.setText(clienteLogin.getNombre());
     }

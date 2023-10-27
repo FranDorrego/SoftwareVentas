@@ -247,7 +247,20 @@ public class GestorVentas extends javax.swing.JPanel {
 
     private void JB_agregarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_agregarVentaActionPerformed
         // TODO add your handling code here:
-
+        
+        // Pregunto si no hay ningun cliente selecionado
+        if(CJ_Clientes.getSelectedItem() == null){
+            JOptionPane.showMessageDialog(null, "Priemro selecione un cliente para la venta");
+            return;
+        }
+        
+        // Pregunto si no hay productos selecionados
+        if(tablaModeloVenta.getRowCount() == 0){
+            JOptionPane.showMessageDialog(null, "Priemro carge productos para la venta");
+            return;
+        }
+        
+        
         // Creamos la venta
         Cliente cliente = (Cliente) CJ_Clientes.getSelectedItem();
         Venta venta = new Venta(cliente.getID_cliente(), Login.getCliente().getID_cliente());

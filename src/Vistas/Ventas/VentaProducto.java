@@ -253,6 +253,17 @@ public class VentaProducto extends javax.swing.JPanel {
 
     private void agregarClientesTabla(List<Cliente> listaClientes) {
         for (Cliente listaCliente : listaClientes) {
+            
+            String estado = "deshabilitado";
+            if (listaCliente.isEstado()){
+                estado = "Activo";
+            }
+            
+            String empleado = "Si";
+            if (listaCliente.isEs_empleado()){
+                empleado = "No";
+            }
+            
             modeloTablaClientes.addRow(new Object[]{
                 listaCliente.getID_cliente(),
                 listaCliente.getApellido(),
@@ -260,8 +271,8 @@ public class VentaProducto extends javax.swing.JPanel {
                 listaCliente.getDomicilio(),
                 listaCliente.getTelefono(),
                 listaCliente.getNumero_identificacion(),
-                listaCliente.isEstado(),
-                listaCliente.isEs_empleado()
+                estado,
+                empleado
             });
         }
     }

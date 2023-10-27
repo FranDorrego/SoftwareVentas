@@ -43,6 +43,7 @@ public class frm_Acercade extends javax.swing.JFrame {
         jLabel1.setText("Realizado por:");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 289, 187, 47));
 
+        jTextPane1.setEditable(false);
         jTextPane1.setText("Registrar productos: Los usuarios podrán agregar nuevos productos al inventario proporcionando información como nombre, descripción, precio y cantidad disponible.  \nRealizar ventas: Los usuarios podrán registrar las ventas de productos a los clientes. el cliente que realiza la compra y la fecha de venta.  \nDetalle de Venta: hace referencia a una Venta, Producto, precio y cantidad.\nAdministrar Clientes: Los usuarios podrán agregar, modificar y eliminar información de los clientes, como nombre, apellido, dirección y número de teléfono.   \n\nComportamientos: \n⮚\tListar todos los productos de una venta en una fecha específica. \n⮚\tListar todas las ventas en una fecha. \n⮚\tListar todas las ventas de un Cliente X.\n⮚\tMostrar que clientes compraron el producto X. ");
         jScrollPane1.setViewportView(jTextPane1);
 
