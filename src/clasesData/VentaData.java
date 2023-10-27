@@ -1,5 +1,6 @@
 package clasesData;
 
+import Entidades.VentaResumen;
 import entidades.Cliente;
 import entidades.DetalleVenta;
 import entidades.Producto;
@@ -142,26 +143,30 @@ public class VentaData {
         }
     }
 
-    public List<Venta> listarVentasPorFecha(java.util.Date fechaInicio, java.util.Date fechaFinal) {
+    public List<VentaResumen> listarVentasPorFecha(java.util.Date fechaInicio, java.util.Date fechaFinal) {
 
         Date inicioFecha = new Date(fechaInicio.getTime());
         Date finalFecha = new Date(fechaFinal.getTime());
         
-        String sql = "SELECT * FROM `venta` WHERE Fecha BETWEEN '"+inicioFecha+"' and '"+finalFecha+"' ";
-        List<Venta> ventaLista = new ArrayList();
+        String sqlSelect = "SELECT sum(detalle_venta.Cantidad) as Cantidad, sum(detalle_venta.Precio_Venta) as PrecioUnidad, sum((detalle_venta.Cantidad * detalle_venta.Precio_Venta)) as PrecioTotal,concat(cliente.Nombre, ' ',cliente.Apellido) AS cliente,concat(empleado.Nombre, ' ',empleado.Apellido) AS empleado, venta.fecha as Fecha FROM venta JOIN detalle_venta ON(venta.ID_Venta = detalle_venta.ID_Venta) JOIN cliente ON(venta.ID_Cliente = cliente.ID_Cliente) JOIN cliente empleado ON(venta.ID_Empleado = empleado.ID_Cliente) ";
+        String sql = sqlSelect + " WHERE venta.Fecha BETWEEN '"+inicioFecha+"' and '"+finalFecha+"' group by cliente , empleado, fecha order by fecha";
+        
+
+        List<VentaResumen> ventaLista = new ArrayList();
         
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet Resultado = ps.executeQuery();
 
             while (Resultado.next()) {
-                Venta venta = new Venta();
-                venta.setid_venta(Resultado.getInt("ID_Venta"));
-                venta.setId_cliente(Resultado.getInt("ID_Cliente"));
-                venta.setId_empleado(Resultado.getInt("ID_Empleado"));
-                venta.setFecha_venta(Resultado.getDate("Fecha").toLocalDate());
-                listarDetallesVenta(venta);
-                ventaLista.add(venta);
+                VentaResumen ventaResumen = new VentaResumen();
+                ventaResumen.setCantidadProducto(Resultado.getInt("Cantidad"));
+                ventaResumen.setPrecio(Resultado.getDouble("PrecioUnidad"));
+                ventaResumen.setPrecioTotal(Resultado.getDouble("PrecioTotal"));
+                ventaResumen.setNombreCliente(Resultado.getString("Cliente"));
+                ventaResumen.setNombreEmpleado(Resultado.getString("Empleado"));
+                ventaResumen.setFecha(Resultado.getDate("Fecha"));
+                ventaLista.add(ventaResumen);
             }
 
             ps.close();

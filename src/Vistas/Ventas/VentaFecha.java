@@ -1,5 +1,6 @@
 package Vistas.Ventas;
 
+import Entidades.VentaResumen;
 import Vistas.Menu;
 import clasesData.VentaData;
 import entidades.Producto;
@@ -15,8 +16,19 @@ import javax.swing.table.DefaultTableModel;
 public class VentaFecha extends javax.swing.JPanel {
 
     VentaData ventaData = new VentaData();
-    DefaultTableModel modeloTablaProductos = new DefaultTableModel();
-    DefaultTableModel modeloTablaVentas = new DefaultTableModel();
+    DefaultTableModel modeloTablaProductos = new DefaultTableModel() {
+        @Override
+        public boolean isCellEditable(int f, int c) {
+            return false;
+        }
+    };
+
+    DefaultTableModel modeloTablaVentas = new DefaultTableModel() {
+        @Override
+        public boolean isCellEditable(int f, int c) {
+            return false;
+        }
+    };
 
     public VentaFecha() {
         initComponents();
@@ -214,11 +226,14 @@ public class VentaFecha extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Seleccione una fecha de inicio anterior a la fecha final");
             return;
         }
-
+        
+        
         if (JR_productos.isSelected()) {
+            borrarFilas(modeloTablaProductos);
             List listado = ventaData.listarProductosPorFecha(JC_FechaInicio.getDate(), JC_FechaFinal.getDate());
             agregarProductosTabla(listado);
         } else {
+            borrarFilas(modeloTablaVentas);
             List listado = ventaData.listarVentasPorFecha(JC_FechaInicio.getDate(), JC_FechaFinal.getDate());
             agregarVentasTabla(listado);
         }
@@ -245,23 +260,26 @@ public class VentaFecha extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void tablaModelo(DefaultTableModel tablaModelo) {
-        if (tablaModelo == modeloTablaProductos) {
+        
+        // Preguntamos si es una tabla y si esta ya no tiene columnas agregadas
+        if (tablaModelo == modeloTablaProductos && tablaModelo.getColumnCount() == 0) {
             tablaModelo.addColumn("ID");
             tablaModelo.addColumn("Nombre");
             tablaModelo.addColumn("Descripción");
             tablaModelo.addColumn("Precio actual");
             tablaModelo.addColumn("Stock");
             tablaModelo.addColumn("Stock seguridad");
-
-            JT_tabla.setModel(tablaModelo);
-        } else {
-            tablaModelo.addColumn("Id venta");
-            tablaModelo.addColumn("Id cliente");
-            tablaModelo.addColumn("Id empleado");
+            
+        } else if ( tablaModelo.getColumnCount() == 0){
+            tablaModelo.addColumn("Cantidad");
+            tablaModelo.addColumn("Precio Unitario");
+            tablaModelo.addColumn("Precio Total");
+            tablaModelo.addColumn("Cliente");
+            tablaModelo.addColumn("Empleado");
             tablaModelo.addColumn("Fecha");
-
-            JT_tabla.setModel(tablaModelo);
         }
+        
+        JT_tabla.setModel(tablaModelo);
     }
 
     private void agregarProductosTabla(List<Producto> listaProductos) {
@@ -278,15 +296,26 @@ public class VentaFecha extends javax.swing.JPanel {
         }
     }
 
-    private void agregarVentasTabla(List<Venta> listaVenta) {
+    private void agregarVentasTabla(List<VentaResumen> listaVenta) {
 
-        for (Venta listaVentas : listaVenta) {
+        for (VentaResumen listaVentas : listaVenta) {
             modeloTablaVentas.addRow(new Object[]{
-                listaVentas.getid_venta(),
-                listaVentas.getId_cliente(),
-                listaVentas.getId_empleado(),
-                listaVentas.getFecha_venta(),});
+                listaVentas.getCantidadProducto(),
+                listaVentas.getPrecio(),
+                listaVentas.getPrecioTotal(),
+                listaVentas.getNombreCliente(),
+                listaVentas.getNombreEmpleado(),
+                listaVentas.getFecha(),});
         }
     }
+    
+    private void borrarFilas( DefaultTableModel tablaModelo) {
+        // Borra todas las filas de las columnas
+        int filas = JT_tabla.getRowCount() - 1;
 
+        for (; filas >= 0; filas--) {
+            tablaModelo.removeRow(filas);
+        }
+    }
+    
 }
