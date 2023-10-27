@@ -7,6 +7,7 @@ import clasesData.VentaData;
 import entidades.Cliente;
 import entidades.Producto;
 import entidades.Venta;
+import entidades.VentaPorCliente;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
@@ -15,7 +16,7 @@ public class VentaProducto extends javax.swing.JPanel {
     ClienteData clienteData = new ClienteData();
     ProductoData productoData = new ProductoData();
     VentaData ventaData = new VentaData();
-    
+
     DefaultTableModel modeloTablaVentas = new DefaultTableModel() {
         @Override
         public boolean isCellEditable(int f, int c) {
@@ -174,13 +175,23 @@ public class VentaProducto extends javax.swing.JPanel {
         // AL ACCIONAR COMBO BOX CLIENTES
         tablaModelo(modeloTablaVentas);
         borrarFilas(modeloTablaVentas);
+        entidades.Cliente clienteSeleccionado = (Cliente) CB_Clientes.getSelectedItem();
+        agregarVentasTabla(ventaData.listarVentasPorCliente(clienteSeleccionado.getID_cliente()));
+        //Acá cambié un poco las cosas. Basicamente seguí los mismos pasos que hicieron con listarVentasPorCliente.
+        //Cambié el método listarVentasPorCliente porque si no mostraba solo los id del cliente/empleado, y quería mostrar
+        //también los nombres. A si que tuve que crear una clase nueva entidad (VentaPorCliente) para poder traer los datos
+        //que quería (como hicieron con ventaResumen). Al método listarVentasPorCliente también le cambié el tipo de dato
+        //que devuelve para que retorne una lista de "VentaPorCliente". Y el método "agregarVentasTabla" recibe esta última lista
+        //por último lo agrego a la tabla. Igualmente si quieren podemos cambiar algo, Dejé esos datos porque me parecían algunos
+        //de los fundamentales aunque como puse más abajo siendo que faltarían algunos datos.
+        //pd: estos comentarios después los borramos obvio jaja es porque si no me olvido que hice ;)
     }//GEN-LAST:event_CB_ClientesActionPerformed
 
     private void CB_productosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CB_productosActionPerformed
         // AL ACCIONAR COMBO BOX PRODUCTOS
         tablaModelo(modeloTablaClientes);
         borrarFilas(modeloTablaClientes);
-        entidades.Producto productoSeleccionado = (Producto)CB_productos.getSelectedItem();
+        entidades.Producto productoSeleccionado = (Producto) CB_productos.getSelectedItem();
         agregarClientesTabla(ventaData.listarClientePorProducto(productoSeleccionado.getid_producto()));
     }//GEN-LAST:event_CB_productosActionPerformed
 
@@ -209,8 +220,8 @@ public class VentaProducto extends javax.swing.JPanel {
             }
         }
     }
-    
-    private void borrarFilas( DefaultTableModel tablaModelo) {
+
+    private void borrarFilas(DefaultTableModel tablaModelo) {
         // Borra todas las filas de las columnas
         int filas = JT_tablaVentaProducto.getRowCount() - 1;
 
@@ -220,7 +231,7 @@ public class VentaProducto extends javax.swing.JPanel {
     }
 
     private void tablaModelo(DefaultTableModel tablaModelo) {
-        if(tablaModelo == modeloTablaClientes && tablaModelo.getColumnCount() == 0) {
+        if (tablaModelo == modeloTablaClientes && tablaModelo.getColumnCount() == 0) {
             tablaModelo.addColumn("id");
             tablaModelo.addColumn("Apellido");
             tablaModelo.addColumn("Nombre");
@@ -229,38 +240,43 @@ public class VentaProducto extends javax.swing.JPanel {
             tablaModelo.addColumn("Numero identif.");
             tablaModelo.addColumn("Estado");
             tablaModelo.addColumn("Es empleado");
-        }else if(tablaModelo.getColumnCount() == 0){
-            tablaModelo.addColumn("Probando");
+        } else if (tablaModelo.getColumnCount() == 0) {
+            tablaModelo.addColumn("ID venta");
+            tablaModelo.addColumn("ID cliente");    //no sabía bien que debería mostrar, a si que se me ocurrieron esos datos
+            tablaModelo.addColumn("Nombre");       //aunque siento que falta info (más sobre detalle venta)
+            tablaModelo.addColumn("ID empleado");
+            tablaModelo.addColumn("Nombre");
+            tablaModelo.addColumn("Fecha");
         }
         JT_tablaVentaProducto.setModel(tablaModelo);
     }
 
-    private void agregarClientesTabla(List<Cliente> listaClientes){
+    private void agregarClientesTabla(List<Cliente> listaClientes) {
         for (Cliente listaCliente : listaClientes) {
             modeloTablaClientes.addRow(new Object[]{
-            listaCliente.getID_cliente(),
-            listaCliente.getApellido(),
-            listaCliente.getNombre(),
-            listaCliente.getDomicilio(),
-            listaCliente.getTelefono(),
-            listaCliente.getNumero_identificacion(),
-            listaCliente.isEstado(),
-            listaCliente.isEs_empleado()
+                listaCliente.getID_cliente(),
+                listaCliente.getApellido(),
+                listaCliente.getNombre(),
+                listaCliente.getDomicilio(),
+                listaCliente.getTelefono(),
+                listaCliente.getNumero_identificacion(),
+                listaCliente.isEstado(),
+                listaCliente.isEs_empleado()
             });
         }
     }
-    
-    private void agregarVentasTabla(){
-        
+
+    private void agregarVentasTabla(List<VentaPorCliente> listaVentas) { //recibe la nueva clase entidad "VentaPorCliente"
+        for (VentaPorCliente listaVenta : listaVentas) {
+            modeloTablaVentas.addRow(new Object[]{
+                listaVenta.getIdVenta(),
+                listaVenta.getIdCliente(),
+                listaVenta.getNombreCliente(),
+                listaVenta.getIdEmpleado(),
+                listaVenta.getNombreEmpleado(),
+                listaVenta.getFecha()
+            });
+        }
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
 }
