@@ -97,13 +97,14 @@ public class GestorVentas extends javax.swing.JPanel {
 
         Jlabel.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         Jlabel.setForeground(new java.awt.Color(102, 102, 102));
+        Jlabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         Jlabel.setText("Total compra: $");
-        add(Jlabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 490, 100, -1));
+        add(Jlabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 490, 180, -1));
 
         JB_agregarVenta.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         JB_agregarVenta.setForeground(new java.awt.Color(102, 102, 102));
         JB_agregarVenta.setText("Agregar Venta");
-        JB_agregarVenta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JB_agregarVenta.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         JB_agregarVenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JB_agregarVentaActionPerformed(evt);
@@ -168,7 +169,7 @@ public class GestorVentas extends javax.swing.JPanel {
         JB_agregarElemento.setForeground(new java.awt.Color(102, 102, 102));
         JB_agregarElemento.setText("Agregar Elemento");
         JB_agregarElemento.setBorder(null);
-        JB_agregarElemento.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JB_agregarElemento.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         JB_agregarElemento.setPreferredSize(new java.awt.Dimension(121, 32));
         JB_agregarElemento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -180,7 +181,7 @@ public class GestorVentas extends javax.swing.JPanel {
         JB_quitarElemento.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         JB_quitarElemento.setForeground(new java.awt.Color(102, 102, 102));
         JB_quitarElemento.setText("Quitar elemento");
-        JB_quitarElemento.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JB_quitarElemento.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         JB_quitarElemento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JB_quitarElementoActionPerformed(evt);
