@@ -100,7 +100,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/Imagenes/1486395291-08-sales_80583.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Acerca de..."/>
+            <Property name="text" type="java.lang.String" value="ACERCA DE..."/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
                 <MatteColorBorder bottom="1" left="10" right="1" top="1"/>
@@ -118,7 +118,7 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="0" y="460" width="250" height="42"/>
+              <AbsoluteConstraints x="0" y="450" width="250" height="42"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -366,9 +366,9 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes/1486395291-08-sales_80583.png"/>
+              <Image iconType="3" name="/Imagenes/washing_machine_home_appliances_laundry_icon_229865.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Acerca de..."/>
+            <Property name="text" type="java.lang.String" value="PRODUCTOS"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
                 <MatteColorBorder bottom="1" left="10" right="1" top="1"/>

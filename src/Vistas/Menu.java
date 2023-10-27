@@ -71,7 +71,7 @@ public class Menu extends javax.swing.JFrame {
         JB_AcercaDe.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         JB_AcercaDe.setForeground(new java.awt.Color(255, 255, 255));
         JB_AcercaDe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/1486395291-08-sales_80583.png"))); // NOI18N
-        JB_AcercaDe.setText("Acerca de...");
+        JB_AcercaDe.setText("ACERCA DE...");
         JB_AcercaDe.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
         JB_AcercaDe.setBorderPainted(false);
         JB_AcercaDe.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -82,7 +82,7 @@ public class Menu extends javax.swing.JFrame {
                 JB_AcercaDeActionPerformed(evt);
             }
         });
-        menu.add(JB_AcercaDe, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 460, 250, 42));
+        menu.add(JB_AcercaDe, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 450, 250, 42));
 
         JB_botonSalir.setBackground(new java.awt.Color(81, 183, 206));
         JB_botonSalir.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
@@ -194,8 +194,8 @@ public class Menu extends javax.swing.JFrame {
         JB_Productos.setBackground(new java.awt.Color(81, 183, 206));
         JB_Productos.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         JB_Productos.setForeground(new java.awt.Color(255, 255, 255));
-        JB_Productos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/1486395291-08-sales_80583.png"))); // NOI18N
-        JB_Productos.setText("Acerca de...");
+        JB_Productos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/washing_machine_home_appliances_laundry_icon_229865.png"))); // NOI18N
+        JB_Productos.setText("PRODUCTOS");
         JB_Productos.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
         JB_Productos.setBorderPainted(false);
         JB_Productos.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
