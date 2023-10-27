@@ -43,6 +43,7 @@ public class Menu extends javax.swing.JFrame {
         JB_botonEmpleados1 = new javax.swing.JButton();
         JB_botonVentas1 = new javax.swing.JButton();
         JB_botonProductos1 = new javax.swing.JButton();
+        JB_Productos = new javax.swing.JButton();
         contenedor = new javax.swing.JPanel();
         INICIO = new javax.swing.JLabel();
 
@@ -81,8 +82,8 @@ public class Menu extends javax.swing.JFrame {
                 JB_AcercaDeActionPerformed(evt);
             }
         });
-        menu.add(JB_botonProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 260, 42));
-        menu.add(JB_AcercaDe, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 470, 260, 42));
+        menu.add(JB_AcercaDe, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 460, 250, 42));
+
         JB_botonSalir.setBackground(new java.awt.Color(81, 183, 206));
         JB_botonSalir.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         JB_botonSalir.setForeground(new java.awt.Color(255, 255, 255));
@@ -190,6 +191,23 @@ public class Menu extends javax.swing.JFrame {
         });
         menu.add(JB_botonProductos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 400, 260, 42));
 
+        JB_Productos.setBackground(new java.awt.Color(81, 183, 206));
+        JB_Productos.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        JB_Productos.setForeground(new java.awt.Color(255, 255, 255));
+        JB_Productos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/1486395291-08-sales_80583.png"))); // NOI18N
+        JB_Productos.setText("Acerca de...");
+        JB_Productos.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
+        JB_Productos.setBorderPainted(false);
+        JB_Productos.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        JB_Productos.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        JB_Productos.setIconTextGap(14);
+        JB_Productos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JB_ProductosActionPerformed(evt);
+            }
+        });
+        menu.add(JB_Productos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 260, 42));
+
         getContentPane().add(menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 260, 570));
 
         contenedor.setPreferredSize(new java.awt.Dimension(820, 530));
@@ -215,7 +233,7 @@ public class Menu extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        getContentPane().add(contenedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 0, 820, 530));
+        getContentPane().add(contenedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 0, 820, 570));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -258,16 +276,21 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_JB_botonVentas1ActionPerformed
 
     private void JB_botonProductos1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_botonProductos1ActionPerformed
-        // TODO add your handling code her
+        System.out.println("Sdfsdfsdf");
+    }//GEN-LAST:event_JB_botonProductos1ActionPerformed
+
+    private void JB_ProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_ProductosActionPerformed
+        // TODO add your handling code here:
         //BOTÓN PRODUCTOS
         cambioPanel(new Producto());
-    }//GEN-LAST:event_JB_botonProductos1ActionPerformed
+    }//GEN-LAST:event_JB_ProductosActionPerformed
 //____________________________________________________________ 
 
 //____________________________________________________________ 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel INICIO;
     private javax.swing.JButton JB_AcercaDe;
+    private javax.swing.JButton JB_Productos;
     private javax.swing.JButton JB_botonClientes1;
     private javax.swing.JButton JB_botonEmpleados1;
     private javax.swing.JButton JB_botonInicio;
@@ -285,7 +308,7 @@ public class Menu extends javax.swing.JFrame {
     public void cambioPanel(javax.swing.JPanel panel) {
 
         panel.setVisible(true);
-        panel.setSize(820, 530);
+        panel.setSize(820, 569);
         panel.setLocation(0, 0);
 
         contenedor.removeAll();
@@ -296,7 +319,7 @@ public class Menu extends javax.swing.JFrame {
 
     public void cambioLabel(javax.swing.JLabel panel) {
 
-        panel.setSize(820, 530);
+        panel.setSize(820, 569);
         panel.setLocation(0, 0);
 
         contenedor.removeAll();
