@@ -34,8 +34,7 @@ public class Login extends javax.swing.JFrame {
         JL_contrasenia = new javax.swing.JLabel();
         passField_clave = new javax.swing.JPasswordField();
         SEP_2 = new javax.swing.JSeparator();
-        panel_entrar = new javax.swing.JPanel();
-        JL_entrar = new javax.swing.JLabel();
+        jB_entrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -59,7 +58,7 @@ public class Login extends javax.swing.JFrame {
         JL_usuario.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         JL_usuario.setForeground(new java.awt.Color(51, 51, 51));
         JL_usuario.setText("ELIJA UN ID");
-        panel_base.add(JL_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 220, -1, -1));
+        panel_base.add(JL_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 220, 90, -1));
 
         comboBox_cliente.setBorder(null);
         panel_base.add(comboBox_cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 240, 300, -1));
@@ -81,32 +80,14 @@ public class Login extends javax.swing.JFrame {
         SEP_2.setForeground(new java.awt.Color(204, 204, 204));
         panel_base.add(SEP_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 360, 300, 10));
 
-        panel_entrar.setBackground(new java.awt.Color(204, 204, 204));
-        panel_entrar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-
-        JL_entrar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        JL_entrar.setForeground(new java.awt.Color(102, 102, 102));
-        JL_entrar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        JL_entrar.setText("ENTRAR");
-        JL_entrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        JL_entrar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                JL_entrarMouseClicked(evt);
+        jB_entrar.setBackground(new java.awt.Color(102, 204, 255));
+        jB_entrar.setText("ENTRAR");
+        jB_entrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB_entrarActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout panel_entrarLayout = new javax.swing.GroupLayout(panel_entrar);
-        panel_entrar.setLayout(panel_entrarLayout);
-        panel_entrarLayout.setHorizontalGroup(
-            panel_entrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(JL_entrar, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
-        );
-        panel_entrarLayout.setVerticalGroup(
-            panel_entrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(JL_entrar, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
-        );
-
-        panel_base.add(panel_entrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 390, 110, 50));
+        panel_base.add(jB_entrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 390, 100, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -127,10 +108,8 @@ public class Login extends javax.swing.JFrame {
         return empleadoLogin;
     }
 
-    private void JL_entrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JL_entrarMouseClicked
-        //botón entrar
-
-        if (passField_clave.getText().isEmpty()) {
+    private void jB_entrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_entrarActionPerformed
+          if (passField_clave.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Ingrese la contraseña");
             return;
         }
@@ -154,7 +133,7 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Seleccione un empleado");
             passField_clave.setText("");
         }
-    }//GEN-LAST:event_JL_entrarMouseClicked
+    }//GEN-LAST:event_jB_entrarActionPerformed
 //____________________________________________________________ 
 
     public static void main(String args[]) {
@@ -192,16 +171,15 @@ public class Login extends javax.swing.JFrame {
 //____________________________________________________________ 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel JL_contrasenia;
-    private javax.swing.JLabel JL_entrar;
     private javax.swing.JLabel JL_iniciarS;
     private javax.swing.JLabel JL_logo;
     private javax.swing.JLabel JL_usuario;
     private javax.swing.JSeparator SEP_1;
     private javax.swing.JSeparator SEP_2;
     private javax.swing.JComboBox<Cliente> comboBox_cliente;
+    private javax.swing.JButton jB_entrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel panel_base;
-    private javax.swing.JPanel panel_entrar;
     private javax.swing.JPasswordField passField_clave;
     // End of variables declaration//GEN-END:variables
 //____________________________________________________________ 
