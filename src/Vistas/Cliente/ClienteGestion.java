@@ -29,6 +29,7 @@ public class ClienteGestion extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        ImagenCostado = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
@@ -42,40 +43,50 @@ public class ClienteGestion extends javax.swing.JPanel {
         jButton5 = new javax.swing.JButton();
         JT_identificacion_numero = new javax.swing.JTextField();
         jLabel23 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(225, 251, 250));
         setMinimumSize(new java.awt.Dimension(820, 530));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        ImagenCostado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/imagenFondo.jpg"))); // NOI18N
+        add(ImagenCostado, new org.netbeans.lib.awtextra.AbsoluteConstraints(571, 0, 270, 590));
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(352, 231, -1, -1));
 
         jLabel16.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        jLabel16.setText("NOMBRE:");
-        add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, -1, 30));
+        jLabel16.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel16.setText("Nombre:");
+        add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, 30));
 
         jLabel19.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        jLabel19.setText("APELLIDO:");
-        add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, -1, 30));
+        jLabel19.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel19.setText("Apellido:");
+        add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, -1, 30));
 
         JT_Apellido.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        add(JT_Apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 180, 320, -1));
+        add(JT_Apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, 320, -1));
 
         jLabel20.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        jLabel20.setText("DOMICILIO:");
-        add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, -1, 30));
+        jLabel20.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel20.setText("Domicilio:");
+        add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, -1, 30));
 
         JT_domicilio.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        add(JT_domicilio, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 220, 320, -1));
+        add(JT_domicilio, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 220, 320, -1));
 
         jLabel21.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        jLabel21.setText("TELEFONO:");
-        add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, -1, 30));
+        jLabel21.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel21.setText("Teléfono:");
+        add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, -1, 30));
 
         JT_telefono.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        add(JT_telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 260, 320, -1));
+        add(JT_telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 260, 320, -1));
 
         JT_nombre1.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        add(JT_nombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 140, 320, 30));
+        add(JT_nombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 320, 30));
 
+        JB_menuCliente.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        JB_menuCliente.setForeground(new java.awt.Color(102, 102, 102));
         JB_menuCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/business_application_addmale_useradd_insert_add_user_client_2312.png"))); // NOI18N
         JB_menuCliente.setText("     Volver");
         JB_menuCliente.setBorder(null);
@@ -86,6 +97,8 @@ public class ClienteGestion extends javax.swing.JPanel {
         });
         add(JB_menuCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 143, 48));
 
+        jButton5.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jButton5.setForeground(new java.awt.Color(102, 102, 102));
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/business_application_addmale_useradd_insert_add_user_client_2312.png"))); // NOI18N
         jButton5.setText("     Guardar");
         jButton5.setBorder(null);
@@ -94,14 +107,20 @@ public class ClienteGestion extends javax.swing.JPanel {
                 jButton5ActionPerformed(evt);
             }
         });
-        add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 390, 143, 48));
+        add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 380, 143, 48));
 
         JT_identificacion_numero.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        add(JT_identificacion_numero, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 300, 320, -1));
+        add(JT_identificacion_numero, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 310, 320, -1));
 
         jLabel23.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        jLabel23.setText("Numero de Identificacion:");
+        jLabel23.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel23.setText("Número de ");
         add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, -1, 30));
+
+        jLabel2.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel2.setText("dentificación:");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void JB_menuClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_menuClienteActionPerformed
@@ -136,6 +155,7 @@ public class ClienteGestion extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel ImagenCostado;
     private javax.swing.JButton JB_menuCliente;
     private javax.swing.JTextField JT_Apellido;
     private javax.swing.JTextField JT_domicilio;
@@ -146,6 +166,7 @@ public class ClienteGestion extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel23;

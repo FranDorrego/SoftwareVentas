@@ -101,20 +101,7 @@ public class Producto {
 
     @Override
     public String toString() {
-        
-        System.out.println(" ID_Producto : " + getid_producto());
-        System.out.println(" Nombre : " + getNombre());
-        System.out.println(" Descripcion : " + getDescripcion());
-        System.out.println(" Precio Actual : " + getPrecio_actual());
-        System.out.println(" Stock : " + getStock());
-        System.out.println(" Stock Seguridad : " + getStock_seguridad());
-        System.out.println(" Estado : " + isEstado());
-        System.out.println(" ID_Rubro : " + getid_rubro());
-        System.out.println(" ID_Cliente : " + getid_cliente());
-        
-        System.out.println("--------------------");
-        
-        return "Producto{" + "id_producto=" + id_producto + ", nombre=" + nombre + ", descripcion=" + descripcion + ", precio_actual=" + precio_actual + ", stock=" + stock + ", estado=" + estado + ", Stock_seguridad=" + Stock_seguridad + ", id_rubro=" + id_rubro + ", id_cliente=" + id_cliente + '}';
+        return "ID" + id_producto + " | " + nombre + " | " + descripcion;
     }
     
 }

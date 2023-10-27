@@ -100,6 +100,8 @@ public class GestorVentas extends javax.swing.JPanel {
         Jlabel.setText("Total compra: $");
         add(Jlabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 490, 100, -1));
 
+        JB_agregarVenta.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        JB_agregarVenta.setForeground(new java.awt.Color(102, 102, 102));
         JB_agregarVenta.setText("Agregar Venta");
         JB_agregarVenta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         JB_agregarVenta.addActionListener(new java.awt.event.ActionListener() {
@@ -162,6 +164,8 @@ public class GestorVentas extends javax.swing.JPanel {
         jLabel7.setText("rubro:");
         add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 30, 50, 20));
 
+        JB_agregarElemento.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        JB_agregarElemento.setForeground(new java.awt.Color(102, 102, 102));
         JB_agregarElemento.setText("Agregar Elemento");
         JB_agregarElemento.setBorder(null);
         JB_agregarElemento.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -173,6 +177,8 @@ public class GestorVentas extends javax.swing.JPanel {
         });
         add(JB_agregarElemento, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 230, 143, 30));
 
+        JB_quitarElemento.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        JB_quitarElemento.setForeground(new java.awt.Color(102, 102, 102));
         JB_quitarElemento.setText("Quitar elemento");
         JB_quitarElemento.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         JB_quitarElemento.addActionListener(new java.awt.event.ActionListener() {

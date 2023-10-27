@@ -80,7 +80,7 @@ public class Menu extends javax.swing.JFrame {
                 JB_botonProductosActionPerformed(evt);
             }
         });
-        menu.add(JB_botonProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 400, 260, 42));
+        menu.add(JB_botonProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 260, 42));
 
         JB_botonSalir.setBackground(new java.awt.Color(81, 183, 206));
         JB_botonSalir.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
@@ -135,7 +135,7 @@ public class Menu extends javax.swing.JFrame {
                 JB_botonClientes1ActionPerformed(evt);
             }
         });
-        menu.add(JB_botonClientes1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 260, 42));
+        menu.add(JB_botonClientes1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 400, 260, 42));
 
         JB_botonEmpleados1.setBackground(new java.awt.Color(81, 183, 206));
         JB_botonEmpleados1.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
@@ -153,7 +153,7 @@ public class Menu extends javax.swing.JFrame {
                 JB_botonEmpleados1ActionPerformed(evt);
             }
         });
-        menu.add(JB_botonEmpleados1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 260, 42));
+        menu.add(JB_botonEmpleados1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, 260, 42));
 
         JB_botonVentas1.setBackground(new java.awt.Color(81, 183, 206));
         JB_botonVentas1.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
@@ -170,7 +170,7 @@ public class Menu extends javax.swing.JFrame {
                 JB_botonVentas1ActionPerformed(evt);
             }
         });
-        menu.add(JB_botonVentas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, 260, 42));
+        menu.add(JB_botonVentas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 260, 42));
 
         getContentPane().add(menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 260, 530));
 

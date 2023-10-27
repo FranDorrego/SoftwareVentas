@@ -44,16 +44,22 @@ public class Cliente extends javax.swing.JPanel {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         JT_buscarXNombre.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        JT_buscarXNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JT_buscarXNombreActionPerformed(evt);
+            }
+        });
         JT_buscarXNombre.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 JT_buscarXNombreKeyReleased(evt);
             }
         });
-        jPanel1.add(JT_buscarXNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, 210, -1));
+        jPanel1.add(JT_buscarXNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 80, 210, -1));
 
         jLabel18.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        jLabel18.setText("NOMBRE:");
-        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 70, 30));
+        jLabel18.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel18.setText("Nombre:");
+        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 70, 30));
 
         JT_tablaClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -70,6 +76,8 @@ public class Cliente extends javax.swing.JPanel {
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 780, 390));
 
+        JB_ModificarCliente.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        JB_ModificarCliente.setForeground(new java.awt.Color(102, 102, 102));
         JB_ModificarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/business_application_addmale_useradd_insert_add_user_client_2312.png"))); // NOI18N
         JB_ModificarCliente.setText("     Modificar");
         JB_ModificarCliente.setBorder(null);
@@ -80,6 +88,8 @@ public class Cliente extends javax.swing.JPanel {
         });
         jPanel1.add(JB_ModificarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 60, 143, 48));
 
+        jButton3.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(102, 102, 102));
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/business_application_addmale_useradd_insert_add_user_client_2312.png"))); // NOI18N
         jButton3.setText("     Agregar");
         jButton3.setBorder(null);
@@ -90,6 +100,8 @@ public class Cliente extends javax.swing.JPanel {
         });
         jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 143, 48));
 
+        jButton4.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(102, 102, 102));
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/business_application_addmale_useradd_insert_add_user_client_2312.png"))); // NOI18N
         jButton4.setText("     Eliminar");
         jButton4.setBorder(null);
@@ -174,6 +186,10 @@ public class Cliente extends javax.swing.JPanel {
         }
 
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void JT_buscarXNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JT_buscarXNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JT_buscarXNombreActionPerformed
 //_______________________________________________________________
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
