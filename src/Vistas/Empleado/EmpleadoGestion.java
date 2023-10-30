@@ -85,6 +85,11 @@ public class EmpleadoGestion extends javax.swing.JPanel {
         add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, -1, 30));
 
         JT_telefono.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        JT_telefono.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                JT_telefonoKeyTyped(evt);
+            }
+        });
         add(JT_telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 250, 320, -1));
 
         JT_nombre1.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
@@ -159,22 +164,32 @@ public class EmpleadoGestion extends javax.swing.JPanel {
         empleado.setEstado(true);
         empleado.setClave(JT_clave.getText());
         
-        if (JT_clave.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "El numero de identificacion no puede estar vacio");
+        if (JT_clave.getText().isEmpty()||JT_nombre1.getText().isEmpty()||JT_Apellido.getText().isEmpty()||JT_domicilio.getText().isEmpty()||JT_telefono.getText().isEmpty()||TF_numeroIdentificacion.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Ninguno de los campos pueden estar vacios.");
             return;
         }
         if (empleado.getID_cliente()== 0) {
             empleadoData.agregarEmpleado(empleado);
-            limpiarTF();
+            
         } else {
             empleadoData.modificar(empleado);
-            limpiarTF();
+            
         }
+        limpiarTF();
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void JT_claveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JT_claveActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_JT_claveActionPerformed
+
+    private void JT_telefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JT_telefonoKeyTyped
+        // TODO add your handling code here:
+        int key = evt.getKeyChar();
+        boolean numeros = key >=48 && key <= 57;
+        if(!numeros){
+            evt.consume();
+        }
+    }//GEN-LAST:event_JT_telefonoKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

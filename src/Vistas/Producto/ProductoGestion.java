@@ -159,12 +159,12 @@ public class ProductoGestion extends javax.swing.JPanel {
             stock = Integer.parseInt(TF_Stock.getText());
             stockS = Integer.parseInt(TF_StockS.getText());
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "El precio actual, el stock y el stock de seguridad no pueden ser letras\no no pueden estar vacíos");
+            JOptionPane.showMessageDialog(null, "El nombre, precio actual, el stock y el stock de seguridad no pueden ser letras\no no pueden estar vacíos");
             return;
         }
 
-        if (TF_nombreProducto.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "El nombre del producto no puede estar vacio");
+        if (TF_nombreProducto.getText().isEmpty()||!CB_Estado.isSelected()||TF_Descripcion.getText().isEmpty()||TF_PrecioActual.getText().isEmpty()||TF_Stock.getText().isEmpty()||TF_StockS.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Los campos no pueden estar vacios");
             return;
         }
         

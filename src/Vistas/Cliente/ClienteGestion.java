@@ -80,6 +80,11 @@ public class ClienteGestion extends javax.swing.JPanel {
         add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, -1, 30));
 
         JT_telefono.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        JT_telefono.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                JT_telefonoKeyTyped(evt);
+            }
+        });
         add(JT_telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 260, 320, -1));
 
         JT_nombre1.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
@@ -140,8 +145,8 @@ public class ClienteGestion extends javax.swing.JPanel {
         cliente.setEs_empleado(false);
         cliente.setEstado(true);
 
-        if (JT_identificacion_numero.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "El numero de identificacion no puede estar vacio");
+        if (JT_identificacion_numero.getText().isEmpty()||JT_nombre1.getText().isEmpty()||JT_telefono.getText().isEmpty()||JT_Apellido.getText().isEmpty()||JT_domicilio.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Ninguno de los campos pueden estar vacios.");
             return;
         }
         if (cliente.getID_cliente() == 0) {
@@ -152,6 +157,16 @@ public class ClienteGestion extends javax.swing.JPanel {
             limpiarTF();
         }
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void JT_telefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JT_telefonoKeyTyped
+        // SOLO ACEPTA NUMEROS Y ELIMINA LETRAS(no las escribe)
+        int key = evt.getKeyChar();
+        boolean numeros = key >=48 && key <= 57;
+        if(!numeros){
+            evt.consume();
+        }
+        
+    }//GEN-LAST:event_JT_telefonoKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
