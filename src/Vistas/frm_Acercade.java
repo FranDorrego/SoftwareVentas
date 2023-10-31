@@ -8,7 +8,7 @@ import java.net.URI;
 public class frm_Acercade extends javax.swing.JFrame {
 
     String repo = "https://github.com/FranDorrego/SoftwareVentas";
-    String video = "https://youtu.be/YLjUu714H_c";
+    String video = "https://youtu.be/26y8xzv7Zyg";
 
     public frm_Acercade(String acerca_de_) {
         initComponents();
