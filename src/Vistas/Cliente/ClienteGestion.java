@@ -150,12 +150,17 @@ public class ClienteGestion extends javax.swing.JPanel {
             return;
         }
         if (cliente.getID_cliente() == 0) {
-            clienteData.agregarCliente(cliente);
-            limpiarTF();
+            if (!clienteData.buscarPorNumeroIdentificacionExiste(cliente.getNumero_identificacion())){
+                clienteData.agregarEmpleado(cliente);
+            }else{
+                JOptionPane.showMessageDialog(null, "El numero de identificacion ya exite en la base de datos, No se agrego el cliente");
+            }
         } else {
             clienteData.modificar(cliente);
-            limpiarTF();
         }
+        
+        limpiarTF();
+        cliente = new Cliente();
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void JT_telefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JT_telefonoKeyTyped

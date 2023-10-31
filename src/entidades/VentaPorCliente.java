@@ -10,6 +10,15 @@ public class VentaPorCliente {   //para traer info sobre ventas por cliente (Los
     int idEmpleado;
     String nombreEmpleado;
     Date fecha;    
+    Date hora;
+
+    public Date getHora() {
+        return hora;
+    }
+
+    public void setHora(Date hora) {
+        this.hora = hora;
+    }
 
     public VentaPorCliente() {
     }

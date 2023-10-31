@@ -164,18 +164,24 @@ public class EmpleadoGestion extends javax.swing.JPanel {
         empleado.setEstado(true);
         empleado.setClave(JT_clave.getText());
         
-        if (JT_clave.getText().isEmpty()||JT_nombre1.getText().isEmpty()||JT_Apellido.getText().isEmpty()||JT_domicilio.getText().isEmpty()||JT_telefono.getText().isEmpty()||TF_numeroIdentificacion.getText().isEmpty()) {
+        if (JT_clave.getText().trim().isEmpty()||JT_nombre1.getText().trim().isEmpty()||JT_Apellido.getText().trim().isEmpty()||JT_domicilio.getText().trim().isEmpty()||JT_telefono.getText().trim().isEmpty()||TF_numeroIdentificacion.getText().trim().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Ninguno de los campos pueden estar vacios.");
             return;
         }
+         
+               
         if (empleado.getID_cliente()== 0) {
-            empleadoData.agregarEmpleado(empleado);
-            
+            if (!empleadoData.buscarPorNumeroIdentificacionExiste(empleado.getNumero_identificacion())){
+                empleadoData.agregarEmpleado(empleado);
+            }else{
+                JOptionPane.showMessageDialog(null, "El numero de identificacion ya exite en la base de datos, No se agrego el empleado nuevo");
+            }
         } else {
             empleadoData.modificar(empleado);
-            
         }
+        
         limpiarTF();
+        empleado = new Cliente();
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void JT_claveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JT_claveActionPerformed

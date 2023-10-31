@@ -32,15 +32,14 @@ public class VentaData {
 
     public void crearVenta(Venta venta) {
 
-        String sql = "INSERT INTO `venta`( `ID_Cliente`, `ID_Empleado`, `Fecha`) VALUES (?,?,?) ";
+        String sql = "INSERT INTO `venta`( `ID_Cliente`, `ID_Empleado`, `Fecha`) VALUES (?,?,current_timestamp) ";
 
         try {
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ps.setInt(1, venta.getId_cliente());
             ps.setInt(2, venta.getId_empleado());
-            java.sql.Date sqlDate = new java.sql.Date(venta.getFecha_venta_date().getTime());
-            ps.setDate(3, sqlDate);
-
+            
+            
             ps.executeUpdate();
             ResultSet Resultado = ps.getGeneratedKeys();
 
@@ -151,7 +150,7 @@ public class VentaData {
         Date inicioFecha = new Date(fechaInicio.getTime());
         Date finalFecha = new Date(fechaFinal.getTime());
         
-        String sqlSelect = "SELECT sum(detalle_venta.Cantidad) as Cantidad, sum(detalle_venta.Precio_Venta) as PrecioUnidad, sum((detalle_venta.Cantidad * detalle_venta.Precio_Venta)) as PrecioTotal,concat(cliente.Nombre, ' ',cliente.Apellido) AS cliente,concat(empleado.Nombre, ' ',empleado.Apellido) AS empleado, venta.fecha as Fecha FROM venta JOIN detalle_venta ON(venta.ID_Venta = detalle_venta.ID_Venta) JOIN cliente ON(venta.ID_Cliente = cliente.ID_Cliente) JOIN cliente empleado ON(venta.ID_Empleado = empleado.ID_Cliente) ";
+        String sqlSelect = "SELECT sum(detalle_venta.Cantidad) as Cantidad, sum(detalle_venta.Precio_Venta) as PrecioUnidad, (sum(detalle_venta.Cantidad) * sum( detalle_venta.Precio_Venta )) as PrecioTotal,concat(cliente.Nombre, ' ',cliente.Apellido) AS cliente,concat(empleado.Nombre, ' ',empleado.Apellido) AS empleado, venta.fecha as Fecha FROM venta JOIN detalle_venta ON(venta.ID_Venta = detalle_venta.ID_Venta) JOIN cliente ON(venta.ID_Cliente = cliente.ID_Cliente) JOIN cliente empleado ON(venta.ID_Empleado = empleado.ID_Cliente) ";
         String sql = sqlSelect + " WHERE venta.Fecha BETWEEN '"+inicioFecha+"' and '"+finalFecha+"' group by cliente , empleado, fecha order by fecha";
         
 
@@ -186,7 +185,7 @@ public class VentaData {
         Date inicioFecha = new Date(fechaInicio.getTime());
         Date finalFecha = new Date(fechaFinal.getTime());
         
-        String sql = "SELECT producto.* FROM producto JOIN detalle_venta on detalle_venta.ID_Producto = producto.ID_Producto JOIN venta on detalle_venta.ID_Venta = venta.ID_Venta WHERE venta.Fecha BETWEEN '"+inicioFecha+"' and '"+finalFecha+"';";
+        String sql = "SELECT producto.*, SUM(detalle_venta.cantidad) AS cantidad FROM producto JOIN detalle_venta on detalle_venta.ID_Producto = producto.ID_Producto JOIN venta on detalle_venta.ID_Venta = venta.ID_Venta WHERE venta.Fecha BETWEEN '"+inicioFecha+"' and '"+finalFecha+"' GROUP BY producto.ID_Producto;";
         List<Producto> productoLista = new ArrayList();
         
         try {
@@ -204,6 +203,7 @@ public class VentaData {
                 producto.setStock_seguridad(Resultado.getInt("Stock_Seguridad"));
                 producto.setid_rubro(Resultado.getInt("ID_Rubro"));
                 producto.setid_cliente(Resultado.getInt("ID_Cliente"));
+                producto.setCantidadVendida(Resultado.getInt("cantidad"));
                 
                 productoLista.add(producto);
             }
@@ -239,6 +239,7 @@ public class VentaData {
                 ventaxcliente.setIdEmpleado(resultado.getInt("ID_Empleado"));
                 ventaxcliente.setNombreEmpleado(resultado.getString("NombreEmpleado"));
                 ventaxcliente.setFecha(resultado.getDate("Fecha"));
+                ventaxcliente.setHora(resultado.getTime("Fecha"));
                 listaVentas.add(ventaxcliente);
             }
        

@@ -259,7 +259,26 @@ public class ClienteData {
 
         return cliente;
     }
+    
+    public boolean buscarPorNumeroIdentificacionExiste(String id) {
 
+        String sql = "SELECT * FROM cliente WHERE Numero_Identificacion = ? and Estado = 1";
+        Cliente cliente = new Cliente();
+
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, id);
+
+            ResultSet Resultado = ps.executeQuery();
+            ps.close();
+            
+            return Resultado.next();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla cliente" + ex.getMessage());
+        }
+
+        return false;
+    }
     public boolean login(int ID_cliente, String clave) {
         String sql = "SELECT * FROM `cliente` WHERE ID_Cliente = ? AND Clave = '" + clave + "' AND Estado = 1";
         try {

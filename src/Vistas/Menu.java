@@ -248,7 +248,7 @@ public class Menu extends javax.swing.JFrame {
     private void JB_AcercaDeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_AcercaDeActionPerformed
         
         frm_Acercade frame = new frm_Acercade("Acerca de ..." );
-        frame.setSize( 750,600);
+        frame.setSize( 880,760);
         frame.setDefaultCloseOperation(HIDE_ON_CLOSE );
         
         frame.setLocationRelativeTo(null);

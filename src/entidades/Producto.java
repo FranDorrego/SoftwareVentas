@@ -9,6 +9,7 @@ public class Producto {
     private int Stock_seguridad;
     private int id_rubro;
     private int id_cliente;
+    private int cantidadVendida;
 //_________________________________________________________________________
 
     public Producto() {
@@ -24,7 +25,27 @@ public class Producto {
         this.id_rubro = id_rubro;
         this.id_cliente = id_cliente;
     }
+    
+    public Producto(String nombre, String descripcion, double precio_actual, int stock, boolean estado, int Stock_seguridad, int id_rubro, int id_cliente, int cantidadVendida) {
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.precio_actual = precio_actual;
+        this.stock = stock;
+        this.estado = estado;
+        this.Stock_seguridad = Stock_seguridad;
+        this.id_rubro = id_rubro;
+        this.id_cliente = id_cliente;
+        this.cantidadVendida = cantidadVendida;
+    }
 //_________________________________________________________________________
+
+    public int getCantidadVendida() {
+        return cantidadVendida;
+    }
+
+    public void setCantidadVendida(int cantidadVendida) {
+        this.cantidadVendida = cantidadVendida;
+    }
 
     public int getid_producto() {
         return id_producto;

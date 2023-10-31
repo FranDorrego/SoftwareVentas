@@ -281,9 +281,8 @@ public class VentaFecha extends javax.swing.JPanel {
             tablaModelo.addColumn("ID");
             tablaModelo.addColumn("Nombre");
             tablaModelo.addColumn("Descripción");
-            tablaModelo.addColumn("Precio actual");
-            tablaModelo.addColumn("Stock");
-            tablaModelo.addColumn("Stock seguridad");
+            tablaModelo.addColumn("Precio venta");
+            tablaModelo.addColumn("Cantidad vendida");
             
         } else if ( tablaModelo.getColumnCount() == 0){
             tablaModelo.addColumn("Cantidad");
@@ -305,8 +304,7 @@ public class VentaFecha extends javax.swing.JPanel {
                 listaProducto.getNombre(),
                 listaProducto.getDescripcion(),
                 listaProducto.getPrecio_actual(),
-                listaProducto.getStock(),
-                listaProducto.getStock_seguridad()
+                listaProducto.getCantidadVendida()
             });
         }
     }

@@ -247,23 +247,24 @@ public class VentaProducto extends javax.swing.JPanel {
             tablaModelo.addColumn("ID empleado");
             tablaModelo.addColumn("Nombre");
             tablaModelo.addColumn("Fecha");
+            tablaModelo.addColumn("Hora de venta");
         }
         JT_tablaVentaProducto.setModel(tablaModelo);
     }
 
     private void agregarClientesTabla(List<Cliente> listaClientes) {
         for (Cliente listaCliente : listaClientes) {
-            
+
             String estado = "deshabilitado";
-            if (listaCliente.isEstado()){
+            if (listaCliente.isEstado()) {
                 estado = "Activo";
             }
-            
+
             String empleado = "Si";
-            if (listaCliente.isEs_empleado()){
+            if (listaCliente.isEs_empleado()) {
                 empleado = "No";
             }
-            
+
             modeloTablaClientes.addRow(new Object[]{
                 listaCliente.getID_cliente(),
                 listaCliente.getApellido(),
@@ -285,7 +286,8 @@ public class VentaProducto extends javax.swing.JPanel {
                 listaVenta.getNombreCliente(),
                 listaVenta.getIdEmpleado(),
                 listaVenta.getNombreEmpleado(),
-                listaVenta.getFecha()
+                listaVenta.getFecha(),
+                listaVenta.getHora()
             });
         }
     }

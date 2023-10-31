@@ -50,6 +50,11 @@ public class Login extends javax.swing.JFrame {
         panel_base.add(JL_logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 60, -1, 70));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/LogoFinal (3).png"))); // NOI18N
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+        });
         panel_base.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 40, 100, 90));
 
         JL_iniciarS.setBackground(new java.awt.Color(0, 0, 0));
@@ -138,6 +143,17 @@ public class Login extends javax.swing.JFrame {
             passField_clave.setText("");
         }
     }//GEN-LAST:event_jB_entrarActionPerformed
+
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+        // TODO add your handling code here:
+        
+        frm_Acercade frame = new frm_Acercade("Acerca de ..." );
+        frame.setSize( 880,760);
+        frame.setDefaultCloseOperation(HIDE_ON_CLOSE );
+        
+        frame.setLocationRelativeTo(null);
+        frame.setVisible( true );   
+    }//GEN-LAST:event_jLabel1MouseClicked
 //____________________________________________________________ 
 
     public static void main(String args[]) {
@@ -181,10 +197,8 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JSeparator SEP_1;
     private javax.swing.JSeparator SEP_2;
     private javax.swing.JComboBox<Cliente> comboBox_cliente;
-  
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JButton jB_entrar;
-  
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel panel_base;
     private javax.swing.JPasswordField passField_clave;

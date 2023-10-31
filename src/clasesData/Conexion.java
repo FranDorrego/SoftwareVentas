@@ -28,8 +28,10 @@ public class Conexion {
                 connection = DriverManager.getConnection(URL + BD, USUARIO, PASSWORD);
             } catch (SQLException e) {
                 JOptionPane.showMessageDialog(null, e.getMessage() + " Error al conectarse");
+                System.exit(0);
             } catch (ClassNotFoundException e) {
                 JOptionPane.showMessageDialog(null, e.getMessage() + " Error al cargar los drivers");
+                System.exit(0);
             }
         }
 
