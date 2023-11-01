@@ -9,8 +9,8 @@ public class VentaPorCliente {   //para traer info sobre ventas por cliente (Los
     String nombreCliente;
     int idEmpleado;
     String nombreEmpleado;
-    Date fecha;    
-    Date hora;
+    Date fecha = null;    
+    Date hora = null;
 
     public Date getHora() {
         return hora;
